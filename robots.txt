@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://waynehsu00.github.io//sitemap.xml
+Sitemap: https://waynehsucn.github.io//sitemap.xml
