@@ -1,0 +1,8 @@
+github_users:
+  - WayneHsuCN
+
+repo_description_lines_max: 2
+
+github_repos:
+  - WayneHsuCN/typst-ucas-thesis
+  - WayneHsuCN/chinese-copywriting-guidelines

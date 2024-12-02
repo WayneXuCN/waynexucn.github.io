@@ -1,0 +1,1167 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Sida Peng</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="keywords" content="Sida Peng, Zhejiang University"> 
+<meta name="description" content="Sida Peng's home page">
+<link rel="stylesheet" href="css/jemdoc.css" type="text/css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-137722442-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- Show more content -->
+<script type="text/javascript">
+    function toggle_vis(id) {
+        // var e = document.getElementById(id);
+        var e = document.getElementsByClassName(id);
+        var showText = document.getElementById("showText");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].style.display == "none") {
+                e[i].style.display = "inline";
+                showText.innerHTML = "[Show less]";
+            } else {
+                e[i].style.display = "none";
+                showText.innerHTML = "[Show more]";
+            }
+        }
+    }
+
+    function toggle_research_vis(target, tabElement) {
+        var is_current_summary = 0;
+
+        var e = document.getElementsByClassName("research_summary");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                if (e[i].style.display == "inline") {
+                    is_current_summary = 1;
+                } else {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("progress_button");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target + "_button") {
+                if (is_current_summary == 0) {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("goal_tabs");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id != target + "_goal_tabs") {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_research_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "research_tab";
+        }
+        tabElement.className = "highlight_research_tab"
+    }
+
+    function toggle_goal_vis(id, goal_tabs_id, goal) {
+        var e = document.getElementById(id);
+        e.style.display = "none";
+        var goal_tabs = document.getElementById(goal_tabs_id);
+        goal_tabs.style.display = "inline";
+
+        var goal_tab = document.getElementById(goal + "_tab");
+        toggle_goal_progress_vis(goal_tab);
+        // add_goal_progress_div(goal);
+    }
+
+    function toggle_goal_progress_vis(tabElement) {
+        var target = tabElement.id;
+        target = target.substring(0, target.length - 4);
+
+        var e = document.getElementsByClassName("goal_progress");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                e[i].style.display = "inline";
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_goal_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "goal_tab";
+        }
+        tabElement.className = "highlight_goal_tab"
+
+        add_goal_progress_div(target);
+    }
+
+    function add_goal_progress_div(goal) {
+        var e = document.getElementById(goal);
+        if (e && e.children.length == 0) {
+            var children = Array.from(document.getElementsByClassName(goal));
+            for (var i = 0; i < children.length; i++) {
+                var cloned_div = children[i].cloneNode(true);
+                cloned_div.className = "publication_container";
+                e.appendChild(cloned_div);
+            }
+        }
+    }
+</script>
+
+</head>
+
+
+<body>
+
+<div id="layout-content" style="margin-top:25px">
+
+
+<table>
+	<tbody>
+		<tr>
+			<td width="75%">
+				<div id="toptitle">
+					<h1>Sida Peng (彭思达)<h1>
+				</div>
+
+                <h3 class="title">Tenure-track Assistant Professor</h3>
+
+				<p>
+                    3D Vision Group</br>
+                    School of Software Technology</br>
+                    Zhejiang University</br>
+					</br>
+                    Email: pengsida at zju dot edu dot cn </br>
+					</br>
+                    [<a href="https://scholar.google.com/citations?user=l9NCksYAAAAJ&hl=en">Google Scholar</a>][<a href="https://github.com/pengsida">GitHub</a>] </br>
+				</p>
+
+			</td>
+			<td width="25%">
+				<img src="images/pengsida_v5.png" width="100%"/>
+			</td>
+		<tr>
+	</tbody>
+</table>
+
+<h2>Short Bio</h2> 
+
+<div style="display: flex; margin-bottom: -10px">
+    <p>
+        I am an assistant professor (ZJU-100 Young Professor) at Zhejiang University. I received my Ph.D. degree from College of Computer Science and Technology at Zhejiang University in 2023, supervised by Prof. Xiaowei Zhou and Prof. Hujun Bao, and obtained my bachelor degree in Information Engineering from Zhejiang University in 2018. My research focuses on 3D reconstruction, rendering, and 3D generation. I received the <a href="https://mp.weixin.qq.com/s/fFMLbmX3ZW4nRxqKHM7R_w">2020 CCF-CV Excellent Young Researcher Award</a> and was selected as the <a href="https://machinelearning.apple.com/updates/apple-scholars-aiml-2022">2022 Apple Scholar in AI/ML</a>. I have been maintaining <a href="https://github.com/pengsida/learning_research">a handbook on learning research</a>, which have received more than 4500 stars on GitHub.</br>
+        </br>
+        I work closely with Prof. Xiaowei Zhou. We are looking for students, postdocs and research assistants. Please <a href="https://docs.qq.com/form/page/DZm1XWmdKUHdST0dV">apply to our lab here</a> if you are interested in working with us.
+    </p>
+</div>
+
+<h2>News</h2>
+
+<ul>
+    <li>
+        <div class="marker">[2024-04] Invited talk at The Chinese University of Hongkong, Shenzhen, on Physical World Simulation.</div>
+    </li>
+    <li>
+        <div class="marker"><div>[2024-04] <a href="https://haotongl.github.io/">Haotong</a> is awarded the Ph.D. Student Fund 2024 of the National Natural Science Foundation of China.</div></div>
+    </li>
+    <li>
+        <div class="marker">[2024-04] One papers accepted to SIGGRAPH 2024.</div>
+    </li>
+    <li>
+        <div class="marker">[2024-04] Four papers selected as CVPR 2024 Highlight.</div>
+    </li>
+    <li>
+        <div class="marker">[2024-03] One paper accepted to TPAMI 2024.</div>
+    </li>
+    <li>
+        <div class="marker">[2024-03] Invited talk at The University of Hong Kong on Real-Time Dynamic View Synthesis.</div>
+    </li>
+    <div class="news" style="display:none">
+        <li>
+            <div class="marker">[2024-02] Seven papers accepted to CVPR 2024.</div>
+        </li>
+        <li>
+            <div class="marker"><div>[2024-01] <a href="https://mp.weixin.qq.com/s/SDQsd7k4UBttBcCpuxSsNg">Invited talk at GAMES Webinar</a> on Modeling of Dynamic Urban Scenes.</div></div>
+        </li>
+        <li>
+            <div class="marker"><div>[2024-01] <a href="https://mp.weixin.qq.com/s/Y8SFPV-uDeoFvqTpKEu6ZQ">Invited talk at VALSE Webinar</a> on learning research (<a href="./files/learning_research_v4.pdf">slides</a>).</div></div>
+        </li>
+        <li>
+            <div class="marker">[2024-01] One paper accepted to ICLR 2024.</div>
+        </li>
+        <li>
+            <div class="marker">[2024-01] One paper accepted to TPAMI 2024.</div>
+        </li>
+        <li>
+            <div class="marker"><div>[2024-01] <a href="https://dl.ccf.org.cn/article/articleDetail.html?id=6816606126983168">My article on learning research</a> has been accepted to CCCF 2024.</div></div>
+        </li>
+        <li>
+            <div class="marker">[2023-12] Our proposal for 1st Workshop on Neural Volumetric Video has been accepted to CVPR 2024.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-12] Invited talk at NVIDIA on Real-Time Dynamic View Synthesis.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-09] One paper accepted to SIGGRAPH Asia 2023 Technical Communications.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-09] Two papers accepted to NeurIPS 2023.</div>
+        </li>
+        <li>
+            <div class="marker"><div>[2023-08] <a href="https://mp.weixin.qq.com/s/pNKwTXoa72sCWi9OL_ZSrw">Invited talk at the SSP</a> organized by China Computer Federation.</div></div>
+        </li>
+        <li>
+            <div class="marker"><div>[2023-08] Invited talk at Shanghai Jiao Tong University on learning research (<a href="./files/how_to_do_research_v2.pdf">slides</a>).</div></div>
+        </li>
+        <li>
+            <div class="marker">[2023-08] One paper accepted to SIGGRAPH Asia 2023.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-07] Joined the School of Software Technology at Zhejiang University as an assistant professor.</div>
+        </li>
+        <li>
+            <div class="marker">[2023-07] Three papers accepted to ICCV 2023.</div>
+        </li>
+        <li>
+            <div class="marker"><div>[2023-06] Honored to be selected as the <a href="https://mp.weixin.qq.com/s/IBp2AgZLjQEWiUU1qwwm8w">2023 WAIC Rising Star</a>.</div></div>
+        </li>
+        <li>
+            <div class="marker"><div>[2023-06] Our team won <a href="https://www.kaggle.com/competitions/image-matching-challenge-2023/discussion/417407">the first place in Image Matching Challenge 2023</a> (1st in 494 teams).</div></div>
+        </li>
+        <li>
+            <div class="marker"><div>[2023-06] Invited talk at Shanghai AI Laboratory on learning research (<a href="./files/how_to_do_research.pdf">slides</a>).</div></div>
+        </li>
+        <li>
+            <div class="marker"><div>[2023-06] Defended my Ph.D. thesis on <a href="./files/phd_thesis.pdf">Implicit Neural Representations for Dynamic Human Bodies</a>.</div></div>
+        </li>
+        <li>
+            <div class="marker"><div>[2023-05] Wrote <a href="https://github.com/pengsida/learning_research">a handbook on learning research</a> and released it on GitHub.</div></div>
+        </li>
+        <li>
+            <div class="marker">[2023-03] Nine papers accepted to CVPR 2023 (2 highlights).</div>
+        </li>
+        <li>
+            <div class="marker">[2022-10] Received the 2022 National Scholarship.</div>
+        </li>
+        <li>
+            <div class="marker"><div>[2022-03] Honored to be selected as the <a href="https://machinelearning.apple.com/updates/apple-scholars-aiml-2022">2022 Apple Scholar in AI/ML</a> (15 in the world were awarded).</div></div>
+        </li>
+        <li>
+            <div class="marker">[2022-03] Three papers accepted to CVPR 2022 (1 oral).</div>
+        </li>
+        <li>
+            <div class="marker">[2021-10] Received the 2021 National Scholarship.</div>
+        </li>
+        <li>
+            <div class="marker">[2021-06] Neural Body was selected as the CVPR 2021 best paper candidate (top 0.5%).</div>
+        </li>
+        <li>
+            <div class="marker">[2021-03] One paper accepted to CVPR 2021.</div>
+        </li>
+        <li>
+            <div class="marker">[2020-10] Received the 2020 National Scholarship.</div>
+        </li>
+        <li>
+            <div class="marker"><div>[2020-10] Honored to be selected as the <a href="https://mp.weixin.qq.com/s/fFMLbmX3ZW4nRxqKHM7R_w">2020 CCF-CV Excellent Young Researcher</a> (3 in China were awarded).</div></div>
+        </li>
+        <li>
+            <div class="marker">[2020-03] One paper accepted to CVPR 2020 oral presentation (top 5%).</div>
+        </li>
+        <li>
+            <div class="marker">[2019-10] Received the 2019 National Scholarship.</div>
+        </li>
+        <li>
+            <div class="marker">[2019-03] One paper accepted to CVPR 2019 oral presentation (top 5%).</div>
+        </li>
+    </div>
+</ul>
+
+<div class="show_button">
+    <a href="javascript:toggle_vis('news')" id="showText">[Show more]</a>
+</div>
+
+<h2>Research Summary</h2>
+
+<div style="display: flex;">
+    <div class="highlight_research_tab" onclick="toggle_research_vis('volumetric_video', this)">Volumetric Video</div>
+    <div class="research_tab" onclick="toggle_research_vis('street_simulator', this)">Neural Simulator</div>
+    <div class="research_tab" onclick="toggle_research_vis('motion_generation', this)">Interactive Agent</div>
+</div>
+
+<div class="research_summary" id="volumetric_video" style="display:inline">
+    <img class="research_picture" src="files/volumetric_video.png"> 
+
+    <div class="research_progress">
+        <div class="progress_button" id="volumetric_video_button" style="display: inline;">
+            <a href="javascript:toggle_goal_vis('volumetric_video_button', 'volumetric_video_goal_tabs', 'lower_cost_capture')">[Show the research progress]</a>
+        </div>
+
+        <div class="goal_tabs" id="volumetric_video_goal_tabs" style="display: none;">
+            <div style="display: flex;">
+                <div class="goal_tab" id="lower_cost_capture_tab" onclick="toggle_goal_progress_vis(this)">Lower-cost Capture</div>
+                <div class="goal_tab" id="faster_reconstruction_tab" onclick="toggle_goal_progress_vis(this)">Faster Reconstruction</div>
+                <div class="goal_tab" id="lower_storage_tab" onclick="toggle_goal_progress_vis(this)">Lower Storage</div>
+                <div class="goal_tab" id="faster_rendering_tab" onclick="toggle_goal_progress_vis(this)">Faster Rendering</div>
+            </div>
+
+            <div class="goal_progress" id="lower_cost_capture">
+            </div>
+
+            <div class="goal_progress" id="faster_reconstruction">
+            </div>
+
+            <div class="goal_progress" id="lower_storage">
+            </div>
+
+            <div class="goal_progress" id="faster_rendering">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="research_summary" id="street_simulator" style="display:none">
+    <img class="research_picture" src="files/neural_simulator.png"> 
+
+    <div class="research_progress">
+        <div class="progress_button" id="street_simulator_button" style="display: none;">
+            <a href="javascript:toggle_goal_vis('street_simulator_button', 'street_simulator_goal_tabs', 'pose')">[Show the research progress]</a>
+        </div>
+
+        <div class="goal_tabs" id="street_simulator_goal_tabs" style="display: none;">
+            <div style="display: flex;">
+                <div class="goal_tab" id="pose_tab" onclick="toggle_goal_progress_vis(this)">Pose</div>
+                <div class="goal_tab" id="scene_reconstruction_tab" onclick="toggle_goal_progress_vis(this)">Scene Reconstruction</div>
+                <div class="goal_tab" id="scene_generation_tab" onclick="toggle_goal_progress_vis(this)">Scene Generation</div>
+            </div>
+
+            <div class="goal_progress" id="pose">
+            </div>
+
+            <div class="goal_progress" id="scene_reconstruction">
+            </div>
+
+            <div class="goal_progress" id="scene_generation">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="research_summary" id="motion_generation" style="display:none">
+    <img class="research_picture" src="files/interactive_agent.png"> 
+
+    <div class="research_progress">
+        <div class="progress_button" id="motion_generation_button" style="display: none;">
+            <a href="javascript:toggle_goal_vis('motion_generation_button', 'motion_generation_goal_tabs', 'perception')">[Show the research progress]</a>
+        </div>
+
+        <div class="goal_tabs" id="motion_generation_goal_tabs" style="display: none;">
+            <div style="display: flex;">
+                <div class="goal_tab" id="perception_tab" onclick="toggle_goal_progress_vis(this)">Perception</div>
+                <div class="goal_tab" id="future_prediction_tab" onclick="toggle_goal_progress_vis(this)">Future Prediction</div>
+                <div class="goal_tab" id="planning_tab" onclick="toggle_goal_progress_vis(this)">Planning</div>
+            </div>
+
+            <div class="goal_progress" id="perception">
+            </div>
+
+            <div class="goal_progress" id="future_prediction">
+            </div>
+
+            <div class="goal_progress" id="planning">
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Preprints</h2>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/tela.png">
+    </div>
+    <div class="publication_title">
+        TELA: Text to Layer-wise 3D Clothed Human Generation</br>
+        Junting Dong, Qi Fang, Zehuan Huang, Xudong Xu, Jingbo Wang, <b>Sida Peng</b>, and Bo Dai</br>
+        [<a href="https://arxiv.org/pdf/2404.16748.pdf">Paper</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/grm.png">
+    </div>
+    <div class="publication_title">
+        GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation</br>
+        Yinghao Xu, Zifan Shi, Yifan Wang, Hansheng Chen, Ceyuan Yang, <b>Sida Peng</b>, Yujun Shen, Gordon Wetzstein</br>
+        [<a href="https://arxiv.org/pdf/2403.14621.pdf">Paper</a>][<a href="https://justimyhxu.github.io/projects/grm/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/gvgen.png">
+    </div>
+    <div class="publication_title">
+        GVGEN: Text-to-3D Generation with Volumetric Representation</br>
+        Xianglong He, Junyi Chen, <b>Sida Peng</b>, Di Huang, Yangguang Li, Xiaoshui Huang, Chun Yuan, Wanli Ouyang, Tong He</br>
+        [<a href="https://arxiv.org/pdf/2403.12957.pdf">Paper</a>][<a href="https://gvgen.github.io/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/street_gaussians.png">
+    </div>
+    <div class="publication_title">
+        Street Gaussians for Modeling Dynamic Urban Scenes</br>
+        Yunzhi Yan, Haotong Lin, Chenxu Zhou, Weijie Wang, Haiyang Sun, Kun Zhan, Xianpeng Lang, Xiaowei Zhou, <b>Sida Peng</b></br>
+        [<a href="https://arxiv.org/pdf/2401.01339.pdf">Paper</a>][<a href="https://zju3dv.github.io/street_gaussians/">Project Page</a>][<a href="https://github.com/zju3dv/street_gaussians">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/unidream.png">
+    </div>
+    <div class="publication_title">
+        UniDream: Unifying Diffusion Priors for Relightable Text-to-3D Generation</br>
+        Zexiang Liu, Yangguang Li, Youtian Lin, Xin Yu, <b>Sida Peng</b>, Yan-Pei Cao, Xiaojuan Qi, Xiaoshui Huang, Ding Liang, Wanli Ouyang</br>
+        [<a href="https://arxiv.org/pdf/2312.08754.pdf">Paper</a>][<a href="https://yg256li.github.io/UniDream/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/sam_graph.png">
+    </div>
+    <div class="publication_title">
+        SAM-guided Graph Cut for 3D Instance Segmentation</br>
+        Haoyu Guo*, Hu Zhu*, <b>Sida Peng</b>, Yuang Wang, Yujun Shen, Ruizhen Hu, Xiaowei Zhou (* equal contribution)</br>
+        [<a href="https://arxiv.org/pdf/2312.08372.pdf">Paper</a>][<a href="https://zju3dv.github.io/sam_graph">Project Page</a>][<a href="https://github.com/zju3dv/SAM-Graph">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/dyn-e.png">
+    </div>
+    <div class="publication_title">
+        Dyn-E: Local Appearance Editing of Dynamic Neural Radiance Fields</br>
+        Shangzhan Zhang, <b>Sida Peng</b>, Yinji Shentu, Qing Shuai, Tianrun Chen, Kaicheng Yu, Hujun Bao, Xiaowei Zhou</br>
+        [<a href="https://arxiv.org/pdf/2307.12909.pdf">Paper</a>][<a href="https://dyn-e.github.io/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/3D_generative_model_survey.png">
+    </div>
+    <div class="publication_title">
+        Deep Generative Models on 3D Representations: A Survey</br>
+        Zifan Shi*, <b>Sida Peng</b>*, Yinghao Xu*, Yiyi Liao, Yujun Shen (* equal contribution)</br>
+        [<a href="https://arxiv.org/pdf/2210.15663.pdf">Paper</a>][<a href="https://github.com/justimyhxu/awesome-3D-generation">Project Page</a>]
+    </div>
+</div>
+
+<h2>
+    Publications
+    <span style="font-size: 50%;">(* denotes equal contribution, and <span class="corresponding">†</span> denotes the corresponding author)</span>
+</h2>
+
+<div class="newline_bg">
+    <h3>2024</h3>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/mapa.png">
+    </div>
+    <div class="publication_title">
+        MaPa: Text-driven Photorealistic Material Painting for 3D Shapes</br>
+        Shangzhan Zhang, <b>Sida Peng</b>, Tao Xu, Yuanbo Yang, Tianrun Chen, Nan Xue, Yujun Shen, Hujun Bao, Ruizhen Hu, Xiaowei Zhou</br>
+        SIGGRAPH 2024.</br>
+        [<a href="https://arxiv.org/pdf/2404.17569.pdf">Paper</a>][<a href="https://zhanghe3z.github.io/MaPa/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/indoor_planar_priors.png">
+    </div>
+    <div class="publication_title">
+        Neural 3D Scene Reconstruction with Indoor Planar Priors</br>
+        Xiaowei Zhou, Haoyu Guo, <b>Sida Peng</b>, Yuxi Xiao, Haotong Lin, Qianqian Wang, Guofeng Zhang, Hujun Bao</br>
+        TPAMI 2024.</br>
+        [<a href="https://arxiv.org/pdf/2205.02836.pdf">Paper</a>][<a href="https://ghy0324.github.io/project_page_assets/manhattan_sdf/supp.pdf">Supplementary Material</a>][<a href="https://zju3dv.github.io/manhattan_sdf">Project Page</a>][<a href="https://github.com/zju3dv/manhattan_sdf">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container faster_rendering">
+    <div class="publication_image">
+        <img src="images/4k4d.png">
+    </div>
+    <div class="publication_title">
+        4K4D: Real-Time 4D View Synthesis at 4K Resolution</br>
+        Zhen Xu, <b>Sida Peng</b>, Haotong Lin, Guangzhao He, Jiaming Sun, Yujun Shen, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2024.</br>
+        [<a href="https://arxiv.org/pdf/2310.11448.pdf">Paper</a>][<a href="https://zju3dv.github.io/4k4d">Project Page</a>][<a href="https://github.com/zju3dv/4K4D">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/relightable_avatar.png">
+    </div>
+    <div class="publication_title">
+        Relightable and Animatable Neural Avatar from Sparse-View Video</br>
+        Zhen Xu, <b>Sida Peng</b><sup class="corresponding">†</sup>, Chen Geng, Linzhan Mou, Zihan Yan, Jiaming Sun, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2024 <b>Highlight</b>.</br>
+        [<a href="https://arxiv.org/pdf/2308.07903.pdf">Paper</a>][<a href="https://zju3dv.github.io/relightable_avatar">Project Page</a>][<a href="https://github.com/zju3dv/RelightableAvatar">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container pose">
+    <div class="publication_image">
+        <img src="images/detector_free_sfm.png">
+    </div>
+    <div class="publication_title">
+        Detector-Free Structure from Motion</br>
+        Xingyi He, Jiaming Sun, Yifan Wang, <b>Sida Peng</b>, Qixing Huang, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2024. <b>First Place in Image Matching Challenge 2023</b>.</br>
+        [<a href="https://arxiv.org/pdf/2306.15669.pdf">Paper</a>][<a href="https://zju3dv.github.io/DetectorFreeSfM/">Project Page</a>][<a href="https://github.com/zju3dv/DetectorFreeSfM">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container pose">
+    <div class="publication_image">
+        <img src="images/spatial_tracker.png">
+    </div>
+    <div class="publication_title">
+        SpatialTracker: Tracking Any 2D Pixels in 3D Space</br>
+        Yuxi Xiao, Qianqian Wang, Shangzhan Zhang, Nan Xue, <b>Sida Peng</b>, Yujun Shen, Xiaowei Zhou</br>
+        CVPR 2024 <b>Highlight</b>.</br>
+        [<a href="https://arxiv.org/pdf/2404.04319.pdf">Paper</a>][<a href="https://henry123-boy.github.io/SpaTracker/">Project Page</a>][<a href="https://github.com/henry123-boy/SpaTracker">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container pose">
+    <div class="publication_image">
+        <img src="images/efficient_loftr.png">
+    </div>
+    <div class="publication_title">
+        Efficient LoFTR: Semi-Dense Local Feature Matching with Sparse-Like Speed</br>
+        Yifan Wang*, Xingyi He*, <b>Sida Peng</b><sup class="corresponding">†</sup>, Dongli Tan, Xiaowei Zhou</br>
+        CVPR 2024 <b>Highlight</b>.</br>
+        [<a href="https://arxiv.org/pdf/2306.15669.pdf">Paper</a>][<a href="https://zju3dv.github.io/efficientloftr/">Project Page</a>][<a href="https://github.com/zju3dv/efficientloftr">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/sketch_in_vr.png">
+    </div>
+    <div class="publication_title">
+        Rapid 3D Model Generation with Intuitive 3D Input</br>
+        Tianrun Chen, Chaotao Ding, Shangzhan Zhang, Chunan Yu, Ying Zang, Zejian Li, <b>Sida Peng</b>, Lingyun Sun</br>
+        CVPR 2024 <b>Highlight</b>.
+        [<a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Chen_Rapid_3D_Model_Generation_with_Intuitive_3D_Input_CVPR_2024_paper.pdf">Paper</a>]
+    </div>
+</div>
+
+<div class="publication_container planning">
+    <div class="publication_image">
+        <img src="images/gpt_humanise.png">
+    </div>
+    <div class="publication_title">
+        Generating Human Motion in 3D Scenes from Text Descriptions</br>
+        Zhi Cen, Huaijin Pi, <b>Sida Peng</b><sup class="corresponding">†</sup>, Zehong Shen, Minghui Yang, Shuai Zhu, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2024.</br>
+        [<a href="https://arxiv.org/pdf/2405.07784.pdf">Paper</a>][<a href="https://zju3dv.github.io/text_scene_motion/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/planestereo.png">
+    </div>
+    <div class="publication_title">
+        PlaneStereo: Plane-Aware Multi-View Stereo</br>
+        Haoyu Guo, <b>Sida Peng</b>, Ting Shen, Xiaowei Zhou</br>
+        MIR 2024.</br>
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/polynomial_gabor_fields.png">
+    </div>
+    <div class="publication_title">
+        Neural Polynomial Gabor Fields for Macro Motion Analysis</br>
+        Chen Geng, Hong-Xing Yu, <b>Sida Peng</b>, Xiaowei Zhou, Jiajun Wu</br>
+        ICLR 2024.</br>
+        [<a href="https://openreview.net/pdf?id=dTlKCQuuxP">Paper</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/anifield.png">
+    </div>
+    <div class="publication_title">
+        Animatable Implicit Neural Representations for Creating Realistic Avatars from Videos</br>
+        Xiaowei Zhou, <b>Sida Peng</b>, Zhen Xu, Junting Dong, Qianqian Wang, Shangzhan Zhang, Qing Shuai, Hujun Bao</br>
+        TPAMI 2024.</br>
+        [<a href="https://arxiv.org/pdf/2203.08133.pdf">Paper</a>][<a href="https://pengsida.net/project_page_assets/animatable_sdf/supplementary_material.pdf">Supplementary Material</a>][<a href="https://zju3dv.github.io/animatable_sdf/">Project Page</a>][<a href="https://github.com/zju3dv/animatable_nerf">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/learning_research.png">
+    </div>
+    <div class="publication_title">
+        A Guide to Conducting a Research Project</br>
+        <b>Sida Peng</b></br>
+        CCCF 2024.</br>
+        [<a href="https://dl.ccf.org.cn/article/articleDetail.html?id=6816606126983168">Article</a>][<a href="https://github.com/pengsida/learning_research">Project Page</a>][<a href="https://www.bilibili.com/video/BV1DA4m1V7D3/">Talk</a>]
+    </div>
+</div>
+
+<div class="newline_bg">
+    <h3>2023</h3>
+</div>
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/easyvolcap.png">
+    </div>
+    <div class="publication_title">
+        EasyVolcap: Accelerating Neural Volumetric Video Research</br>
+        Zhen Xu, Tao Xie, <b>Sida Peng</b>, Haotong Lin, Qing Shuai, Zhiyuan Yu, Guangzhao He, Jiaming Sun, Hujun Bao, Xiaowei Zhou</br>
+        SIGGRAPH Asia 2023 Technical Communications.</br>
+        [<a href="https://arxiv.org/pdf/2312.06575.pdf">Paper</a>][<a href="https://github.com/zju3dv/EasyVolcap">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_storage">
+    <div class="publication_image">
+        <img src="images/codebook.png">
+    </div>
+    <div class="publication_title">
+        Compact Neural Volumetric Video Representations with Dynamic Codebooks</br>
+        Haoyu Guo, <b>Sida Peng</b><sup class="corresponding">†</sup>, Yunzhi Yan, Linzhan Mou, Yujun Shen, Hujun Bao, Xiaowei Zhou</br>
+        NeurIPS 2023.</br>
+        [<a href="https://openreview.net/pdf?id=xTgM7XLN9P">Paper</a>][<a href="https://github.com/zju3dv/compact_vv">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/3dgan_benchmark.png">
+    </div>
+    <div class="publication_title">
+        Benchmarking and Analyzing 3D-aware Image Synthesis with a Modularized Codebase</br>
+        Qiuyu Wang, Zifan Shi, Kecheng Zheng, Yinghao Xu, <b>Sida Peng</b>, Yujun Shen</br>
+        NeurIPS 2023 Datasets and Benchmarks Track.</br>
+        [<a href="https://arxiv.org/pdf/2306.12423.pdf">Paper</a>][<a href="https://github.com/qiuyu96/Carver">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container faster_rendering">
+    <div class="publication_image">
+        <img src="images/im4d.png">
+    </div>
+    <div class="publication_title">
+        Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes</br>
+        Haotong Lin, <b>Sida Peng</b><sup class="corresponding">†</sup>, Zhen Xu, Tao Xie, Xingyi He, Hujun Bao, Xiaowei Zhou</br>
+        SIGGRAPH Asia 2023.</br>
+        [<a href="https://arxiv.org/pdf/2310.08585.pdf">Paper</a>][<a href="https://zju3dv.github.io/im4d">Project Page</a>][<a href="https://github.com/zju3dv/im4d">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/2023_ICCV_Human_Synthesis.png">
+    </div>
+    <div class="publication_title">
+        iVS-Net: Learning Human View Synthesis from Internet Videos</br>
+        Junting Dong, Qi Fang, Tianshuo Yang, Qing Shuai, Chengyu Qiao, <b>Sida Peng</b><sup class="corresponding">†</sup></br>
+        ICCV 2023.</br>
+        [<a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Dong_iVS-Net_Learning_Human_View_Synthesis_from_Internet_Videos_ICCV_2023_paper.pdf">Paper</a>][<a href="https://openaccess.thecvf.com/content/ICCV2023/supplemental/Dong_iVS-Net_Learning_Human_View_Synthesis_from_Internet_Videos_ICCV_2023_supplemental.pdf">Supplementary Material</a>][<a href="https://zju3dv.github.io/ivsnet/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container planning">
+    <div class="publication_image">
+        <img src="images/2023_ICCV_Motion_Synthesis.png">
+    </div>
+    <div class="publication_title">
+        Hierarchical Generation of Human-Object Interactions with Diffusion Probabilistic Models</br>
+        Huaijin Pi, <b>Sida Peng</b>, Minghui Yang, Xiaowei Zhou, Hujun Bao</br>
+        ICCV 2023.</br>
+        [<a href="https://arxiv.org/pdf/2310.02242.pdf">Paper</a>][<a href="https://zju3dv.github.io/hghoi">Project Page</a>][<a href="https://github.com/zju3dv/hghoi">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/ponder.png">
+    </div>
+    <div class="publication_title">
+        Ponder: Point Cloud Pre-training via Neural Rendering</br>
+        Di Huang, <b>Sida Peng</b>, Tong He, Xiaowei Zhou, Wanli Ouyang</br>
+        ICCV 2023.</br>
+        [<a href="https://arxiv.org/pdf/2301.00157.pdf">Paper</a>][<a href="https://dihuangdh.github.io/ponder/">Project Page</a>]
+    </div>
+</div>
+
+<div class="publication_container faster_rendering lower_storage">
+    <div class="publication_image">
+        <img src="images/mlp_maps.png">
+    </div>
+    <div class="publication_title">
+        Representing Volumetric Videos as Dynamic MLP Maps</br>
+        <b>Sida Peng*</b>, Yunzhi Yan*, Qing Shuai, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2023.</br>
+        [<a href="https://arxiv.org/pdf/2304.06717.pdf">Paper</a>][<a href="https://zju3dv.github.io/mlp_maps">Project Page</a>][<a href="https://github.com/zju3dv/mlp_maps">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container faster_reconstruction lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/instant_nvr.png">
+    </div>
+    <div class="publication_title">
+        Learning Neural Volumetric Representations of Dynamic Humans in Minutes</br>
+        Chen Geng*, <b>Sida Peng*</b>, Zhen Xu*, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2023.</br>
+        [<a href="https://arxiv.org/pdf/2302.12237.pdf">Paper</a>][<a href="https://zju3dv.github.io/instant_nvr/">Project Page</a>][<a href="https://github.com/zju3dv/instant-nvr/">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/painting3d.png">
+    </div>
+    <div class="publication_title">
+        Painting 3D Nature in 2D: View Synthesis of Natural Scenes from a Single Semantic Mask</br>
+        Shangzhan Zhang, <b>Sida Peng</b>, Tianrun Chen, Linzhan Mou, Haotong Lin, Kaicheng Yu, Yiyi Liao, Xiaowei Zhou</br>
+        CVPR 2023.</br>
+        [<a href="https://arxiv.org/pdf/2302.07224.pdf">Paper</a>][<a href="https://zju3dv.github.io/paintingnature/">Project Page</a>][<a href="https://github.com/zhanghe3z/PaintingNature">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/autorecon.png">
+    </div>
+    <div class="publication_title">
+        AutoRecon: Automated 3D Object Discovery and Reconstruction</br>
+        Yuang Wang, Xingyi He, <b>Sida Peng</b>, Haotong Lin, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2023 <b>Highlight</b>.</br>
+        [<a href="https://arxiv.org/pdf/2305.08810.pdf">Paper</a>][<a href="https://zju3dv.github.io/autorecon/">Project Page</a>][<a href="https://github.com/zju3dv/AutoRecon">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container pose perception">
+    <div class="publication_image">
+        <img src="images/scene_hmr.png">
+    </div>
+    <div class="publication_title">
+        Learning Human Mesh Recovery in 3D Scenes</br>
+        Zehong Shen, Zhi Cen, <b>Sida Peng</b>, Qing Shuai, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2023.</br>
+        [<a href="https://arxiv.org/pdf/2306.03847.pdf">Paper</a>][<a href="https://zju3dv.github.io/sahmr/">Project Page</a>][<a href="https://github.com/zju3dv/SA-HMR/">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/grid_nerf.png">
+    </div>
+    <div class="publication_title">
+        Grid-guided Neural Radiance Fields for Large Urban Scenes</br>
+        Linning Xu*, Yuanbo Xiangli*, <b>Sida Peng</b>, Xingang Pan, Nanxuan Zhao, Christian Theobalt, Bo Dai, Dahua Lin</br>
+        CVPR 2023.</br>
+        [<a href="https://arxiv.org/pdf/2303.14001.pdf">Paper</a>][<a href="https://city-super.github.io/gridnerf/">Project Page</a>]
+        <!-- [<a href="">Code</a>] -->
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/neuralsc.png">
+    </div>
+    <div class="publication_title">
+        Neural Scene Chronology</br>
+        Haotong Lin, Qianqian Wang, Ruojin Cai, <b>Sida Peng</b>, Hadar Elor, Xiaowei Zhou, Noah Snavely</br>
+        CVPR 2023.</br>
+        [<a href="https://arxiv.org/pdf/2306.07970.pdf">Paper</a>][<a href="https://zju3dv.github.io/neusc">Project Page</a>][<a href="https://github.com/zju3dv/NeuSC">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/discoscene.png">
+    </div>
+    <div class="publication_title">
+        DisCoScene: Spatially Disentangled Generative Radiance Fields for Controllable 3D-aware Scene Synthesis</br>
+        Yinghao Xu, Menglei Chai, Zifan Shi, <b>Sida Peng</b>, Ivan Skorokhodov, Aliaksandr Siarohin, Ceyuan Yang, Yujun Shen, Hsin-Ying Lee, Bolei Zhou, Sergey Tulyakov</br>
+        CVPR 2023 <b>Highlight</b>.</br>
+        [<a href="https://arxiv.org/pdf/2212.11984.pdf">Paper</a>][<a href="https://snap-research.github.io/discoscene/">Project Page</a>][<a href="https://github.com/snap-research/discoscene">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/pof3d.png">
+    </div>
+    <div class="publication_title">
+        Learning 3D-aware Image Synthesis with Unknown Pose Distribution</br>
+        Zifan Shi*, Yujun Shen*, Yinghao Xu, <b>Sida Peng</b>, Yiyi Liao, Sheng Guo, Qifeng Chen, Dit-Yan Yeung</br>
+        CVPR 2023.</br>
+        [<a href="https://arxiv.org/pdf/2301.07702.pdf">Paper</a>][<a href="https://vivianszf.github.io/pof3d/">Project Page</a>][<a href="https://github.com/VivianSZF/pof3d">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/neuralbody_pami.png">
+    </div>
+    <div class="publication_title">
+        Implicit Neural Representations with Structured Latent Codes for Human Body Modeling</br>
+        <b>Sida Peng</b>, Chen Geng, Yuanqing Zhang, Yinghao Xu, Qianqian Wang, Qing Shuai, Xiaowei Zhou, Hujun Bao</br>
+        TPAMI 2023.</br>
+        [<a href="https://ieeexplore.ieee.org/document/10045794">Paper</a>][<a href="https://github.com/zju3dv/neuralbody">Code</a>]
+    </div>
+</div>
+
+<div class="newline_bg">
+    <h3>2022</h3>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/totalselfscan.png">
+    </div>
+    <div class="publication_title">
+        TotalSelfScan: Learning Full-body Avatars from Self-Portrait Videos of Faces, Hands, and Bodies</br>
+        Junting Dong, Qi Fang, Yudong Guo, <b>Sida Peng</b>, Qing Shuai, Hujun Bao, Xiaowei Zhou</br>
+        NeurIPS 2022.</br>
+        [<a href="https://openreview.net/pdf?id=lgj33-O1Ely">Paper</a>][<a href="https://zju3dv.github.io/TotalSelfScan/">Project Page</a>][<a href="https://github.com/zju3dv/totalselfscan">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container faster_reconstruction faster_rendering">
+    <div class="publication_image">
+        <img src="images/enerf.png">
+    </div>
+    <div class="publication_title">
+        Efficient Neural Radiance Fields for Interactive Free-viewpoint Video</br>
+        Haotong Lin*, <b>Sida Peng</b>*, Zhen Xu, Yunzhi Yan, Qing Shuai, Hujun Bao, Xiaowei Zhou</br>
+        SIGGRAPH Asia 2022.</br>
+        [<a href="https://arxiv.org/pdf/2112.01517.pdf">Paper</a>][<a href="https://zju3dv.github.io/enerf/">Project Page</a>][<a href="https://github.com/zju3dv/enerf">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/mpsnerf.png">
+    </div>
+    <div class="publication_title">
+        MPS-NeRF: Generalizable 3D Human Rendering from Multiview Images</br>
+        Xiangjun Gao, Jiaolong Yang, Jongyoo Kim, <b>Sida Peng</b>, Zicheng Liu, Xin Tong</br>
+        TPAMI 2022.</br>
+        [<a href="https://ieeexplore.ieee.org/document/9888037">Paper</a>][<a href="https://gaoxiangjun.github.io/mps_nerf/">Project Page</a>][<a href="https://github.com/gaoxiangjun/MPS-NeRF">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/nerfcap.png">
+    </div>
+    <div class="publication_title">
+        NerfCap: Human Performance Capture with Dynamic Neural Radiance Fields</br>
+        Kangkan Wang, <b>Sida Peng</b>, Xiaowei Zhou, Jian Yang, and Guofeng Zhang</br>
+        TVCG 2022.</br>
+        [<a href="https://ieeexplore.ieee.org/document/9870173/">Paper</a>]
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/gen6d.png">
+    </div>
+    <div class="publication_title">
+        Gen6D: Generalizable Model-Free 6-DoF Object Pose Estimation from RGB Images</br>
+        Yuan Liu, Yilin Wen, <b>Sida Peng</b>, Cheng Lin, Xiaoxiao Long, Taku Komura, Wenping Wang</br>
+        ECCV 2022.</br>
+        [<a href="https://arxiv.org/pdf/2204.10776.pdf">Paper</a>][<a href="https://liuyuan-pal.github.io/Gen6D/">Project Page</a>][<a href="https://github.com/liuyuan-pal/Gen6D">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container pose">
+    <div class="publication_image">
+        <img src="images/pvnet_depth_sup.png">
+    </div>
+    <div class="publication_title">
+        Learning to Estimate Object Poses without Real Image Annotations</br>
+        Haotong Lin*, <b>Sida Peng</b>*, Zhize Zhou, Xiaowei Zhou</br>
+        IJCAI 2022.</br>
+        [<a href="https://www.ijcai.org/proceedings/2022/0162.pdf">Paper</a>][<a href="https://github.com/zju3dv/pvnet-depth-sup">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/multi_neural_body.png">
+    </div>
+    <div class="publication_title">
+        Novel View Synthesis of Human Interactions from Sparse Multi-view Videos</br>
+        Qing Shuai, Chen Geng, Qi Fang, <b>Sida Peng</b>, Wenhao Shen, Hujun Bao, Xiaowei Zhou</br>
+        SIGGRAPH 2022.</br>
+        [<a href="https://dl.acm.org/doi/10.1145/3528233.3530704">Paper</a>][<a href="https://chingswy.github.io/easymocap-public-doc/works/multinb.html">Project Page</a>][<a href="https://chingswy.github.io/easymocap-public-doc/works/multinb_code.html">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/manhattan_sdf.png">
+    </div>
+    <div class="publication_title">
+        Neural 3D Scene Reconstruction with the Manhattan-world Assumption</br>
+        Haoyu Guo*, <b>Sida Peng</b>*, Haotong Lin, Qianqian Wang, Guofeng Zhang, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2022 <b>Oral presentation</b>.</br>
+        [<a href="https://arxiv.org/pdf/2205.02836.pdf">Paper</a>][<a href="https://ghy0324.github.io/project_page_assets/manhattan_sdf/supp.pdf">Supplementary Material</a>][<a href="https://zju3dv.github.io/manhattan_sdf">Project Page</a>][<a href="https://github.com/zju3dv/manhattan_sdf">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="images/volumegan.png">
+    </div>
+    <div class="publication_title">
+        3D-aware Image Synthesis via Learning Structural and Textural Representations</br>
+        Yinghao Xu, <b>Sida Peng</b>, Ceyuan Yang, Yujun Shen, Bolei Zhou</br>
+        CVPR 2022.</br>
+        [<a href="https://arxiv.org/pdf/2112.10759.pdf">Paper</a>][<a href="https://genforce.github.io/volumegan/">Project Page</a>][<a href="https://github.com/genforce/volumegan">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/neural_rays.png">
+    </div>
+    <div class="publication_title">
+        Neural Rays for Occlusion-aware Image-based Rendering</br>
+        Yuan Liu, <b>Sida Peng</b>, Lingjie Liu, Qianqian Wang, Peng Wang, Christian Theobalt, Xiaowei Zhou, Wenping Wang</br>
+        CVPR 2022.</br>
+        [<a href="https://arxiv.org/pdf/2107.13421.pdf">Paper</a>][<a href="https://liuyuan-pal.github.io/NeuRay/">Project Page</a>][<a href="https://github.com/liuyuan-pal/NeuRay">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/human_survey.png">
+    </div>
+    <div class="publication_title">
+        Towards Efficient and Photorealistic 3D Human Reconstruction: A Brief Survey</br>
+        Lu Chen, <b>Sida Peng</b>, Xiaowei Zhou</br>
+        Visual Informatics 2022.</br>
+        [<a href="https://www.sciencedirect.com/science/article/pii/S2468502X21000413">Paper</a>]
+    </div>
+</div>
+
+<div class="newline_bg">
+    <h3>2021</h3>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/aninerf.png">
+    </div>
+    <div class="publication_title">
+        Animatable Neural Radiance Fields for Modeling Dynamic Human Bodies</br>
+        <b>Sida Peng</b>*, Junting Dong*, Qianqian Wang, Shangzhan Zhang, Qing Shuai, Xiaowei Zhou, Hujun Bao</br>
+        ICCV 2021.</br>
+        [<a href="https://arxiv.org/pdf/2105.02872.pdf">Paper</a>][<a href="https://pengsida.net/project_page_assets/animatable_nerf/supplementary_material.pdf">Supplementary Material</a>][<a href="https://zju3dv.github.io/animatable_nerf/">Project Page</a>][<a href="https://github.com/zju3dv/animatable_nerf">Code</a>][<a href="https://arxiv.org/pdf/2203.08133.pdf">Extension</a>]
+    </div>
+</div>
+
+<div class="publication_container lower_cost_capture">
+    <div class="publication_image">
+        <img src="images/neural_body.png">
+    </div>
+    <div class="publication_title">
+        Neural Body: Implicit Neural Representations with Structured Latent Codes for Novel View Synthesis of Dynamic Humans</br>
+        <b>Sida Peng</b>, Yuanqing Zhang, Yinghao Xu, Qianqian Wang, Qing Shuai, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2021 <b>Best paper candidate</b>.</br>
+        [<a href="https://arxiv.org/pdf/2012.15838.pdf">Paper</a>][<a href="https://github.com/zju3dv/neuralbody/blob/master/supplementary_material.md">Supplementary Material</a>][<a href="https://zju3dv.github.io/neuralbody/">Project Page</a>][<a href="https://github.com/zju3dv/neuralbody">Code</a>]
+    </div>
+</div>
+
+<div class="newline_bg">
+    <h3>2020</h3>
+</div>
+
+<div class="publication_container pose">
+    <div class="publication_image">
+        <img src="images/pvnet_pami.png">
+    </div>
+    <div class="publication_title">
+        PVNet: Pixel-wise Voting Network for 6DoF Object Pose Estimation</br>
+        <b>Sida Peng</b>*, Xiaowei Zhou*, Yuan Liu, Haotong Lin, Qixing Huang, Hujun Bao</br>
+        TPAMI 2020.</br>
+        [<a href="https://ieeexplore.ieee.org/document/9309178">Paper</a>][<a href="https://github.com/zju3dv/pvnet">Code</a>]
+    </div>
+</div>
+
+<div class="publication_container scene_reconstruction">
+    <div class="publication_image">
+        <img src="images/snake.png">
+    </div>
+    <div class="publication_title">
+        Deep Snake for Real-Time Instance Segmentation</br>
+        <b>Sida Peng</b>, Wen Jiang, Huaijin Pi, Xiuli Li, Hujun Bao, Xiaowei Zhou</br>
+        CVPR 2020 <b>Oral presentation</b>.</br>
+        [<a href="https://arxiv.org/pdf/2001.01629">Paper</a>][<a href="https://github.com/zju3dv/snake">Code</a>]
+    </div>
+</div>
+
+<div class="newline_bg">
+    <h3>2019</h3>
+</div>
+
+<div class="publication_container pose">
+    <div class="publication_image">
+        <img src="images/gift.png">
+    </div>
+    <div class="publication_title">
+        GIFT: Learning Transformation-Invariant Dense Visual Descriptors via Group CNNs</br>
+        Yuan Liu, Zehong Shen, Zhixuan Lin, <b>Sida Peng</b>, Hujun Bao, Xiaowei Zhou</br>
+        NeurIPS 2019.</br>
+        [<a href="http://papers.neurips.cc/paper/8922-gift-learning-transformation-invariant-dense-visual-descriptors-via-group-cnns.pdf">Paper</a>][<a href="https://zju3dv.github.io/GIFT/2019_NIPS_Invariant_Descriptor_Supp.pdf">Supplementary Material</a>][<a href="https://zju3dv.github.io/GIFT/">Project Page</a>][<a href="https://github.com/zju3dv/GIFT">Code</a>]</br>
+    </div>
+</div>
+
+<div class="publication_container pose">
+    <div class="publication_image">
+        <img src="images/pvnet.png">
+    </div>
+    <div class="publication_title">
+        PVNet: Pixel-wise Voting Network for 6DoF Estimation</br>
+        <b>Sida Peng</b>*,  Yuan Liu*, Qixing Huang, Xiaowei Zhou, Hujun Bao</br>
+        CVPR 2019 <b>Oral presentation</b>.</br>
+        [<a href="http://openaccess.thecvf.com/content_CVPR_2019/papers/Peng_PVNet_Pixel-Wise_Voting_Network_for_6DoF_Pose_Estimation_CVPR_2019_paper.pdf">Paper</a>][<a href="https://zju3dv.github.io/pvnet/supplementary_material.pdf">Supplementary Material</a>][<a href="https://zju3dv.github.io/pvnet/">Project Page</a>][<a href="https://github.com/zju3dv/pvnet">Code</a>]
+    </div>
+</div>
+
+<h2>Honors</h2>
+
+<ul>
+    <li>
+        <div class="marker">Outstanding Doctoral Dissertation Award of Zhejiang University</div> <div>2023</div>
+    </li>
+    <li>
+        <div class="marker">WAIC Rising Star Award</div> <div>2023</div>
+    </li>
+    <li>
+        <div class="marker">First place in Image Matching Challenge 2023</div> <div>2023</div>
+    </li>
+    <li>
+        <div class="marker">Outstanding Graduates of Zhejiang Province</div> <div>2023</div>
+    </li>
+    <li>
+        <div class="marker">National Scholarship</div> <div>2022</div>
+    </li>
+    <li>
+        <div class="marker">Apple Scholars in AI/ML PhD Fellowship</div> <div>2022</div>
+    </li>
+    <li>
+        <div class="marker">National Scholarship</div> <div>2021</div>
+    </li>
+    <li>
+        <div class="marker">Style3D Graduate Fellowship</div> <div>2021</div>
+    </li>
+    <li>
+        <div class="marker">First place in China Graduate AI Innovation Competition</div> <div>2021</div>
+    </li>
+    <li>
+        <div class="marker">National Scholarship</div> <div>2020</div>
+    </li>
+    <li>
+        <div class="marker">CCF-CV Excellent Young Researcher Award</div> <div>2020</div>
+    </li>
+    <li>
+        <div class="marker">First place in China Graduate AI Innovation Competition</div> <div>2019</div>
+    </li>
+    <li>
+        <div class="marker">National Scholarship</div> <div>2019</div>
+    </li>
+    <li>
+        <div class="marker">Chen TianZhou Educational Foundation Scholarship</div> <div>2019</div>
+    </li>
+    <li>
+        <div class="marker">Chiang Chen Industrial Charity Foundation Grant</div> <div>2019</div>
+    </li>
+    <li>
+        <div class="marker">Graduate Student Scholarship</div> <div>2019</div>
+    </li>
+</ul>
+
+<h2>Services</h2>
+
+<ul>
+    <li>
+        <div class="marker">GAMES Committee</div>
+    </li>                                                                       
+    <li>
+        <div class="marker">Conference Committee: Eurographics (2024)</div>
+    </li>                                                                       
+    <li>
+        <div class="marker">Conference Reviewer: CVPR, ICCV, ECCV, NeurIPS, SIGGRAPH, SIGGRAPH Asia, Eurographics</div>
+    </li>                                                                       
+    <li>
+        <div class="marker">Journal Reviewer: TPAMI, TVCG, IJCV, TCSVT</div>
+    </li>                                                                       
+</ul>
+
+<h2>Teaching Assistant</h2>
+
+<ul>
+    <li>
+        <div class="marker">Computational Photography</div> <div>Spring, 2023</div>
+    </li>                                                                       
+    <li>                                                                        
+        <div class="marker">Computational Photography</div> <div>Spring, 2022</div>
+    </li>                                                                       
+    <li>                                                                        
+        <div class="marker">Computational Photography</div> <div>Spring, 2021</div>
+    </li>                                                                       
+    <li>                                                                        
+        <div class="marker">Computational Photography</div> <div>Spring, 2020</div>
+    </li>                                                                       
+    <li>                                                                        
+        <div class="marker">Computational Photography</div> <div>Spring, 2019</div>
+    </li>
+</ul>
+
+</div>
+
+</div>
+</body>
+</html>

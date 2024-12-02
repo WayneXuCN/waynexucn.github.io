@@ -1,0 +1,88 @@
+<div id="research-summary">
+  <div class="research-tabs">
+    {% for research in page.research_summary %}
+      <div class="research_tab {% if forloop.first %}active{% endif %}" onclick="toggle_research_vis('research_{{ forloop.index }}', this)">
+        {{ research.title }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="research-contents">
+    {% for research in page.research_summary %}
+      <div
+        class="research_summary"
+        id="research_{{ forloop.index }}"
+        style="display: {% if forloop.first %}block{% else %}none{% endif %}"
+      >
+        <img
+          class="research_picture"
+          src="{{ research.image }}"
+          alt="{{ research.title }}"
+        >
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  function toggle_research_vis(target, tabElement) {
+    var summaries = document.getElementsByClassName('research_summary');
+    for (var i = 0; i < summaries.length; i++) {
+      summaries[i].style.display = 'none';
+    }
+    document.getElementById(target).style.display = 'block';
+
+    var tabs = document.getElementsByClassName('research_tab');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].className = 'research_tab';
+    }
+    tabElement.className = 'research_tab active';
+  }
+</script>
+
+<style>
+  .research-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .research_tab {
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid #bbb;
+    /* 深色边框 */
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #000;
+    flex: 1;
+    text-align: center;
+    margin-right: 10px;
+    /* 增加按钮之间的间距 */
+    font-family: inherit;
+    /* 确保与网站其他部分的字体一致 */
+  }
+
+  .research_tab:last-child {
+    margin-right: 0;
+    /* 移除最后一个按钮的右间距 */
+  }
+
+  .research_tab.active {
+    background-color: #5f6f52;
+    /* 定义激活按钮后的颜色 */
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #bbb;
+    /* 激活状态下的深色边框保持不变 */
+  }
+
+  .research_summary {
+    display: none;
+  }
+
+  .research_summary img {
+    width: 100%;
+    height: auto;
+  }
+</style>
