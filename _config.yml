@@ -305,12 +305,8 @@ jekyll-archives:
     tag: "/blog/tag/:name/"
     category: "/blog/category/:name/"
 
-# tags 是描述文章具体内容的关键词。一个文章可以有多个标签，用以表示文章涉及的多个具体点。
-# 标签比分类更细致，可以非常具体，例如具体技术、工具名、问题类型等;标签的数量可以根据需要设置多个，但避免过度标记无关紧要的标签;确保标签与文章内容紧密相关，便于用户通过标签找到具体的内容。
-display_tags: ["insight", "paper", "method", "python", "typescript", "github", "system"] # these tags will be displayed on the front page of your blog
-# Categories 用来表示文章的广泛主题或是你的博客的主要内容区域。通常，一个文章会被归入一个或少数几个分类。
-# 选择能准确描述文章主题的分类名称;尽量保持分类的一致性，避免为相似主题创建过多相近的分类;分类可以有层次结构，例如“科技”下面可以有“编程”、“人工智能”等子分类。
-display_categories: ["collection", "research", "writing", "code", "tool", "life", "image"] # these categories will be displayed on the front page of your blog
+display_tags: [] # these tags will be displayed on the front page of your blog
+display_categories: ["Research", "Writing", "Code", "Tools", "Productivity", "Life", "Collection"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

@@ -4,8 +4,8 @@ title: 滑坡谬误
 date: 2024-03-04 17:42:00
 last_updated: 2024-03-04 17:42:00
 description: Slippery Slop
-tags: discussion
-categories: collection
+tags: Discussion Philosophy
+categories: Life
 featured: false
 related_posts: false
 giscus_comments: true

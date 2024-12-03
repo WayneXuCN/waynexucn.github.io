@@ -4,8 +4,8 @@ title: 一份简明的 Markdown 笔记与教程
 date: 2021-12-17 22:18:00
 last_updated: 2021-12-17 22:18:00
 description: 记录了 Markdown 的优点、应用场景和编辑工具，介绍了标准语法与扩展语法，以及一些应用 Markdown 的奇技淫巧。
-tags: system
-categories: tool code
+tags: Markdown Formatting Tools
+categories: Writing
 featured: false
 giscus_comments: false
 related_posts: true
