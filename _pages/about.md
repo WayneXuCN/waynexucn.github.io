@@ -2,8 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Hi 👋, I'm  Wenjie Xu (Wayne Hsu).
-
+subtitle: Hi 👋, I'm Wayne Hsu (Wenjie Xu).
 profile:
   align: right
   image: prof_pic.jpg
@@ -27,12 +26,10 @@ social: true # includes social icons at the bottom of the page
 
 <!--my introduction start-->
 
-👨‍🎓 I am a PhD candidate in **Management Science and Engineering** at the **Institutes of Science and Development, Chinese Academy of Sciences** (<a href="http://www.casisd.cn/" target="_blank">CASISD</a>), dedicated to advancing knowledge and solutions in this dynamic field.
+👨‍🎓 PhD candidate in **Management Science and Engineering** at the Institutes of Science and Development, Chinese Academy of Sciences ([CASISD](http://www.casisd.cn/)), focusing on **Risk Management** and developing practical frameworks for risk assessment.
 
-🔍 My research centers on **Risk Management**, where I explore innovative approaches to risk assessment and management, aiming to develop practical frameworks that address complex challenges in diverse sectors.
+💻 Passionate about **programming** and **software development**, with a focus on creating practical tools and contributing to **open-source technologies**.
 
-💻 Beyond research, I have a strong interest in **programming** and **software development**. I enjoy using these skills to develop **practical tools** that solve real-world problems. I am also a strong advocate for **open-source technologies** and actively contribute to and learn from the open-source community, believing in the power of collaboration and shared knowledge.
+✍️ Insights and tutorials shared on my [blog](https://waynehsucn.github.io/blog/), covering research progress, technical resources, and trends in technology and management.
 
-✍️ As an advocate for knowledge sharing, I regularly publish articles and insights on my <a href="https://waynehsucn.github.io/blog/" target="_blank">personal blog</a>. It's a space where I document my research progress, share technical tutorials, and reflect on emerging trends in technology and management.
-
-🌐 Collaboration and communication are at the heart of my work. Whether you have a question, idea, or opportunity to collaborate, feel free to reach out—I’d love to [connect](mailto:wenjie.xu.cn@outlook.com)!
+🌐 Open to collaboration—feel free to connect at [wenjie.xu.cn@outlook.com](mailto:wenjie.xu.cn@outlook.com)!
