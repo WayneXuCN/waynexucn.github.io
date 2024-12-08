@@ -26,7 +26,7 @@ social: true # includes social icons at the bottom of the page
 
 <!--my introduction start-->
 
-👨‍🎓 PhD candidate in **Management Science and Engineering** at the Institutes of Science and Development, Chinese Academy of Sciences ([CASISD](http://www.casisd.cn/)), focusing on **Risk Management** and developing practical frameworks for risk assessment.
+👨‍🎓 PhD candidate in **Management Science and Engineering** at [CASISD](http://www.casisd.cn/), focusing on **Risk Management** and developing practical frameworks for risk assessment.
 
 💻 Passionate about **programming** and **software development**, with a focus on creating practical tools and contributing to **open-source technologies**.
 
