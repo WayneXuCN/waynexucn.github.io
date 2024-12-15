@@ -2,7 +2,7 @@
 layout: page
 title: Typst-ucas-thesis
 description: UCAS thesis Template Based on Typst
-img: assets/img/project/Typst-ucas-thesis/thumbnail.png
+img: assets/img/project/Typst-ucas-thesis/typstUCAS.png
 importance: 1
 category: work
 giscus_comments: true
@@ -13,6 +13,40 @@ giscus_comments: true
 ![Project Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 
 > 🚧 **Project Status: In Progress** 🚧
+
+#### 纸张要求与页面设置
+
+- ✅ 页面尺寸及边距调整。
+- 🔄 页眉页脚样式。
+
+#### 封面与书脊
+
+- ✅ 封面基本信息（标题、作者、导师等）。
+- 🔄 封面样式优化
+- 🕒 生成书脊
+
+#### 摘要与关键词
+
+- ✅ 中英文摘要模板。
+- 🕒 摘要样式优化
+
+#### 目录
+
+- ✅ 目录功能。
+- 🔄 目录样式优化
+- 🕒 页码对齐优化。
+
+#### 正文
+
+- 🕒 标题样式与段落间距优化。
+- 🕒 图表样式优化
+
+#### 其他
+
+- 🕒 参考文献样式优化。
+- 🕒 附录与后记模板。
+- 🕒 作者简历及攻读学位期间发表的学术论文与其他相关学术成果
+- 🕒 文献格式兼容多种样式。
 
 ### 开发者指南
 
