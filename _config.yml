@@ -196,6 +196,7 @@ exclude:
   - lighthouse_results/
   - package.json
   - package-lock.json
+  - pnpm-lock.yaml
   - purgecss.config.js
   - README.md
   - readme_preview/

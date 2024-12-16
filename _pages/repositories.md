@@ -10,7 +10,8 @@ nav_order: 3
 ## GitHub
 
 {% if site.data.repositories.github_user %}
-  {% assign user = site.data.repositories.github_user %}
+{% assign user = site.data.repositories.github_user %}
+
   <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
     <!-- 用户仓库展示 -->
     {% include repository/repo_user.liquid username=user %}
