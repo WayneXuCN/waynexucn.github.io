@@ -29,8 +29,8 @@ orcid_id: 0000-0002-7778-0450 # your ORCID ID
 # publons_id: # your ID on Publons
 # quora_username: # your Quora username
 research_gate_profile: https://www.researchgate.net/profile/Wenjie-Xu-19 # your profile on ResearchGate
-scholar_userid: eWTidmsAAAAJ # your Google Scholar ID
 rss_icon: true # set to true to show the RSS icon
+scholar_userid: eWTidmsAAAAJ # your Google Scholar ID
 # scopus_id: # your profile on Scopus
 # semanticscholar_id: # your Semantic Scholar ID
 # spotify_id: # your spotify id
