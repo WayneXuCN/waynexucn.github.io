@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "post-2024-年科研工作的心得体会",
+        },{id: "post-2025-年的第一天-说点什么吧",
+      
+        title: "2025 年的第一天，说点什么吧",
+      
+      description: "闲言碎语",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/%E9%9A%8F%E7%AC%9425%E5%B2%81%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/";
+        
+      },
+    },{id: "post-2024-年科研工作的心得体会",
       
         title: "2024 年科研工作的心得体会",
       
@@ -158,9 +169,9 @@ ninja.data = [{
           window.location.href = "/blog/2024/%E5%A4%9A%E8%BD%A8%E7%AE%A1%E7%90%86Python%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/";
         
       },
-    },{id: "post-随笔-我的表达欲在递减",
+    },{id: "post-我的表达欲在递减",
       
-        title: "随笔：我的表达欲在递减",
+        title: "我的表达欲在递减",
       
       description: "闲言碎语",
       section: "Posts",
@@ -169,11 +180,11 @@ ninja.data = [{
           window.location.href = "/blog/2023/%E9%9A%8F%E7%AC%94%E6%88%91%E7%9A%84%E8%A1%A8%E8%BE%BE%E6%AC%B2%E5%9C%A8%E9%80%92%E5%87%8F/";
         
       },
-    },{id: "post-随笔-关于成长",
+    },{id: "post-关于成长",
       
-        title: "随笔：关于成长",
+        title: "关于成长",
       
-      description: "关于成长",
+      description: "闲言碎语",
       section: "Posts",
       handler: () => {
         
@@ -191,11 +202,11 @@ ninja.data = [{
           window.location.href = "/blog/2023/%E5%A6%82%E4%BD%95%E6%92%B0%E5%86%99%E8%A2%AB%E5%BC%95%E7%94%A8%E7%9A%84%E8%AE%BA%E6%96%87%E5%92%8C%E8%8E%B7%E5%BE%97%E8%B5%84%E5%8A%A9%E7%9A%84%E6%8F%90%E6%A1%88/";
         
       },
-    },{id: "post-随笔-可以多认识人-但要少交朋友",
+    },{id: "post-可以多认识人-但要少交朋友",
       
-        title: "随笔：可以多认识人，但要少交朋友",
+        title: "可以多认识人，但要少交朋友",
       
-      description: "要学会慢热，要学会持久",
+      description: "闲言碎语",
       section: "Posts",
       handler: () => {
         
