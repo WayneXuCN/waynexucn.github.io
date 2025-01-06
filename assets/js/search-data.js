@@ -114,9 +114,9 @@ ninja.data = [{
           window.location.href = "/blog/2024/%E9%83%A8%E7%BD%B2%E7%94%A8%E4%BA%8E%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6%E7%9A%84Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/";
         
       },
-    },{id: "post-python-高级用法记录",
+    },{id: "post-python-项目中高效管理路径的范式",
       
-        title: "Python 高级用法记录",
+        title: "Python 项目中高效管理路径的范式",
       
       description: "规范的路径管理方法",
       section: "Posts",
