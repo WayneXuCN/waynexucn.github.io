@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "post-2025-年的第一天-说点什么吧",
+        },{id: "post-年前重访旧居",
+      
+        title: "年前重访旧居",
+      
+      description: "闲言碎语",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/%E9%9A%8F%E7%AC%94%E5%B9%B4%E5%89%8D%E9%87%8D%E8%AE%BF%E6%97%A7%E5%B1%85/";
+        
+      },
+    },{id: "post-2025-年的第一天-说点什么吧",
       
         title: "2025 年的第一天，说点什么吧",
       
