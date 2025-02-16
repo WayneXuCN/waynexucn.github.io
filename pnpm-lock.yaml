@@ -15,8 +15,8 @@ importers:
         version: 3.1.1
 
 packages:
-  "@shopify/liquid-html-parser@2.2.0":
-    resolution: { integrity: sha512-hD0XV+Re9BC3yMOshHCwU94LagW7LQTWPdtpU0IE/pMbco+ke7Hir1Ad7eloHAgzR+6iw4LzDEFuHFpKZWmGKw== }
+  "@shopify/liquid-html-parser@2.4.0":
+    resolution: { integrity: sha512-ObgEIril7cS74OCQHc0LGhRCp+rAquD2zKF/StNbmtbIjHjn7YJk2D79MjILHBAhXoi9aU8An4aq3JNbmUKuKQ== }
 
   "@shopify/prettier-plugin-liquid@1.4.0":
     resolution: { integrity: sha512-Fd0QiPi0bpSapUG0plri1+bLew9j//Q0MFKkBjkIG4RTJC76dycVysf5Dy7JvbvIjSJ4YFxaT0PBW5v9O7JItQ== }
@@ -46,14 +46,14 @@ packages:
     hasBin: true
 
 snapshots:
-  "@shopify/liquid-html-parser@2.2.0":
+  "@shopify/liquid-html-parser@2.4.0":
     dependencies:
       line-column: 1.0.2
       ohm-js: 16.6.0
 
   "@shopify/prettier-plugin-liquid@1.4.0(prettier@3.1.1)":
     dependencies:
-      "@shopify/liquid-html-parser": 2.2.0
+      "@shopify/liquid-html-parser": 2.4.0
       html-styles: 1.0.0
       prettier: 3.1.1
 
