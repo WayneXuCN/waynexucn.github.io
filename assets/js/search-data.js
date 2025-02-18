@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "post-年前重访旧居",
+        },{id: "post-mac-os-实用配置记录",
+      
+        title: "Mac OS 实用配置记录",
+      
+      description: "Mac OS 系统软件配置和常见错误解决方案的记录",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Mac%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/";
+        
+      },
+    },{id: "post-年前重访旧居",
       
         title: "年前重访旧居",
       
