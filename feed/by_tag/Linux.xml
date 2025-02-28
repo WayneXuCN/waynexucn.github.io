@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://waynehsucn.github.io//feed/by_tag/Linux.xml" rel="self" type="application/atom+xml"/><link href="https://waynehsucn.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-28T04:02:34+00:00</updated><id>https://waynehsucn.github.io//feed/by_tag/Linux.xml</id><title type="html">Wenjie Xu</title><subtitle>Wenjie Xu&apos;s home page. feedId:113833929030099968+userId:72841831310508032 </subtitle><entry><title type="html">Linux 实用配置记录</title><link href="https://waynehsucn.github.io//blog/2022/Linux%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" rel="alternate" type="text/html" title="Linux 实用配置记录"/><published>2022-10-14T19:36:53+00:00</published><updated>2022-10-14T19:36:53+00:00</updated><id>https://waynehsucn.github.io//blog/2022/Linux%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="https://waynehsucn.github.io//blog/2022/Linux%E5%AE%9E%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"><![CDATA[<h2 id="zsh-安装及配置">Zsh 安装及配置</h2> <ol> <li>安装 zsh</li> </ol> <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>zsh
+</code></pre></div></div> <ol> <li>将 zsh 设置为默认 shell，这条命令会在下次登录时生</li> </ol> <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查看zsh的版本</span>
+zsh <span class="nt">--version</span>
+chsh <span class="nt">-s</span> <span class="si">$(</span>which zsh<span class="si">)</span>
+</code></pre></div></div> <ol> <li>安装 Zimfw</li> </ol> <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查看当前shell</span>
+<span class="nb">echo</span> <span class="nv">$SHELL</span>
+<span class="c"># Install zim via curl</span>
+curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+<span class="nb">echo</span> <span class="nv">$ZSH</span>
+</code></pre></div></div> <blockquote> <p>2025.02.16 使用 Zimfw 代替 Oh My Zsh，集成度和效率更高</p> </blockquote> <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 备份 .zshrc</span>
+<span class="nb">cp</span> ~/.zshrc ~/.zshrc.bak
+<span class="c"># 移除 Oh My Zsh 的配置，打开 .zshrc 文件，删除或注释掉与 Oh My Zsh 相关的行</span>
+<span class="c"># 清理 Oh My Zsh</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.oh-my-zsh
+</code></pre></div></div> <ol> <li>通过编辑 <code class="language-plaintext highlighter-rouge">~/.zshrc</code> 文件来自定义 zim，并检查可以添加到 <code class="language-plaintext highlighter-rouge">~/.zimrc</code> 中的可用模块和主题。</li> </ol> <div class="language-ssh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">nano</span> ~/.zshrc
+<span class="k">nano</span> ~/.zimrc
+<span class="c1"># 更改各种配置</span>
+<span class="k">source</span> ~/.zshrc
+</code></pre></div></div> <ol> <li><code class="language-plaintext highlighter-rouge">.zimrc</code> 配置</li> </ol> <blockquote> <p>大部分 Oh My Zsh 需要手动配置的插件（如 compinit、SHARE_HISTORY、CORRECT 等）在 Zim 中已经默认启用 只需要手动添加需要的模块和主题，使用 <code class="language-plaintext highlighter-rouge">zimfw install</code> 即可自动安装</p> </blockquote> <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># zoxide 模块不通过 zim 安装</span>
+<span class="c"># curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh</span>
+
+<span class="c"># 添加 powerlevel10k 模块</span>
+zmodule romkatv/powerlevel10k
+
+zimfw <span class="nb">install
+</span>zimfw update
+zimfw upgrade
+</code></pre></div></div>]]></content><author><name></name></author><category term="Tools"/><category term="Linux"/><category term="Configuration"/><summary type="html"><![CDATA[Linux 系统软件配置和常见错误解决方案的记录]]></summary></entry></feed>

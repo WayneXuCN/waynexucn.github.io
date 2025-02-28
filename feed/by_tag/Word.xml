@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://waynehsucn.github.io//feed/by_tag/Word.xml" rel="self" type="application/atom+xml"/><link href="https://waynehsucn.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-28T04:02:34+00:00</updated><id>https://waynehsucn.github.io//feed/by_tag/Word.xml</id><title type="html">Wenjie Xu</title><subtitle>Wenjie Xu&apos;s home page. feedId:113833929030099968+userId:72841831310508032 </subtitle><entry><title type="html">Word 排版记录</title><link href="https://waynehsucn.github.io//blog/2024/Word%E6%8E%92%E7%89%88%E8%AE%B0%E5%BD%95/" rel="alternate" type="text/html" title="Word 排版记录"/><published>2024-06-23T21:35:00+00:00</published><updated>2024-06-23T21:35:00+00:00</updated><id>https://waynehsucn.github.io//blog/2024/Word%E6%8E%92%E7%89%88%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="https://waynehsucn.github.io//blog/2024/Word%E6%8E%92%E7%89%88%E8%AE%B0%E5%BD%95/"><![CDATA[<h2 id="word-宏">Word 宏</h2> <h3 id="交叉引用颜色">交叉引用颜色</h3> <p>用于将 word 中的交叉引用、Endnote/Zotero 交叉引用自动格式化，默认颜色为蓝色。</p> <pre><code class="language-basic">Sub CitingColor()
+    For i = 1 To ActiveDocument.Fields.Count '遍历文档所有域
+        If Left(ActiveDocument.Fields(i).Code, 4) = " REF" Or Left(ActiveDocument.Fields(i).Code, 14) = " ADDIN EN.CITE" Or Left(ActiveDocument.Fields(i).Code, 31) = " ADDIN ZOTERO_ITEM CSL_CITATION" Then 'Word自带的交叉引用的域代码起始4位是" REF"（注意空格），EndNote插入的引用域代码的起始14位是" ADDIN EN.CITE"，Zotero插入的引用域代码的起始31位是" ADDIN ZOTERO_ITEM CSL_CITATION"。根据需求可添加其他类型。
+        ActiveDocument.Fields(i).Select '选中上述几类域
+        Selection.Font.Color = RGB(31, 77, 160) '设置字体颜色
+        End If
+    Next
+End Sub
+</code></pre> <h3 id="mathtype-统一缩放">Mathtype 统一缩放</h3> <p>用于处理 Mathtype 公式更新后部分公式高度不一致的问题，重新统一缩放代码。</p> <pre><code class="language-basic">Sub EqMathtype_100()
+'
+' EqMathtype_100 Macro
+''
+Dim i As Integer
+Dim total As Integer
+total = ActiveDocument.InlineShapes.Count
+i = 0
+For Each s In ActiveDocument.InlineShapes
+i = i + 1
+On Error Resume Next
+Application.StatusBar = "Progress: " &amp; i &amp; " of " &amp; total
+If s.Type = msoAutoShape Then
+If s.OLEFormat.ClassType = "Equation.DSMT4" Then
+With s
+.ScaleHeight = 100
+.ScaleWidth = 100
+End With
+End If
+End If
+Next
+End Sub
+</code></pre>]]></content><author><name></name></author><category term="Writing"/><category term="Word"/><category term="Typesetting"/><summary type="html"><![CDATA[常用的 Word 排版经验和宏工具]]></summary></entry></feed>
