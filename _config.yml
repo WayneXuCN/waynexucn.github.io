@@ -9,7 +9,7 @@ last_name: Xu
 contact_note: >
   Feel free to contact me anytime through my email: wenjie.xu.cn@outlook.com.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Wenjie Xu's home page.
+  Wenjie Xu's home page. feedId:113833929030099968+userId:72841831310508032
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -43,6 +43,9 @@ repo_calendar:
 # Take a look to https://github.com/jekyll/jekyll-feed for more customization
 
 rss_icon: true
+feed:
+  posts_limit: 30
+  tags: true
 
 # -----------------------------------------------------------------------------
 # Layout
