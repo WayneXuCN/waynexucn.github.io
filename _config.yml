@@ -17,7 +17,7 @@ keywords: Wenjie Xu, Wayne Xu, 徐文杰，UCAS, University of Chinese Academy o
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://waynehsucn.github.io/ # the base hostname & protocol for your site
+url: https://waynexucn.github.io/ # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
@@ -106,7 +106,7 @@ related_blog_posts:
 # Giscus comments (RECOMMENDED)
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
 giscus:
-  repo: WayneHsuCN/BlogComments # <your-github-user-name>/<your-github-repo-name>
+  repo: WayneXuCN/BlogComments # <your-github-user-name>/<your-github-repo-name>
   repo_id: R_kgDOMFTH3A # leave empty or specify your repo_id (see https://giscus.app/)
   category: Announcements # name of the category under which discussions will be created
   category_id: DIC_kwDOMFTH3M4Cf4dF # leave empty or specify your category_id (see https://giscus.app/)
@@ -119,7 +119,7 @@ giscus:
   lang: zh-CN
 
 # Disqus comments (DEPRECATED)
-# disqus_shortname: WayneHsuCN # put your disqus shortname
+# disqus_shortname: WayneXuCN # put your disqus shortname
 # https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 # External sources.

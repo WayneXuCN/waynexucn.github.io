@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Hi 👋, I'm Wayne Hsu (Wenjie Xu).
+subtitle: Hi 👋, I'm Wayne Xu (Wenjie Xu).
 profile:
   align: right
   image: prof_pic.jpg
@@ -37,6 +37,6 @@ latest_posts:
 
 💻 Passionate about **programming** and **software development**, with a focus on creating practical tools and contributing to **open-source technologies**.
 
-✍️ Insights and tutorials shared on my [blog](https://waynehsucn.github.io/blog/), covering research progress, technical resources, and trends in technology and management.
+✍️ Insights and tutorials shared on my [blog](https://waynexucn.github.io/blog/), covering research progress, technical resources, and trends in technology and management.
 
 🌐 Open to collaboration—feel free to connect at [wenjie.xu.cn@outlook.com](mailto:wenjie.xu.cn@outlook.com)!
