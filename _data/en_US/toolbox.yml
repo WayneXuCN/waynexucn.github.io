@@ -1,42 +1,42 @@
 - type: Web APP
   title: Tomodoro
   desc: A simple and efficient Pomodoro Technique web app with task timing and statistics.
-  icon: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_icon.png
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_screenshot.png
+  icon: http://oss.wenjiexu.site/tomodoro_icon.webp
+  screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
   open_url: /app/tomodoro/index.html
   github_url: https://github.com/lazy-guy/tomodoro
 - type: Web APP
   title: Tomodoro
   desc: A simple and efficient Pomodoro Technique web app with task timing and statistics.
-  icon: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_icon.png
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_screenshot.png
+  icon: http://oss.wenjiexu.site/tomodoro_icon.webp
+  screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
   open_url: /app/tomodoro/index.html
   github_url: https://github.com/lazy-guy/tomodoro
 - type: Python Script
   title: MicrosoftHostsPicker
   desc: A Python script for automatically filtering and generating hosts for Microsoft services.
   icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/MicrosoftHostsPicker_screenshot.png
+  screenshot: http://oss.wenjiexu.site/MicrosoftHostsPicker_screenshot.webp
   open_url: /app/MicrosoftHostsPicker/index.html
   github_url: https://github.com/Vncntvx/MicrosoftHostsPicker
 - type: Python Script
   title: MicrosoftHostsPicker
   desc: A Python script for automatically filtering and generating hosts for Microsoft services.
   icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/MicrosoftHostsPicker_screenshot.png
+  screenshot: http://oss.wenjiexu.site/MicrosoftHostsPicker_screenshot.webp
   open_url: /app/MicrosoftHostsPicker/index.html
   github_url: https://github.com/Vncntvx/MicrosoftHostsPicker
 - type: CLI Tool
   title: HostImageBackup
   desc: A command-line tool based on Python for backing up images from various image hosting services to local storage.
   icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/HostImageBackup_screenshot.png
+  screenshot: http://oss.wenjiexu.site/HostImageBackup_screenshot.webp
   open_url: /app/HostImageBackup/index.html
   github_url: https://github.com/Vncntvx/HostImageBackup
 - type: CLI Tool
   title: Python-Markdown
   desc: A Python implementation of John Gruber's Markdown.
   icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/pymarkdown_screenshot.png
+  screenshot: http://oss.wenjiexu.site/pymarkdown_screenshot.webp
   open_url: https://github.com/Python-Markdown/markdown
   github_url: https://github.com/Python-Markdown/markdown

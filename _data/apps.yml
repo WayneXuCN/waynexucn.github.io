@@ -1,21 +1,21 @@
 - type: Web APP
   title: Tomodoro
   desc: 一个简洁高效的番茄工作法 Web APP，支持任务计时与统计。
-  icon: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_icon.png
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_screenshot.png
+  icon: http://oss.wenjiexu.site/tomodoro_icon.webp
+  screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
   open_url: /app/tomodoro/index.html
   github_url: https://github.com/lazy-guy/tomodoro
 - type: Web APP
   title: Tomodoro
   desc: 一个简洁高效的番茄工作法 Web APP，支持任务计时与统计。
-  icon: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_icon.png
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/tomodoro_screenshot.png
+  icon: http://oss.wenjiexu.site/tomodoro_icon.webp
+  screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
   open_url: /app/tomodoro/index.html
   github_url: https://github.com/lazy-guy/tomodoro
 - type: Python CLI
   title: Python-Markdown
   desc: 一个 John Gruber 的 Markdown 的 Python 实现。
   icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg
-  screenshot: https://xwj770427414.oss-cn-beijing.aliyuncs.com/img/pymarkdown_screenshot.png
+  screenshot: http://oss.wenjiexu.site/pymarkdown_screenshot.webp
   open_url: https://github.com/Python-Markdown/markdown
   github_url: https://github.com/Python-Markdown/markdown
