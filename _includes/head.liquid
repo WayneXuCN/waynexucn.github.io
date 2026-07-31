@@ -101,6 +101,29 @@
 {% elsif site.icon != blank %}
   <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url | bust_file_cache}}">
 {% endif %}
+{% comment %}
+  iOS home-screen bookmarks need rel="apple-touch-icon" pointing at a real raster image;
+  Safari ignores the inline SVG data URI used for the emoji favicon and falls back to a
+  screenshot of the page. Emitted only when a usable raster asset exists (v1 core 1.0.13 logic).
+{% endcomment %}
+{% if site.apple_touch_icon and site.apple_touch_icon != '' %}
+  {% assign apple_touch_icon = site.apple_touch_icon %}
+{% elsif site.icon and site.icon.size > 4 %}
+  {% assign icon_extension = site.icon | split: '.' | last | split: '?' | first | downcase %}
+  {% if icon_extension == 'png' or icon_extension == 'jpg' or icon_extension == 'jpeg' %}
+    {% assign apple_touch_icon = site.icon %}
+  {% endif %}
+{% endif %}
+{% if apple_touch_icon %}
+  {% if apple_touch_icon contains '://' %}
+    {% assign apple_touch_icon_url = apple_touch_icon %}
+  {% elsif apple_touch_icon contains '/' %}
+    {% assign apple_touch_icon_url = apple_touch_icon | relative_url | bust_file_cache %}
+  {% else %}
+    {% assign apple_touch_icon_url = apple_touch_icon | prepend: '/assets/img/' | relative_url | bust_file_cache %}
+  {% endif %}
+  <link rel="apple-touch-icon" href="{{ apple_touch_icon_url }}">
+{% endif %}
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
