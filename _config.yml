@@ -516,6 +516,24 @@ third_party_libraries:
         library: "https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/echarts.min.js"
         dark_theme: "https://cdn.jsdelivr.net/npm/echarts@{{version}}/theme/dark-fresh-cut.js"
     version: "5.5.0"
+  fontawesome:
+    integrity:
+      css: "sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{version}}/css/all.min.css"
+    version: "7.2.0"
+  academicons:
+    integrity:
+      css: "sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/academicons@{{version}}/css/academicons.min.css"
+    version: "1.9.5"
+  scholar-icons:
+    integrity:
+      css: "sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/scholar-icons@{{version}}/css/scholar-icons.css"
+    version: "1.0.3"
   google_fonts:
     url:
       fonts: "https://fonts.googleapis.com/css?family=Source+Serif+Pro:300,400,600,700|Source+Sans+Pro:300,400,600,700|Noto+Serif+SC:300,400,500,700|Noto+Sans+SC:300,400,500,700|Material+Icons&display=swap"
