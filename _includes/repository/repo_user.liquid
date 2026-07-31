@@ -23,10 +23,12 @@
     <img
       class="only-light w-100"
       alt="{{ include.username }}"
-      src="https://raw.githubusercontent.com/{{ include.username }}/{{ include.username }}/main/.cache/metrics.base.svg">
+      src="https://raw.githubusercontent.com/{{ include.username }}/{{ include.username }}/main/.cache/metrics.base.svg"
+      onerror="this.closest('.repo').style.display='none'">
     <img
       class="only-dark w-100"
       alt="{{ include.username }}"
-      src="https://raw.githubusercontent.com/{{ include.username }}/{{ include.username }}/main/.cache/metrics.base.svg">
+      src="https://raw.githubusercontent.com/{{ include.username }}/{{ include.username }}/main/.cache/metrics.base.svg"
+      onerror="this.closest('.repo').style.display='none'">
   </a>
 </div>
