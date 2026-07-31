@@ -179,76 +179,17 @@
     crossorigin="anonymous">
 {% endif %}
 
-{% if page.images %}
-  {% if page.images.compare %}
-    <!-- Image comparison slider -->
-    <link
-      defer
-      rel="stylesheet"
-      href="{{ site.third_party_libraries.img-comparison-slider.url.css }}"
-      integrity="{{ site.third_party_libraries.img-comparison-slider.integrity.css }}"
-      crossorigin="anonymous">
-  {% endif %}
-  {% if page.images.lightbox2 %}
-    <!-- Lightbox2 -->
-    <link
-      defer
-      rel="stylesheet"
-      href="{{ site.third_party_libraries.lightbox2.url.css }}"
-      integrity="{{ site.third_party_libraries.lightbox2.integrity.css }}"
-      crossorigin="anonymous">
-  {% endif %}
-  {% if page.images.photoswipe %}
-    <!-- Photoswipe -->
-    <link
-      defer
-      rel="stylesheet"
-      href="{{ site.third_party_libraries.photoswipe.url.css }}"
-      crossorigin="anonymous">
-  {% endif %}
-  {% if page.images.slider %}
-    <!-- Image slider -->
-    <link
-      defer
-      rel="stylesheet"
-      href="{{ site.third_party_libraries.swiper.url.css }}"
-      integrity="{{ site.third_party_libraries.swiper.integrity.css }}"
-      crossorigin="anonymous">
-  {% endif %}
-  {% if page.images.spotlight %}
-    <!-- Spotlight -->
-    <link
-      defer
-      rel="stylesheet"
-      href="{{ site.third_party_libraries.spotlight.url.css }}"
-      integrity="{{ site.third_party_libraries.spotlight.integrity.css }}"
-      crossorigin="anonymous">
-  {% endif %}
-  {% if page.images.venobox %}
-    <!-- Venobox -->
-    <link
-      defer
-      rel="stylesheet"
-      href="{{ site.third_party_libraries.venobox.url.css }}"
-      integrity="{{ site.third_party_libraries.venobox.integrity.css }}"
-      crossorigin="anonymous">
-  {% endif %}
+{% if site.plugins contains 'al_img_tools' %}
+  <!-- Image Features -->
+  {% include plugins/al_img_tools_styles.liquid %}
 {% endif %}
 
-{% if page.tikzjax %}
-  <link
-    defer
-    rel="stylesheet"
-    type="text/css"
-    href="{{ '/assets/css/tikzjax.min.css' | relative_url | bust_file_cache }}">
+{% if site.plugins contains 'al_math' %}
+  <!-- Math and Tikzjax -->
+  {% include plugins/al_math_styles.liquid %}
 {% endif %}
 
 {% if site.enable_cookie_consent %}
   <!-- Cookie Consent -->
-  <link
-    defer
-    rel="stylesheet"
-    href="{{ site.third_party_libraries.vanilla-cookieconsent.url.css }}"
-    integrity="{{ site.third_party_libraries.vanilla-cookieconsent.integrity.css }}"
-    crossorigin="anonymous">
+  {% include plugins/al_cookie_styles.liquid %}
 {% endif %}

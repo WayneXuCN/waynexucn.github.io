@@ -642,6 +642,14 @@ third_party_libraries:
       css: "https://cdn.jsdelivr.net/npm/pseudocode@{{version}}/build/pseudocode.min.css"
       js: "https://cdn.jsdelivr.net/npm/pseudocode@{{version}}/build/pseudocode.min.js"
     version: "2.4.1"
+  tikzjax:
+    integrity:
+      css: "sha256-p+CQrhSq3dnLHELDcVBFDf4whOor3w8gzLuc/pwRLyQ="
+      js: "sha256-7SCmUR11IG4MkSoeLUq0pombv7oeV7yZuu7Z82e4Uy4="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/@planktimerr/tikzjax@{{version}}/dist/fonts.css"
+      js: "https://cdn.jsdelivr.net/npm/@planktimerr/tikzjax@{{version}}/dist/tikzjax.js"
+    version: "1.0.8"
   spotlight:
     integrity:
       css: "sha256-Dsvkx8BU8ntk9Iv+4sCkgHRynYSQQFP6gJfBN5STFLY="
