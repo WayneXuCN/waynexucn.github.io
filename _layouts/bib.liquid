@@ -25,7 +25,23 @@
         {% endif %}
       {% endif %}
       {% if entry.preview %}
-        {% if entry.preview contains '://' %}
+        {%- comment -%}
+          A preview may be a video file rather than an image. Rendering one through the
+          image path below produces a broken <img>, so hand it to video.liquid instead.
+          Keep this list in sync with the native-video branch of _includes/video.liquid:
+          an extension it does not recognize falls through to its <iframe> branch.
+          See alshedivat/al-folio#3564.
+        {%- endcomment -%}
+        {% assign preview_video_extensions = 'mp4,webm,ogg,mov' | split: ',' %}
+        {% assign preview_extension = entry.preview | split: '.' | last | split: '?' | first | downcase %}
+        {% if preview_video_extensions contains preview_extension %}
+          {% if entry.preview contains '://' %}
+            {% assign preview_video_path = entry.preview %}
+          {% else %}
+            {% assign preview_video_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+          {% endif %}
+          {% include video.liquid path=preview_video_path class="preview z-depth-1 rounded" controls=true %}
+        {% elsif entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
@@ -139,12 +155,12 @@
           class="more-authors"
           title="{{ site.data[site.active_lang].strings.bibliography.click_to_view }} {{ more_authors_hide }}"
           onclick="
-              var element = $(this);
-              element.attr('title', '');
-              var more_authors_text = element.text() == '{{ more_authors_hide }}' ? '{{ more_authors_show }}' : '{{ more_authors_hide }}';
+              var element = this;
+              element.setAttribute('title', '');
+              var more_authors_text = element.textContent == '{{ more_authors_hide }}' ? '{{ more_authors_show }}' : '{{ more_authors_hide }}';
               var cursorPosition = 0;
               var textAdder = setInterval(function(){
-                element.html(more_authors_text.substring(0, cursorPosition + 1));
+                element.innerHTML = more_authors_text.substring(0, cursorPosition + 1);
                 if (++cursorPosition == more_authors_text.length){
                   clearInterval(textAdder);
                 }
