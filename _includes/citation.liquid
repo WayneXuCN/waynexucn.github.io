@@ -2,14 +2,14 @@
 <hr>
 <br>
 
-{{ site.data[site.active_lang].strings.citation.introduction }}
+{{ site.data[site.active_lang].strings.citation.introduction | default: 'If you found this useful, please cite this as:' }}
 
 {% capture citation_quote -%}
 > {{ site.last_name }}, {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} ({{ page.date | date: "%b %Y" }}). {{ page.title }}. {% if site.title != 'blank' %}{{ site.title }}. {% endif %}{{ site.url }}.
 {%- endcapture %}
 {{ citation_quote | markdownify }}
 
-<p>{{ site.data[site.active_lang].strings.citation.bibtex }}</p>
+<p>{{ site.data[site.active_lang].strings.citation.bibtex | default: 'or as a BibTeX entry:' }}</p>
 
 {% capture citation_code -%}
 ```bibtex

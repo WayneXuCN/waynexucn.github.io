@@ -6,25 +6,25 @@ layout: page
     <div class="course-info">
       {% if page.instructor %}
         <p>
-          <strong>{{ site.data[site.active_lang].strings.courses.instructor }}:</strong> {{ page.instructor }}
+          <strong>{{ site.data[site.active_lang].strings.courses.instructor | default: 'Instructor' }}:</strong> {{ page.instructor }}
         </p>
       {% endif %}
 
       {% if page.term %}
         <p>
-          <strong>{{ site.data[site.active_lang].strings.courses.term }}:</strong> {{ page.term }}
+          <strong>{{ site.data[site.active_lang].strings.courses.term | default: 'Term' }}:</strong> {{ page.term }}
         </p>
       {% endif %}
 
       {% if page.location %}
         <p>
-          <strong>{{ site.data[site.active_lang].strings.courses.location }}:</strong> {{ page.location }}
+          <strong>{{ site.data[site.active_lang].strings.courses.location | default: 'Location' }}:</strong> {{ page.location }}
         </p>
       {% endif %}
 
       {% if page.time %}
         <p>
-          <strong>{{ site.data[site.active_lang].strings.courses.time }}:</strong> {{ page.time }}
+          <strong>{{ site.data[site.active_lang].strings.courses.time | default: 'Time' }}:</strong> {{ page.time }}
         </p>
       {% endif %}
     </div>
@@ -33,14 +33,14 @@ layout: page
   {{ content }}
 
   {% if page.schedule %}
-    <h2>{{ site.data[site.active_lang].strings.courses.schedule }}</h2>
+    <h2>{{ site.data[site.active_lang].strings.courses.schedule | default: 'Schedule' }}</h2>
     <table class="table table-sm table-responsive">
       <thead>
         <tr>
-          <th>{{ site.data[site.active_lang].strings.courses.week }}</th>
-          <th>{{ site.data[site.active_lang].strings.courses.date }}</th>
-          <th>{{ site.data[site.active_lang].strings.courses.topic }}</th>
-          <th>{{ site.data[site.active_lang].strings.courses.materials }}</th>
+          <th>{{ site.data[site.active_lang].strings.courses.week | default: 'Week' }}</th>
+          <th>{{ site.data[site.active_lang].strings.courses.date | default: 'Date' }}</th>
+          <th>{{ site.data[site.active_lang].strings.courses.topic | default: 'Topic' }}</th>
+          <th>{{ site.data[site.active_lang].strings.courses.materials | default: 'Materials' }}</th>
         </tr>
       </thead>
       <tbody>

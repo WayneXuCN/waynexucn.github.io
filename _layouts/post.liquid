@@ -17,15 +17,15 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
-      {{ site.data[site.active_lang].strings.post.created_in }}
+      {{ site.data[site.active_lang].strings.post.created_in | default: 'Created in' }}
       {% include date_format.liquid format='long' date=page.date -%}
       {%- if page.author -%}
-        {{- site.data[site.active_lang].strings.post.created_by }}
+        {{- site.data[site.active_lang].strings.post.created_by | default: 'Created by' }}
         {{ page.author -}}
       {%- endif -%}
       {%- assign last_date = page.last_modified_at | default: page.last_updated -%}
       {%- if last_date -%}
-        , {{ site.data[site.active_lang].strings.post.last_updated }}
+        , {{ site.data[site.active_lang].strings.post.last_updated | default: 'Last updated on' }}
         {% include date_format.liquid format='long' date=last_date -%}
       {%- endif -%}
       {% if page.meta %}• {{ page.meta }}{% endif %}
@@ -95,7 +95,7 @@ layout: default
   {% endif %}
 
   {% if page.related_publications %}
-    <h2>{{ site.data[site.active_lang].strings.references }}</h2>
+    <h2>{{ site.data[site.active_lang].strings.references | default: 'References' }}</h2>
     <div class="publications">
       {% bibliography --group_by none --cited_in_order %}
     </div>

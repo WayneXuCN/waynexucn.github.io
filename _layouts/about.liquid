@@ -57,7 +57,7 @@ layout: default
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">{{ site.data[site.active_lang].strings.news }}</a>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">{{ site.data[site.active_lang].strings.news | default: 'News' }}</a>
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -65,7 +65,9 @@ layout: default
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
       <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">{{ site.data[site.active_lang].strings.latest_posts }}</a>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">
+          {{- site.data[site.active_lang].strings.latest_posts | default: 'Latest Posts' -}}
+        </a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
@@ -73,7 +75,9 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">{{ site.data[site.active_lang].strings.selected_publications }}</a>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">
+          {{- site.data[site.active_lang].strings.selected_publications | default: 'Selected publications' -}}
+        </a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
@@ -83,7 +87,13 @@ layout: default
       <div class="social">
         <div class="contact-icons">{% social_links %}</div>
 
-        <div class="contact-note">{{ site.data[site.active_lang].strings.contact_note }}</div>
+        <div class="contact-note">
+          {{
+            site.data[site.active_lang].strings.contact_note
+            | default: 'Feel free to contact me anytime through my email: wenjie.xu.cn@outlook.com
+'
+          }}
+        </div>
       </div>
     {% endif %}
 

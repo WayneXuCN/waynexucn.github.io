@@ -12,34 +12,36 @@
       class="newsletter-form-input"
       name="newsletter-form-input"
       type="email"
-      placeholder="{{ site.data[site.active_lang].strings.newsletter.email_placeholder }}"
+      placeholder="{{ site.data[site.active_lang].strings.newsletter.email_placeholder | default: 'user@example.com' }}"
       required="">
 
     <button
       type="submit"
       class="newsletter-form-button"
       style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
-      {{ site.data[site.active_lang].strings.newsletter.subscribe }}
+      {{ site.data[site.active_lang].strings.newsletter.subscribe | default: 'Subscribe' }}
     </button>
 
     <button
       type="button"
       class="newsletter-loading-button"
       style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
-      {{ site.data[site.active_lang].strings.newsletter.wait }}
+      {{ site.data[site.active_lang].strings.newsletter.wait | default: 'Please wait...' }}
     </button>
   </form>
 
   <div
     class="newsletter-success"
     style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
-    <p class="newsletter-success-message">{{ site.data[site.active_lang].strings.newsletter.subscribed }}</p>
+    <p class="newsletter-success-message">{{ site.data[site.active_lang].strings.newsletter.subscribed | default: 'You\'re subscribed!' }}</p>
   </div>
 
   <div
     class="newsletter-error"
     style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}">
-    <p class="newsletter-error-message">{{ site.data[site.active_lang].strings.newsletter.error }}</p>
+    <p class="newsletter-error-message">
+      {{ site.data[site.active_lang].strings.newsletter.error | default: 'Oops! Something went wrong, please try again' }}
+    </p>
   </div>
 
   <button
@@ -47,7 +49,7 @@
     type="button"
     onmouseout='this.style.textDecoration="none"'
     onmouseover='this.style.textDecoration="underline"'>
-    &larr; {{ site.data[site.active_lang].strings.newsletter.back }}
+    &larr; {{ site.data[site.active_lang].strings.newsletter.back | default: 'Back' }}
   </button>
 </div>
 

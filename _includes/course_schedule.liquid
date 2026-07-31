@@ -12,13 +12,13 @@
 
     {% if course.instructor %}
       <p>
-        <strong>{{ site.data[site.active_lang].strings.courses.instructor }}:</strong> {{ course.instructor }}
+        <strong>{{ site.data[site.active_lang].strings.courses.instructor | default: 'Instructor' }}:</strong> {{ course.instructor }}
       </p>
     {% endif %}
 
     {% if course.term %}
       <p>
-        <strong>{{ site.data[site.active_lang].strings.courses.term }}:</strong> {{ course.term }}
+        <strong>{{ site.data[site.active_lang].strings.courses.term | default: 'Term' }}:</strong> {{ course.term }}
       </p>
     {% endif %}
 
@@ -26,10 +26,10 @@
       <table class="table table-sm table-responsive">
         <thead>
           <tr>
-            <th>{{ site.data[site.active_lang].strings.courses.week }}</th>
-            <th>{{ site.data[site.active_lang].strings.courses.date }}</th>
-            <th>{{ site.data[site.active_lang].strings.courses.topic }}</th>
-            <th>{{ site.data[site.active_lang].strings.courses.materials }}</th>
+            <th>{{ site.data[site.active_lang].strings.courses.week | default: 'Week' }}</th>
+            <th>{{ site.data[site.active_lang].strings.courses.date | default: 'Date' }}</th>
+            <th>{{ site.data[site.active_lang].strings.courses.topic | default: 'Topic' }}</th>
+            <th>{{ site.data[site.active_lang].strings.courses.materials | default: 'Materials' }}</th>
           </tr>
         </thead>
         <tbody>
@@ -69,7 +69,7 @@
         </tbody>
       </table>
     {% else %}
-      <p>{{ site.data[site.active_lang].strings.course_schedule.no_schedule }}</p>
+      <p>{{ site.data[site.active_lang].strings.course_schedule.no_schedule | default: 'No schedule available for this course.' }}</p>
     {% endif %}
   </div>
 {% endif %}

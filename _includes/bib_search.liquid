@@ -6,5 +6,5 @@
     spellcheck="false"
     autocomplete="off"
     class="search bibsearch-form-input"
-    placeholder="{{ site.data[site.active_lang].strings.search.bib_placeholder }}">
+    placeholder="{{ site.data[site.active_lang].strings.search.bib_placeholder | default: 'Type to filter' }}">
 {% endif %}

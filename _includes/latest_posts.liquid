@@ -42,6 +42,6 @@
       </table>
     </div>
   {% else %}
-    <p>{{ site.data[site.active_lang].strings.no_posts }}</p>
+    <p>{{ site.data[site.active_lang].strings.no_posts | default: 'No posts yet...' }}</p>
   {% endif %}
 </div>

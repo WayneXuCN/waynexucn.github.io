@@ -55,8 +55,10 @@
       })();
     </script>
     <noscript>
-      {{ site.data[site.active_lang].strings.comments.enable_js }}
-      <a href="http://giscus.app/?ref_noscript">{{ site.data[site.active_lang].strings.comments.powered_by }} giscus.</a>
+      {{ site.data[site.active_lang].strings.comments.enable_js | default: 'Please enable JavaScript to view the' }}
+      <a href="http://giscus.app/?ref_noscript">
+        {{- site.data[site.active_lang].strings.comments.powered_by | default: 'comments powered by' }} giscus.</a
+      >
     </noscript>
   {% else %}
     {% capture giscus_warning %}

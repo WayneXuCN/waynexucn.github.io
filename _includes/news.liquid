@@ -28,6 +28,6 @@
       </table>
     </div>
   {% else %}
-    <p>{{ site.data[site.active_lang].strings.no_news }}</p>
+    <p>{{ site.data[site.active_lang].strings.no_news | default: 'No news yet...' }}</p>
   {% endif %}
 </div>

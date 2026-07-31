@@ -78,12 +78,14 @@ layout: default
           <!-- Header/Contact Information -->
           {% if cv.name or cv.label or cv.location or cv.email or cv.phone or cv.website %}
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.contact_information }}</h3>
+              <h3 class="card-title font-weight-medium">
+                {{ site.data[site.active_lang].strings.cv.contact_information | default: 'Contact Information' }}
+              </h3>
               <table class="table table-cv table-sm table-borderless">
                 {% if cv.name %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.name }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.name | default: 'Name' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ cv.name }}</td>
                   </tr>
@@ -91,7 +93,7 @@ layout: default
                 {% if cv.label %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.professional_title }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.professional_title | default: 'Professional Title' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ cv.label }}</td>
                   </tr>
@@ -99,7 +101,7 @@ layout: default
                 {% if cv.email %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.email }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.email | default: 'Email' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ cv.email }}</td>
                   </tr>
@@ -107,7 +109,7 @@ layout: default
                 {% if cv.phone %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.phone }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.phone | default: 'Phone' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ cv.phone }}</td>
                   </tr>
@@ -115,7 +117,7 @@ layout: default
                 {% if cv.address %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.location }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.location | default: 'Location' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">
                       {% if cv.address.street %}
@@ -136,7 +138,7 @@ layout: default
                 {% if cv.website %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.website }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.website | default: 'Website' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">
                       <a href="{{ cv.website }}" target="_blank">{{ cv.website }}</a>
@@ -150,7 +152,9 @@ layout: default
           <!-- Summary -->
           {% if cv.summary %}
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.professional_summary }}</h3>
+              <h3 class="card-title font-weight-medium">
+                {{ site.data[site.active_lang].strings.cv.professional_summary | default: 'Professional Summary' }}
+              </h3>
               <p>{{ cv.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
             </div>
           {% endif %}
@@ -170,7 +174,7 @@ layout: default
           {% if combined_experience.size > 0 %}
             <a class="anchor" id="experience"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience | default: 'Experience' }}</h3>
               <div>
                 {% assign entries = combined_experience | al_cv_sort_by_date %}
                 {% include cv/experience.liquid %}
@@ -274,13 +278,15 @@ layout: default
           <!-- Contact Information -->
           {% if resume.basics %}
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.contact_information }}</h3>
+              <h3 class="card-title font-weight-medium">
+                {{ site.data[site.active_lang].strings.cv.contact_information | default: 'Contact Information' }}
+              </h3>
               {% assign basics = resume.basics %}
               <table class="table table-cv table-sm table-borderless">
                 {% if basics.name %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.name }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.name | default: 'Name' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ basics.name }}</td>
                   </tr>
@@ -288,7 +294,7 @@ layout: default
                 {% if basics.label %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.professional_title }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.professional_title | default: 'Professional Title' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ basics.label }}</td>
                   </tr>
@@ -296,7 +302,7 @@ layout: default
                 {% if basics.email %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.email }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.email | default: 'Email' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ basics.email }}</td>
                   </tr>
@@ -304,7 +310,7 @@ layout: default
                 {% if basics.phone %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.phone }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.phone | default: 'Phone' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">{{ basics.phone }}</td>
                   </tr>
@@ -312,7 +318,7 @@ layout: default
                 {% if basics.location %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.location }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.location | default: 'Location' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">
                       {% if basics.location.address %}
@@ -333,7 +339,7 @@ layout: default
                 {% if basics.url %}
                   <tr>
                     <td class="p-1 pr-2 font-weight-bold">
-                      <b>{{ site.data[site.active_lang].strings.cv.website }}</b>
+                      <b>{{ site.data[site.active_lang].strings.cv.website | default: 'Website' }}</b>
                     </td>
                     <td class="p-1 pl-2 font-weight-light">
                       <a href="{{ basics.url }}" target="_blank">{{ basics.url }}</a>
@@ -347,7 +353,9 @@ layout: default
           <!-- Summary -->
           {% if resume.basics.summary %}
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.professional_summary }}</h3>
+              <h3 class="card-title font-weight-medium">
+                {{ site.data[site.active_lang].strings.cv.professional_summary | default: 'Professional Summary' }}
+              </h3>
               <p>{{ resume.basics.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
             </div>
           {% endif %}
@@ -360,7 +368,7 @@ layout: default
           {% if combined_experience.size > 0 %}
             <a class="anchor" id="experience"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.experience | default: 'Experience' }}</h3>
               <div>
                 {% assign entries = combined_experience | al_cv_sort_by_date %}
                 {% include cv/experience.liquid %}
@@ -372,7 +380,7 @@ layout: default
           {% if resume.education.size > 0 %}
             <a class="anchor" id="education"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.education }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.education | default: 'Education' }}</h3>
               <div>
                 {% assign entries = resume.education | al_cv_sort_by_date %}
                 {% include cv/education.liquid %}
@@ -384,7 +392,7 @@ layout: default
           {% if resume.awards.size > 0 %}
             <a class="anchor" id="awards"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.awards }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.awards | default: 'Awards' }}</h3>
               <div>
                 {% assign entries = resume.awards %}
                 {% include cv/awards.liquid %}
@@ -396,7 +404,7 @@ layout: default
           {% if resume.publications.size > 0 %}
             <a class="anchor" id="publications"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.publications }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.publications | default: 'Publications' }}</h3>
               <div>
                 {% assign entries = resume.publications %}
                 {% include cv/publications.liquid %}
@@ -408,7 +416,7 @@ layout: default
           {% if resume.skills.size > 0 %}
             <a class="anchor" id="skills"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.skills }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.skills | default: 'Skills' }}</h3>
               <div>
                 {% assign entries = resume.skills %}
                 {% include cv/skills.liquid %}
@@ -420,7 +428,7 @@ layout: default
           {% if resume.languages.size > 0 %}
             <a class="anchor" id="languages"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.languages }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.languages | default: 'Languages' }}</h3>
               <div>
                 {% assign entries = resume.languages %}
                 {% include cv/languages.liquid %}
@@ -432,7 +440,7 @@ layout: default
           {% if resume.interests.size > 0 %}
             <a class="anchor" id="interests"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.interests }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.interests | default: 'Interests' }}</h3>
               <div>
                 {% assign entries = resume.interests %}
                 {% include cv/interests.liquid %}
@@ -444,7 +452,7 @@ layout: default
           {% if resume.certificates.size > 0 %}
             <a class="anchor" id="certificates"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.certificates }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.certificates | default: 'Certificates' }}</h3>
               <div>
                 {% assign entries = resume.certificates %}
                 {% include cv/certificates.liquid %}
@@ -456,7 +464,7 @@ layout: default
           {% if resume.projects.size > 0 %}
             <a class="anchor" id="projects"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.projects }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.projects | default: 'Projects' }}</h3>
               <div>
                 {% assign entries = resume.projects %}
                 {% include cv/projects.liquid %}
@@ -468,7 +476,7 @@ layout: default
           {% if resume.references.size > 0 %}
             <a class="anchor" id="references"></a>
             <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.references }}</h3>
+              <h3 class="card-title font-weight-medium">{{ site.data[site.active_lang].strings.cv.references | default: 'References' }}</h3>
               <div>
                 {% assign entries = resume.references %}
                 {% include cv/references.liquid %}
@@ -477,7 +485,12 @@ layout: default
           {% endif %}
         {% endif %}
       {% else %}
-        <p>{{ site.data[site.active_lang].strings.cv.no_cv_found }}</p>
+        <p>
+          {{
+            site.data[site.active_lang].strings.cv.no_cv_found
+            | default: 'No CV data found. Please configure RenderCV (cv.yml) or JSONResume (resume.json) data.'
+          }}
+        </p>
       {% endif %}
     </div>
   </article>

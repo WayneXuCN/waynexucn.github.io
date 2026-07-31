@@ -42,10 +42,20 @@
         {% endfor %}
       </div>
     {% else %}
-      <p>{{ site.data[site.active_lang].strings.research_summary_errors.no_research_questions }}</p>
+      <p>
+        {{
+          site.data[site.active_lang].strings.research_summary_errors.no_research_questions
+          | default: 'No research question data found. Please add at least one research_questions item to the front matter of your research page.'
+        }}
+      </p>
     {% endif %}
   {% else %}
-    <p>{{ site.data[site.active_lang].strings.research_summary_errors.no_research_page }}</p>
+    <p>
+      {{
+        site.data[site.active_lang].strings.research_summary_errors.no_research_page
+        | default: 'Research page not found. Please ensure there is a page with the path "/research/".'
+      }}
+    </p>
   {% endif %}
 </div>
 

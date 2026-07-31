@@ -7,7 +7,7 @@
           loading="eager"
           path=project.img
           sizes = "250px"
-          alt="{{ site.data[site.active_lang].strings.projects.thumbnail_alt }}"
+          alt="{{ site.data[site.active_lang].strings.projects.thumbnail_alt | default: 'project thumbnail' }}"
           class="card-img-top"
         %}
       {% endif %}
@@ -17,11 +17,17 @@
         <div class="row ml-1 mr-1 p-0">
           {% if project.github %}
             <div class="github-icon">
-              <div class="icon" data-toggle="tooltip" title="{{ site.data[site.active_lang].strings.projects.code_repository }}">
+              <div
+                class="icon"
+                data-toggle="tooltip"
+                title="{{ site.data[site.active_lang].strings.projects.code_repository | default: 'Code Repository' }}">
                 <a href="{{ project.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
               </div>
               {% if project.github_stars %}
-                <span class="stars" data-toggle="tooltip" title="{{ site.data[site.active_lang].strings.projects.github_stars }}">
+                <span
+                  class="stars"
+                  data-toggle="tooltip"
+                  title="{{ site.data[site.active_lang].strings.projects.github_stars | default: 'GitHub Stars' }}">
                   <i class="fa-solid fa-star"></i>
                   <span id="{{ project.github_stars }}-stars"></span>
                 </span>
