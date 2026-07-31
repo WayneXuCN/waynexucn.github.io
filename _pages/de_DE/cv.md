@@ -10,4 +10,6 @@ cv_format: rendercv # options: rendercv, jsonresume
 description: Dies ist eine Beschreibung der Seite. Sie können sie in '_pages/cv.md' ändern. Sie können auch die PDF-Download-Schaltfläche oben ändern oder entfernen.
 toc:
   sidebar: left
+  collapse: auto
+  collapse_depth: 2
 ---

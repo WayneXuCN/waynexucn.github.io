@@ -10,4 +10,6 @@ cv_format: rendercv # options: rendercv, jsonresume
 description: このページの説明です。'_pages/cv.md'で編集できます。上部のPDFダウンロードボタンも変更または削除できます。
 toc:
   sidebar: left
+  collapse: auto
+  collapse_depth: 2
 ---
