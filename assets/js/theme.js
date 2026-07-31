@@ -12,12 +12,14 @@ let toggleThemeSetting = () => {
     }, 400);
   }
 
-  // toggle based on the currently computed theme (light/dark)
-  let current = determineComputedTheme();
-  if (current === "light") {
+  // Cycle through light, dark, and system theme settings (core 三态语义).
+  let themeSetting = determineThemeSetting();
+  if (themeSetting == "system") {
+    setThemeSetting("light");
+  } else if (themeSetting == "light") {
     setThemeSetting("dark");
   } else {
-    setThemeSetting("light");
+    setThemeSetting("system");
   }
 };
 
@@ -368,9 +370,18 @@ let initTheme = () => {
 // Update the header theme toggle icons' visibility.
 let updateThemeToggleIcons = (theme) => {
   try {
+    const system = document.getElementById("light-toggle-system");
     const moon = document.getElementById("light-toggle-dark");
     const sun = document.getElementById("light-toggle-light");
+    const themeSetting = determineThemeSetting();
 
+    if (themeSetting === "system" && system) {
+      system.style.display = "block";
+      if (moon) moon.style.display = "none";
+      if (sun) sun.style.display = "none";
+      return;
+    }
+    if (system) system.style.display = "none";
     if (moon) moon.style.display = theme === "light" ? "block" : "none";
     if (sun) sun.style.display = theme === "dark" ? "block" : "none";
   } catch (e) {
