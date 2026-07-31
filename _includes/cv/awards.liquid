@@ -9,6 +9,7 @@
         {% capture start_date %}
           {% if entry.date %}{{ entry.date }}{% endif %}
         {% endcapture %}
+        {% assign start_date = start_date | strip %}
 
         {% if start_date != '' %}
           <div class="col-xs-2 col-sm-2 col-md-2 text-center">
