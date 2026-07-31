@@ -604,3 +604,90 @@ figure.cover {
 mjx-container[jax="CHTML"][display="true"] {
   overflow-x: auto;
 }
+
+// ============================================
+// AlFolioUi 原生 tooltip/popover（从 al_folio_bootstrap_compat 移植，
+// compat-off 后由 tooltips-setup.js 生成 .af-* 标记）
+// ============================================
+
+.af-tooltip,
+.af-popover {
+  pointer-events: none;
+  z-index: 9999;
+  max-width: 288px;
+  border-radius: 6px;
+  border: 1px solid var(--global-divider-color);
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color);
+  position: fixed;
+}
+
+.af-popover {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  line-height: 1.375;
+}
+
+.af-tooltip[hidden],
+.af-popover[hidden] {
+  display: none !important;
+}
+
+// ============================================
+// 分页 af-* 类（对齐上游 core 契约，替代 bootstrap pagination）
+// ============================================
+
+.af-pagination {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 6px;
+}
+
+.af-page-item {
+  .af-page-link {
+    color: var(--global-text-color);
+    padding: 0.75rem 1.15rem;
+    text-decoration: none;
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    margin-left: -1px;
+    display: block;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &.active .af-page-link {
+    color: #fff;
+    background-color: var(--global-theme-color);
+
+    &:hover {
+      background-color: var(--global-theme-color);
+    }
+  }
+
+  &.disabled .af-page-link {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
+
+// ============================================
+// 补丁类（tailwind.css 未覆盖的 Bootstrap 兼容类）
+// ============================================
+
+.list-group-flush {
+  padding-left: 0;
+  list-style: none;
+}
+
+.font-italic {
+  font-style: italic;
+}
