@@ -81,7 +81,7 @@ al_folio:
       enabled: true
   compat:
     bootstrap:
-      enabled: true
+      enabled: false
       support_window: v1.0-v1.2
       deprecates_in: v1.3
       removed_in: v2.0
@@ -624,6 +624,14 @@ third_party_libraries:
     url:
       js: "https://cdn.jsdelivr.net/npm/photoswipe@{{version}}/dist/photoswipe-lightbox.esm.min.js"
     version: "5.4.4"
+  tocbot:
+    integrity:
+      css: "sha256-zTN0r+0OKaIv2xqeNNIYxNk0pWJ6+IqPGc1iDgVzWF0="
+      js: "sha256-lo/r+jQ81wWrxdIiiiEEd538z4+dJTt+leOuAS7GCw="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/tocbot@{{version}}/dist/tocbot.css"
+      js: "https://cdn.jsdelivr.net/npm/tocbot@{{version}}/dist/tocbot.min.js"
+    version: "4.36.4"
   plotly:
     integrity:
       js: "sha256-oy6Be7Eh6eiQFs5M7oXuPxxm9qbJXEtTpfSI93dW16Q="

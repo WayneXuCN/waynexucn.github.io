@@ -1,17 +1,8 @@
-<!-- jQuery -->
-<script
-  defer
-  src="{{ site.third_party_libraries.jquery.url.js }}"
-  integrity="{{ site.third_party_libraries.jquery.integrity.js }}"
-  crossorigin="anonymous"></script>
-
-<!-- Bootsrap & MDB scripts -->
-<script defer src="{{ '/assets/js/bootstrap.bundle.min.js' | relative_url }}"></script>
-<script
-  defer
-  src="{{ site.third_party_libraries.mdb.url.js }}"
-  integrity="{{ site.third_party_libraries.mdb.integrity.js }}"
-  crossorigin="anonymous"></script>
+<!-- Core navigation/runtime scripts -->
+<script src="{{ '/assets/js/nav-toggle.js' | relative_url | bust_file_cache }}"></script>
+{% if site.al_folio.compat.bootstrap.enabled %}
+  <script src="{{ '/assets/js/bootstrap-compat.js' | relative_url | bust_file_cache }}"></script>
+{% endif %}
 
 {% if site.enable_masonry %}
   <!-- Masonry & imagesLoaded -->
@@ -49,18 +40,16 @@
 {% endif %}
 
 {% if page.toc and page.toc.sidebar %}
-  <!-- Sidebar Table of Contents -->
-  <script defer src="{{ '/assets/js/bootstrap-toc.min.js' | relative_url | bust_file_cache }}"></script>
-{% endif %}
-
-{% if page.pretty_table %}
-  <!-- Bootstrap Table -->
-  <!-- Bootstrap Table doesn't go well with diff2html -->
+  <!-- Tocbot -->
   <script
     defer
-    src="{{ site.third_party_libraries.bootstrap-table.url.js }}"
-    integrity="{{ site.third_party_libraries.bootstrap-table.integrity.js }}"
+    src="{{ site.third_party_libraries.tocbot.url.js }}"
+    integrity="{{ site.third_party_libraries.tocbot.integrity.js }}"
     crossorigin="anonymous"></script>
+{% endif %}
+
+{% if page.pretty_table and site.al_folio.compat.bootstrap.enabled != true %}
+  <script defer src="{{ '/assets/js/table-engine.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
 <!-- Load Common JS -->
@@ -102,7 +91,7 @@
 
 {% if page.tabs %}
   <!-- Jekyll Tabs -->
-  <script defer src="{{ '/assets/js/tabs.min.js' | relative_url | bust_file_cache }}"></script>
+  <script defer src="{{ '/assets/js/tabs.js' | relative_url | bust_file_cache }}"></script>
 {% endif %}
 
 {% if site.back_to_top %}

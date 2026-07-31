@@ -12,9 +12,14 @@ if (ninjaKeys) {
 const openSearchModal = () => {
   if (!ninjaKeys) return;
   // collapse navbarNav if expanded on mobile
-  const $navbarNav = $("#navbarNav");
-  if ($navbarNav.hasClass("show")) {
-    $navbarNav.collapse("hide");
+  const navbarNav = document.querySelector("#navbarNav");
+  if (navbarNav && navbarNav.classList.contains("show")) {
+    navbarNav.classList.remove("show");
+    const toggler = document.querySelector('[data-nav-toggle="navbarNav"]');
+    if (toggler) {
+      toggler.classList.remove("collapsed");
+      toggler.setAttribute("aria-expanded", "false");
+    }
   }
   ninjaKeys.open();
 };
