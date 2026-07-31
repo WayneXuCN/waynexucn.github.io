@@ -713,31 +713,3 @@ third_party_libraries:
       css: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.css"
       js: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.js"
     version: "2.1.8"
-
-# -----------------------------------------------------------------------------
-# Get external JSON data
-# -----------------------------------------------------------------------------
-
-jekyll_get_json:
-  - data: resume_en
-    json: assets/json/resume_en.json # it can also be an url
-  - data: resume_de
-    json: assets/json/resume_de.json # it can also be an url
-  - data: resume_ja
-    json: assets/json/resume_ja.json # it can also be an url
-  - data: resume_zh_CN
-    json: assets/json/resume_zh_CN.json # it can also be an url
-
-jsonresume:
-  - basics
-  - work
-  - education
-  - publications
-  - projects
-  - volunteer
-  - awards
-  - certificates
-  - skills
-  - languages
-  - interests
-  - references
