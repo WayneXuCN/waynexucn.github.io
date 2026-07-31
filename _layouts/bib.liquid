@@ -367,18 +367,20 @@
               {% endif %}></span>
           {% endif %}
           {% if site.enable_publication_badges.dimensions and entry_has_dimensions_badge %}
-            <span
-              class="__dimensions_badge_embed__"
-              {% if entry.dimensions != blank and entry.dimensions != 'true' %}
-                data-id="{{ entry.dimensions }}"
-              {% elsif entry.doi %}
-                data-doi="{{ entry.doi }}"
-              {% else %}
-                data-pmid="{{ entry.pmid }}"
-              {% endif %}
-              data-style="small_rectangle"
-              data-legend="hover-right"
-              style="margin-bottom: 3px;"></span>
+            {% if entry.dimensions != blank and entry.dimensions != 'true' or entry.doi or entry.pmid %}
+              <span
+                class="__dimensions_badge_embed__"
+                {% if entry.dimensions != blank and entry.dimensions != 'true' %}
+                  data-id="{{ entry.dimensions }}"
+                {% elsif entry.doi %}
+                  data-doi="{{ entry.doi }}"
+                {% else %}
+                  data-pmid="{{ entry.pmid }}"
+                {% endif %}
+                data-style="small_rectangle"
+                data-legend="hover-right"
+                style="margin-bottom: 3px;"></span>
+            {% endif %}
           {% endif %}
           {% if site.enable_publication_badges.google_scholar and entry_has_google_scholar_badge %}
             <a
