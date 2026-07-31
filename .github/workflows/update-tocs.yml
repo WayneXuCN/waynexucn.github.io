@@ -8,6 +8,7 @@ on:
       - master
     paths:
       - "*.md"
+      - "docs/*.md"
   workflow_dispatch:
 
 permissions:
@@ -26,13 +27,16 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@ed68ef82c095e0d48ec87eccea555d944a631a4c # v46
         with:
-          files: ./*.md
+          files: |
+            ./*.md
+            docs/*.md
 
       - name: Updated toc on all markdown changed files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           curl https://raw.githubusercontent.com/george-gca/github-markdown-toc/main/gh-md-toc -o gh-md-toc
+          echo "8f36b5409a9ef5d4973c77cfa47d0be99cdfa22727467a611af3d47694936f20  gh-md-toc" | shasum -a 256 -c -
           chmod a+x gh-md-toc
           for file in ${ALL_CHANGED_FILES}; do
             # Check if the file is a markdown file
