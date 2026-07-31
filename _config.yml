@@ -15,6 +15,7 @@ footer_text: >
 keywords: Wenjie Xu, Vincent Xu, 徐文杰, UCAS, University of Chinese Academy of Sciences, Institutes of Science and Development, Chinese Academy of Sciences # add your own keywords or leave empty
 lang: en_US # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG
 
 url: https://lab.wenjiexu.site/ # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -37,6 +38,11 @@ repo_trophies:
 repo_calendar:
   enabled: true
 
+# External service URLs for repository page (used by v1 core repository cards)
+external_services:
+  github_readme_stats_url: https://github-stats-extended.vercel.app
+  github_profile_trophy_url: https://github-profile-trophy.vercel.app
+
 # -----------------------------------------------------------------------------
 # Layout
 # -----------------------------------------------------------------------------
@@ -50,6 +56,38 @@ bib_search: true
 
 # Dimensions
 max_width: 1000px
+
+# -----------------------------------------------------------------------------
+# al-folio API (v1.x)
+# -----------------------------------------------------------------------------
+
+theme: al_folio_core
+
+al_folio:
+  api_version: 1
+  style_engine: tailwind
+  tailwind:
+    version: 4.1.18
+    preflight: false
+    css_entry: assets/tailwind/app.css
+  distill:
+    engine: distillpub-template
+    source: al-org-dev/distill-template#al-folio
+    allow_remote_loader: false
+  features:
+    cv:
+      enabled: true
+    distill:
+      enabled: true
+  compat:
+    bootstrap:
+      enabled: true
+      support_window: v1.0-v1.2
+      deprecates_in: v1.3
+      removed_in: v2.0
+  upgrade:
+    channel: stable
+    auto_apply_safe_fixes: false
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -168,6 +206,7 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
+  - al-folio-upgrade-report.md
   - bin/
   - CONTRIBUTING.md
   - CUSTOMIZE.md
@@ -212,6 +251,26 @@ plugins:
   - jekyll-toc
   - jekyll-twitter-plugin
   - jemoji
+  - jekyll-3rd-party-libraries
+  - jekyll-cache-bust
+
+  # al-folio plugins (v1)
+  - al_folio_core
+  - al_icons
+  - al_folio_cv
+  - al_folio_distill
+  - al_folio_upgrade
+  - al_folio_bootstrap_compat
+  - al_cookie
+  - al_analytics
+  - al_citations
+  - al_ext_posts
+  - al_img_tools
+  - al_search
+  - al_charts
+  - al_math
+  - al_comments
+  - al_newsletter
 
 # Sitemap settings
 defaults:
