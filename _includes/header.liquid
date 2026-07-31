@@ -28,8 +28,7 @@
       <button
         class="navbar-toggler collapsed ml-auto"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
+        data-nav-toggle="navbarNav"
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="{{ site.data[site.active_lang].strings.header.toggle_navigation | default: 'Toggle navigation' }}">
@@ -72,7 +71,7 @@
                     href="#"
                     id="navbarDropdown"
                     role="button"
-                    data-toggle="dropdown"
+                    data-nav-dropdown-toggle="true"
                     aria-haspopup="true"
                     aria-expanded="false">
                     {{- p.title }}
