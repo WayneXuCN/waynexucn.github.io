@@ -40,10 +40,8 @@ let applyTheme = () => {
   transTheme();
   document.documentElement.setAttribute("data-theme", theme);
 
-  // 更新图标状态（同步执行，提供即时反馈）
-  if (typeof updateThemeToggleIcons === "function") {
-    updateThemeToggleIcons(theme);
-  }
+  // 图标可见性现由 CSS 根据 data-theme-setting 属性选择器驱动（_navbar.scss），
+  // setThemeSetting 已设置该属性，无需 JS 操作 display，避免刷新闪烁。
 
   // 使用 requestAnimationFrame 延迟非关键操作，避免阻塞主线程
   requestAnimationFrame(() => {
@@ -356,9 +354,7 @@ let initTheme = () => {
     }
 
     // Ensure icons are updated after DOM is ready (prevents double icons)
-    if (typeof updateThemeToggleIcons === "function") {
-      updateThemeToggleIcons(determineComputedTheme());
-    }
+    // 图标可见性由 CSS 属性选择器驱动，此处无需 JS 介入。
   });
 
   // Add event listener to the system theme preference change.
@@ -367,27 +363,8 @@ let initTheme = () => {
   });
 };
 
-// Update the header theme toggle icons' visibility.
-let updateThemeToggleIcons = (theme) => {
-  try {
-    const system = document.getElementById("light-toggle-system");
-    const moon = document.getElementById("light-toggle-dark");
-    const sun = document.getElementById("light-toggle-light");
-    const themeSetting = determineThemeSetting();
-
-    if (themeSetting === "system" && system) {
-      system.style.display = "block";
-      if (moon) moon.style.display = "none";
-      if (sun) sun.style.display = "none";
-      return;
-    }
-    if (system) system.style.display = "none";
-    if (moon) moon.style.display = theme === "light" ? "block" : "none";
-    if (sun) sun.style.display = theme === "dark" ? "block" : "none";
-  } catch (e) {
-    // ignore if elements not present yet
-  }
-};
+// 图标可见性由 CSS 属性选择器驱动（见 _navbar.scss #light-toggle 段），
+// 根据 data-theme-setting 显示 system/dark/light 对应图标，无需 JS 介入。
 
 // Get the appropriate background color for Google Calendar based on current theme
 let getCalendarBgColor = () => {
