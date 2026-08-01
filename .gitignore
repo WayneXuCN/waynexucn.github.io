@@ -14,3 +14,4 @@ vendor
 .vscode/settings.json
 al-folio-upgrade-report.md
 _scheduled
+.claude/launch.json

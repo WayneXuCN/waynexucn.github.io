@@ -33,8 +33,12 @@ body.sticky-bottom-footer {
   padding-bottom: 0;
 }
 
+// compat=false 后，gem tailwind.css 的 .container 居中规则位于 @layer components，
+// 而本地 main.scss 未分层，按 cascade layers 规则优先级高于 @layer，会覆盖 gem 的
+// margin-inline:auto。这里显式补回归中，避免 container 靠左。
 .container {
   max-width: v.$max-content-width;
+  margin-inline: auto;
 }
 
 // Profile

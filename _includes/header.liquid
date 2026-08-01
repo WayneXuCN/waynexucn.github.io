@@ -26,7 +26,7 @@
       {% endif %}
       <!-- Navbar Toggle -->
       <button
-        class="navbar-toggler collapsed ml-auto"
+        class="navbar-toggler collapsed navbar-toggler-main"
         type="button"
         data-nav-toggle="navbarNav"
         aria-controls="navbarNav"
@@ -38,8 +38,8 @@
         <span class="icon-bar bottom-bar"></span>
       </button>
 
-      <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
           {% for page in site.pages %}
             {% if page.permalink == '/' %} {% assign about_title = page.title %} {% endif %}
           {% endfor %}
@@ -228,7 +228,7 @@
           {% endif %}
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
-            <li class="nav-item">
+            <li class="toggle-container">
               <button id="light-toggle" title="{{ site.data[site.active_lang].strings.header.change_theme | default: 'Change theme' }}">
                 <svg
                   id="light-toggle-system"

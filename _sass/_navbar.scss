@@ -14,6 +14,16 @@
   font-weight: fonts.$font-weight-normal;
   letter-spacing: fonts.$letter-spacing-normal;
 
+  // core 契约：collapse 容器右对齐，菜单列表靠右推（替代 ul 上的 ml-auto）
+  .navbar-collapse-main {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .navbar-menu-list {
+    margin-left: auto;
+  }
+
   .navbar-brand {
     font-family: fonts.$font-family-headings;
     font-size: fonts.$font-size-lg;
@@ -82,7 +92,8 @@
   .navbar-nav {
     align-items: center;
 
-    .nav-item {
+    .nav-item,
+    .toggle-container {
       display: flex;
       align-items: center;
 
@@ -335,11 +346,29 @@ html[data-theme="dark"] #light-toggle #light-toggle-light {
 
 // 移动端适配（< 576px）
 @media (max-width: 575px) {
+  // core 契约：toggler 靠右，菜单列表取消右推改为全宽左对齐
+  .navbar .navbar-toggler-main {
+    margin-left: auto;
+  }
+
+  .navbar .navbar-menu-list {
+    margin-left: 0;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  // align-items: flex-start 使每个 nav-item 收缩到自身标签宽度，
+  // dropdown 的 width:100% 会基于 toggle 链而非菜单解析，故把含 dropdown 的 item 拉满。
+  .navbar .navbar-menu-list > .nav-item.dropdown {
+    width: 100%;
+  }
+
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
     .navbar-nav {
       // 按钮容器
-      .nav-item {
+      .nav-item,
+      .toggle-container {
         width: 100%;
         margin: 0;
         border-bottom: 1px solid var(--global-divider-color);
