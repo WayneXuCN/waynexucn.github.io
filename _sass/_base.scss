@@ -615,6 +615,23 @@ ul.task-list input[type="checkbox"] {
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
           }
 
+          // 未翻译语言的入口（aria-disabled，不产生导航）
+          &.disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+
+            &:hover,
+            &:focus {
+              background-color: transparent;
+              color: var(--global-text-color);
+              transform: none;
+
+              .lang-icon {
+                transform: none;
+              }
+            }
+          }
+
           // 图标样式
           .lang-icon {
             width: 1.1em;

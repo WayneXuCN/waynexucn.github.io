@@ -17,7 +17,7 @@ lang: en_US # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 apple_touch_icon: apple-touch-icon.png # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG
 
-url: https://lab.wenjiexu.site/ # the base hostname & protocol for your site
+url: https://lab.wenjiexu.site # the base hostname & protocol for your site (no trailing slash: prevents // in absolute URLs)
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
@@ -177,12 +177,18 @@ newsletter:
 collections:
   books:
     output: true
+    # i18n: exclude the {lang}/ path segment from URLs (polyglot README recommends
+    # permalinks without :path for localized collections). 4 language versions are
+    # still emitted under /books/, /zh_CN/books/, /de_DE/books/, /ja_JP/books/.
+    permalink: /:collection/:title/
   news:
     defaults:
       layout: post
     output: true
+    permalink: /:collection/:title/
   projects:
     output: true
+    permalink: /:collection/:title/
   teachings:
     output: true
 
@@ -206,25 +212,33 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
+  - AGENTS.md
   - al-folio-upgrade-report.md
+  - ANALYTICS.md
   - bin/
+  - CLAUDE.md
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - Dockerfile
   - docker-compose.yml
   - docker-compose-slim.yml
+  - docs/
   - FAQ.md
   - Gemfile
   - Gemfile.lock
   - INSTALL.md
   - LICENSE
   - lighthouse_results/
+  - main.py
   - package.json
   - package-lock.json
   - pnpm-lock.yaml
   - purgecss.config.js
+  - pyproject.toml
   - README.md
   - readme_preview/
+  - requirements.txt
+  - SEO.md
   - vendor
 keep_files:
   - CNAME
@@ -278,6 +292,59 @@ defaults:
       path: "assets"
     values:
       sitemap: true
+  # Inject lang front matter per collection language directory. Polyglot only
+  # populates page.permalink_lang for documents that carry a `lang` (it records
+  # the permalink of docs whose lang matches); without this, collection pages
+  # (books/news/projects) would have empty permalink_lang and fall back to
+  # page.url, breaking the language switcher, hreflang and canonical.
+  - scope:
+      path: "_books/en_US"
+    values:
+      lang: en_US
+  - scope:
+      path: "_books/zh_CN"
+    values:
+      lang: zh_CN
+  - scope:
+      path: "_books/de_DE"
+    values:
+      lang: de_DE
+  - scope:
+      path: "_books/ja_JP"
+    values:
+      lang: ja_JP
+  - scope:
+      path: "_news/en_US"
+    values:
+      lang: en_US
+  - scope:
+      path: "_news/zh_CN"
+    values:
+      lang: zh_CN
+  - scope:
+      path: "_news/de_DE"
+    values:
+      lang: de_DE
+  - scope:
+      path: "_news/ja_JP"
+    values:
+      lang: ja_JP
+  - scope:
+      path: "_projects/en_US"
+    values:
+      lang: en_US
+  - scope:
+      path: "_projects/zh_CN"
+    values:
+      lang: zh_CN
+  - scope:
+      path: "_projects/de_DE"
+    values:
+      lang: de_DE
+  - scope:
+      path: "_projects/ja_JP"
+    values:
+      lang: ja_JP
 
 sass:
   style: compressed
@@ -288,7 +355,7 @@ sass:
 
 languages: ["en_US", "zh_CN", "de_DE", "ja_JP"]
 default_lang: "en_US"
-exclude_from_localization: ["assets", "sitemap.xml", "feed.xml", "robots.txt"]
+exclude_from_localization: ["assets", "app", "feed.xml", "robots.txt"]
 lang_from_path: true
 country_flag: false # set true for allowing flag symbol in language toggle
 language_names:
@@ -296,6 +363,17 @@ language_names:
   zh_CN: "中文"
   de_DE: "Deutsch"
   ja_JP: "日本語"
+# BCP 47 mapping for <html lang>, hreflang and Open Graph locale (polyglot internal
+# codes use underscores; web standards require hyphens: en_US -> en-US)
+lang_bcp47:
+  en_US: "en-US"
+  zh_CN: "zh-CN"
+  de_DE: "de-DE"
+  ja_JP: "ja-JP"
+# Fallback pages (content rendered in default_lang, e.g. single-source _teachings)
+# get a canonical pointing at the default-language version instead of a self-referencing
+# per-language URL, avoiding duplicate-content signals for identical English content.
+fallback_canonical_to_default_lang: true
 parallel_localization: false
 
 # -----------------------------------------------------------------------------

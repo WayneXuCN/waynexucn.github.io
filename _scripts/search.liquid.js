@@ -1,6 +1,17 @@
 ---
 permalink: /assets/js/search-data.js
 ---
+{% comment %}
+  Language-aware relative URL: polyglot's relativization only rewrites href= attributes,
+  not JS string literals, so plain relative_url would point search results at the default
+  language on non-default-language sites. Prefix with the active language (default lang
+  stays at root). baseurl is empty in this project, but kept for correctness.
+{% endcomment %}
+{% assign lang_root = site.baseurl %}
+{% unless site.active_lang == site.default_lang %}
+  {% assign lang_root = lang_root | append: '/' | append: site.active_lang %}
+{% endunless %}
+{% assign localized_url = page.url | prepend: lang_root %}
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -14,7 +25,7 @@ ninja.data = [
     title: "{{ about_title | truncatewords: 13 }}",
     section: "{{ site.data[site.active_lang].strings.search.navigation }}",
     handler: () => {
-      window.location.href = "{{ '/' | relative_url }}";
+      window.location.href = "{{ '/' | prepend: lang_root }}";
     },
   },
   {%- assign sorted_pages = site.pages | sort: "nav_order" -%}
@@ -31,7 +42,7 @@ ninja.data = [
               description: "{{ child.description | strip_html | strip_newlines | escape | strip }}",
               section: "{{ site.data[site.active_lang].strings.search.dropdown }}",
               handler: () => {
-                window.location.href = "{{ url | relative_url }}";
+                window.location.href = "{{ url | prepend: lang_root }}";
               },
             },
           {%- endunless -%}
@@ -46,7 +57,7 @@ ninja.data = [
           description: "{{ p.description | strip_html | strip_newlines | escape | strip }}",
           section: "{{ site.data[site.active_lang].strings.search.navigation }}",
           handler: () => {
-            window.location.href = "{{ url | relative_url }}";
+            window.location.href = "{{ url | prepend: lang_root }}";
           },
         },
       {%- endif -%}
@@ -68,11 +79,11 @@ ninja.data = [
         section: "{{ site.data[site.active_lang].strings.search.posts }}",
         handler: () => {
           {% if post.redirect == blank %}
-            window.location.href = "{{ post.url | relative_url }}";
+            window.location.href = "{{ post.url | prepend: lang_root }}";
           {% elsif post.redirect contains '://' %}
             window.open("{{ post.redirect }}", "_blank");
           {% else %}
-            window.location.href = "{{ post.redirect | relative_url }}";
+            window.location.href = "{{ post.redirect | prepend: lang_root }}";
           {% endif %}
         },
       },
@@ -94,7 +105,7 @@ ninja.data = [
             section: "{{ site.data[site.active_lang].strings.collections[collection.label] | default: collection.label | capitalize }}",
             {%- unless item.inline -%}
               handler: () => {
-                window.location.href = "{{ item.url | relative_url }}";
+                window.location.href = "{{ item.url | prepend: lang_root }}";
               },
             {%- endunless -%}
           },
@@ -124,7 +135,7 @@ ninja.data = [
         {%- when "cv_pdf" -%}
           {%- assign social_id = "social-cv" -%}
           {%- assign social_title = "CV" -%}
-          {%- capture social_url %}"{{ social[1] | relative_url }}"{% endcapture -%}
+          {%- capture social_url %}"{{ social[1] | prepend: lang_root }}"{% endcapture -%}
         {%- when "dblp_url" -%}
           {%- assign social_id = "social-dblp" -%}
           {%- assign social_title = "DBLP" -%}

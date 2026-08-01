@@ -14,34 +14,70 @@
   <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 {% endif %}
 
-<!-- Hreflang for Polyglot -->
+<!-- Hreflang + x-default (BCP 47, real translations only) -->
+{% comment %}
+  Uses polyglot 1.13.0's page.permalink_lang ({lang => path-without-lang-prefix}),
+  populated by find_translations via page_id / normalized permalink.
+  - Only real translations are listed (fallback langs are absent from permalink_lang);
+    the default language and x-default are always emitted.
+  - hreflang values use BCP 47 (en_US -> en-US) via site.lang_bcp47.
+  - Pages without permalink_lang (auto-generated: archives, pagination, scholar)
+    degrade to current lang + x-default.
+{% endcomment %}
 {% if site.languages %}
-  {% assign current_url = page.url %}
-  {% if site.active_lang != site.default_lang %}
-    {% assign prefix = '/' | append: site.active_lang %}
-    {% assign current_url = page.url | remove_first: prefix %}
-  {% endif %}
-
   {% for lang in site.languages %}
+    {% assign alt = page.permalink_lang[lang] | default: page.url | replace: 'index.html', '' %}
+    {% if page.permalink_lang and page.permalink_lang[lang] == null and lang != site.default_lang %}{% continue %}{% endif %}
     {% if lang == site.default_lang %}
       <link
         rel="alternate"
-        hreflang="{{ lang }}"
-        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}">
+        hreflang="{{ site.lang_bcp47[lang] | default: lang }}"
+        {% static_href %}
+        href="{{ site.url }}{{ site.baseurl }}{{ alt }}"
+        {% endstatic_href %}>
       <link
         rel="alternate"
         hreflang="x-default"
-        href="{{ site.url }}{{ site.baseurl }}{{ current_url }}">
+        {% static_href %}
+        href="{{ site.url }}{{ site.baseurl }}{{ alt }}"
+        {% endstatic_href %}>
     {% else %}
       <link
         rel="alternate"
-        hreflang="{{ lang }}"
-        href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ current_url }}">
+        hreflang="{{ site.lang_bcp47[lang] | default: lang }}"
+        {% static_href %}
+        href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ alt }}"
+        {% endstatic_href %}>
     {% endif %}
   {% endfor %}
 {% endif %}
 
 {% capture author_name %}{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}{% endcapture %}
+{% comment %}
+  canonical_url (permalink_lang driven) — defined here because metadata.liquid renders
+  first in head.liquid; head.liquid's canonical tag reuses the same variable.
+  - pages with translations: permalink_lang[active_lang], prefixed with the active
+    language unless it is the default language.
+  - fallback pages (active lang missing from permalink_lang, non-default): with
+    fallback_canonical_to_default_lang set, roll up to the default-language permalink.
+  - auto-generated pages (no permalink_lang): fall back to page.url (language-free).
+{% endcomment %}
+{% assign canonical_url = page.url | replace: 'index.html', '' %}
+{% if page.permalink_lang %}
+  {% assign active_permalink = page.permalink_lang[site.active_lang] %}
+  {% if site.fallback_canonical_to_default_lang
+    and site.active_lang != site.default_lang
+    and active_permalink == null
+    and page.permalink_lang[site.default_lang]
+  %}
+    {% assign canonical_url = page.permalink_lang[site.default_lang] %}
+  {% elsif active_permalink %}
+    {% assign canonical_url = active_permalink %}
+    {% unless site.active_lang == site.default_lang %}
+      {% assign canonical_url = '/' | append: site.active_lang | append: canonical_url %}
+    {% endunless %}
+  {% endif %}
+{% endif %}
 <!-- Standard metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -82,7 +118,7 @@
   <meta property="og:site_name" content="{{ title }}">
   <meta property="og:type" content="{% if is_blog_post %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ title }} | {{ page.title }}{% else %}{{ title }}{% endif %}">
-  <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}">
+  <meta property="og:url" content="{{ canonical_url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   {% if page.og_image or site.og_image %}
     {% assign og_image_source = page.og_image | default: site.og_image %}
@@ -209,7 +245,8 @@
         {% capture link %}https://www.quora.com/profile/{{ social[1] }}{% endcapture %}
         {% assign sameaslinks = sameaslinks | push: link %}
       {% when 'research_gate_profile' %}
-        {% capture link %}https://www.researchgate.net/profile/{{ social[1] }}/{% endcapture %}
+        {% comment %} socials.yml already stores the full URL for this key {% endcomment %}
+        {% assign link = social[1] %}
         {% assign sameaslinks = sameaslinks | push: link %}
       {% when 'rss_icon' %}
         {% comment %}
@@ -262,19 +299,34 @@
         {% capture link %}https://www.zotero.org/{{ social[1] }}{% endcapture %}
         {% assign sameaslinks = sameaslinks | push: link %}
       {% else %}
-        {% assign sameaslinks = sameaslinks | push: social[1].url %}
+        {% comment %}
+          Generic fallback: keep the value only when it is a plain absolute URL string
+          (nested hashes like wechat_qr yield nil/blank here and would inject null).
+        {% endcomment %}
+        {% assign social_value = social[1] %}
+        {% if social_value.url %}{% assign social_value = social_value.url %}{% endif %}
+        {% if social_value contains '://' %}
+          {% assign sameaslinks = sameaslinks | push: social_value %}
+        {% endif %}
     {% endcase %}
   {% endfor %}
 
+  {% comment %}
+    Escape the description for JSON-LD: the YAML `>` folding (site.description) leaves
+    a trailing newline, which is a raw control character inside the JSON string and
+    makes the structured data invalid. strip + strip_newlines + escape keeps it on one
+    line. headline is safe (page.title has no newlines).
+  {% endcomment %}
+  {% assign schema_description = page.description | default: site.description | strip | strip_newlines | replace: '"', '&quot;' %}
   <script type="application/ld+json">
     {
       "author": {
         "@type": "Person",
         "name": "{{ author_name }}"
       },
-      "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
+      "url": "{{ canonical_url | prepend: site.baseurl | prepend: site.url }}",
       "@type": "{% if is_blog_post %} BlogPosting{% else %}WebSite{% endif %}",
-      "description": "{% if page.description %} {{ page.description }} {% else if site.description %} {{ site.description }} {% endif %}",
+      "description": "{{ schema_description }}",
       "headline": "{% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %}",
       {% if sameaslinks != blank %}
         "sameAs": {{ sameaslinks | jsonify }},

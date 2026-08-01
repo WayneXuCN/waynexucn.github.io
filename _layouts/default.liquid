@@ -1,5 +1,11 @@
 <!doctype html>
-<html lang="{{ site.active_lang }}">
+{% comment %}
+  BCP 47 html lang: page.rendered_lang (polyglot) is the language the content is
+  actually rendered in — fallback pages (e.g. single-source _teachings) are English
+  content served under a non-default lang, so they must be marked en-US, not zh-CN.
+{% endcomment %}
+{% assign html_lang = page.rendered_lang | default: site.active_lang | default: site.lang %}
+<html lang="{{ site.lang_bcp47[html_lang] | default: html_lang }}">
   <!-- Head -->
   <head>
     {% if page.redirect %}

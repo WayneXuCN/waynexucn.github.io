@@ -207,18 +207,45 @@
                       {% else %}
                         {% assign lang_href = site.baseurl | append: '/' | append: l | append: current_url %}
                       {% endif %}
-                      <a
-                        class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}"
-                        {% static_href -%}
-                        href="{{ lang_href }}"
-                        {%- endstatic_href %}
-                        aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
-                        {% if site.country_flag %}
-                          <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
-                        {% else %}
-                          <span class="lang-label">{{ site.language_names[l] }}</span>
-                        {%- endif -%}
-                      </a>
+                      {% comment %}
+                        Grey out languages without a real translation. page.available_languages
+                        is a polyglot array (lang codes with actual translations); when nil or
+                        empty (auto-generated pages, single-source pages fall back everywhere),
+                        every language stays reachable. Note: direct `==` / `size` comparisons
+                        on the drop are unreliable in Liquid, so test the join + contains instead.
+                      {% endcomment %}
+                      {% assign al_join = page.available_languages | join: ',' %}
+                      {% assign lang_available = true %}
+                      {% if al_join != blank %}
+                        {% unless page.available_languages contains l %}
+                          {% assign lang_available = false %}
+                        {% endunless %}
+                      {% endif %}
+                      {% if lang_available %}
+                        <a
+                          class="lang-dropdown-item {% if l == site.active_lang %}active{% endif %}"
+                          {% static_href -%}
+                          href="{{ lang_href }}"
+                          {%- endstatic_href %}
+                          aria-current="{% if l == site.active_lang %}true{% else %}false{% endif %}">
+                          {% if site.country_flag %}
+                            <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
+                          {% else %}
+                            <span class="lang-label">{{ site.language_names[l] }}</span>
+                          {%- endif -%}
+                        </a>
+                      {% else %}
+                        <a
+                          class="lang-dropdown-item disabled"
+                          title="{{ site.data[site.active_lang].strings.header.not_translated | default: 'Not translated yet' }}"
+                          aria-disabled="true">
+                          {% if site.country_flag %}
+                            <span class="flag-icon fi fi-{{ l | split: "_" | last }}"></span>
+                          {% else %}
+                            <span class="lang-label">{{ site.language_names[l] }}</span>
+                          {%- endif -%}
+                        </a>
+                      {% endif %}
                       {% assign language_set = true %}
                     {% endfor %}
                   </div>

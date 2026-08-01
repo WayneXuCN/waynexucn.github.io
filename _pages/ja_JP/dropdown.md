@@ -2,6 +2,7 @@
 page_id: dropdown
 layout: page
 title: その他
+permalink: /dropdown/
 nav: false
 nav_order: 7
 dropdown: true

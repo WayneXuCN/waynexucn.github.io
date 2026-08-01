@@ -107,7 +107,13 @@
   <link rel="apple-touch-icon" href="{{ apple_touch_icon_url }}">
 {% endif %}
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+{% comment %}
+  canonical: canonical_url is computed in _includes/metadata.liquid (rendered first
+  above); this tag emits it wrapped in static_href so polyglot's relativization of
+  absolute hrefs does not rewrite it to the active language.
+{% endcomment %}
+<link rel="canonical" {% static_href %} href="{{ canonical_url | absolute_url }}" {% endstatic_href %}>
+{% comment %} hreflang is emitted by _includes/metadata.liquid (BCP-47, real translations only, with x-default). {% endcomment %}
 
 {% if page.noindex or page.sitemap == false %}
   <meta name="robots" content="noindex">
