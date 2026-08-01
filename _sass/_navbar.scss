@@ -313,8 +313,7 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
 
 // 主题切换按钮
 #light-toggle {
-  // 三个图标默认全部隐藏，由 data-theme-setting / data-theme 属性选择器决定可见
-  #light-toggle-system,
+  // 两个图标默认全部隐藏，由 data-theme 属性选择器决定可见
   #light-toggle-dark,
   #light-toggle-light {
     display: none;
@@ -338,20 +337,15 @@ html[data-theme="dark"] .navbar-nav .lang-switcher-item .lang-switcher-dropdown 
   }
 }
 
-// 根据 data-theme-setting / data-theme 属性显示对应图标
-// data-theme-setting 在 head 内联 initTheme() 同步设置，早于 header 解析，无闪烁
-// system 态：显示 system 图标
-html[data-theme-setting="system"] #light-toggle #light-toggle-system {
+// 根据 data-theme 属性显示对应图标（反映当前 computed 状态）
+// data-theme 在 head 内联 initTheme() 同步设置，早于 header 解析，无闪烁
+// 当前亮：显示太阳
+html[data-theme="light"] #light-toggle #light-toggle-light {
   display: block;
 }
 
-// 显式 light 态：显示月亮
-html[data-theme-setting="light"] #light-toggle #light-toggle-dark {
-  display: block;
-}
-
-// 显式 dark 态：显示太阳
-html[data-theme-setting="dark"] #light-toggle #light-toggle-light {
+// 当前暗：显示月亮
+html[data-theme="dark"] #light-toggle #light-toggle-dark {
   display: block;
 }
 

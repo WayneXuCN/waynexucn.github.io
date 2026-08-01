@@ -620,7 +620,9 @@ mjx-container[jax="CHTML"][display="true"] {
   padding: 4px 8px;
   font-size: 0.75rem;
   line-height: 1.25;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   background: var(--global-card-bg-color);
   color: var(--global-text-color);
   position: fixed;

@@ -29,6 +29,7 @@ al_folio_core  pin 1.0.13  latest X.Y.Z  变更摘要（来自 CHANGELOG）
 ```
 
 **分类规则（把变更变成任务前必读）**：
+
 - documentation-only / README / showcase / release notes → **不转任务**（只更新对账文档）
 - bug fix → 转"修复移植"任务，小批次
 - new feature → 转"功能启用"任务，需用户确认
@@ -39,6 +40,7 @@ al_folio_core  pin 1.0.13  latest X.Y.Z  变更摘要（来自 CHANGELOG）
 
 打开 `docs/upstream-tracking.md` 第 3 节，给每个上游变更打状态标签：
 `✅ 已同步 / 🟡 本地override·有意保留 / ⏸️ 主动拒绝 / N/A / ⚠️ 待决策`
+
 - 已覆盖（本地实现等价/增强）→ 只更新备注，不动代码
 - 缺失/过时 → 进入第 3 步
 - 与本地设计冲突 → 记录到"主动拒绝登记"，不硬合
@@ -59,6 +61,7 @@ bundle exec al-folio upgrade overrides diff      # 逐文件审查：
 ```
 
 **红线（不可违反）**：
+
 1. 不修改 permalink / collections / archives / polyglot 路径配置（URL 契约冻结）
 2. 不破坏 i18n：`site.active_lang` 体系、`_data/<locale>/strings.yml`、语言切换器、hreflang
 3. 不为同步牺牲本地设计（Bootstrap 视觉、research/toolbox/books/teachings、CSP、字体）

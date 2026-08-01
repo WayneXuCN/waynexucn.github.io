@@ -12,15 +12,9 @@ let toggleThemeSetting = () => {
     }, 400);
   }
 
-  // Cycle through light, dark, and system theme settings (core 三态语义).
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
-    setThemeSetting("dark");
-  } else {
-    setThemeSetting("system");
-  }
+  // 两态翻转：依据当前 computed 翻转到反面，锁定为显式 light/dark。
+  let current = determineComputedTheme();
+  setThemeSetting(current === "dark" ? "light" : "dark");
 };
 
 // Change the theme setting and apply the theme.
