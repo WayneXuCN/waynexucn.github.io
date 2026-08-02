@@ -1460,22 +1460,8 @@ footer.sticky-bottom {
   }
 }
 
-// Rouge 代码高亮
-figure.highlight {
-  margin: 0 0 1rem;
-
-  // Responsive code block container
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-
-  pre {
-    // Ensure code blocks can scroll horizontally
-    white-space: pre;
-    word-wrap: normal;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
+// figure.highlight 主体已迁移至 _utilities.scss（与 _base 逐字重复）。
+// 见 _utilities.scss:10。
 
 pre {
   color: var(--global-theme-color);
@@ -1701,16 +1687,6 @@ nav[data-toggle="toc"] {
     margin: 0.5rem 0;
   }
 
-  figure.highlight {
-    margin: 0.5rem 0;
-
-    pre {
-      font-family: fonts.$font-family-code;
-      font-size: fonts.$font-size-sm;
-      padding: 8px 10px;
-    }
-  }
-
   code {
     font-family: fonts.$font-family-code;
     font-size: fonts.$font-size-sm;
@@ -1726,14 +1702,6 @@ nav[data-toggle="toc"] {
     padding: 6px 8px;
   }
 
-  figure.highlight {
-    pre {
-      font-family: fonts.$font-family-code;
-      font-size: fonts.$font-size-xs;
-      padding: 6px 8px;
-    }
-  }
-
   code {
     font-family: fonts.$font-family-code;
     font-size: fonts.$font-size-xs;
@@ -1747,14 +1715,6 @@ nav[data-toggle="toc"] {
     font-family: fonts.$font-family-code;
     font-size: fonts.$font-size-sm;
     padding: 8px 12px;
-  }
-
-  figure.highlight {
-    pre {
-      font-family: fonts.$font-family-code;
-      font-size: fonts.$font-size-sm;
-      padding: 8px 12px;
-    }
   }
 }
 
