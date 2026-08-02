@@ -136,89 +136,13 @@ table.table a {
   }
 }
 
-blockquote {
-  background: var(--global-code-bg-color);
-  border-left: 5px solid var(--global-theme-color);
-  margin: 1.5em 0;
-  padding: 1em;
-  font-family: fonts.$font-family-quote;
-  font-size: fonts.$font-size-md;
-  font-weight: fonts.$font-weight-normal;
-  line-height: fonts.$line-height-relaxed;
-  border-radius: 0 8px 8px 0;
-  box-shadow: var(--global-shadow-sm);
-
-  p {
-    margin-bottom: 0;
-  }
-
-  // 提示、警告和危险引用块
-  &.block-tip {
-    border-color: var(--global-tip-block);
-    background-color: var(--global-tip-block-bg);
-
-    em,
-    li,
-    p,
-    strong {
-      color: var(--global-tip-block-text);
-    }
-
-    a,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: var(--global-tip-block-title);
-    }
-  }
-
-  &.block-warning {
-    border-color: var(--global-warning-block);
-    background-color: var(--global-warning-block-bg);
-
-    em,
-    li,
-    p,
-    strong {
-      color: var(--global-warning-block-text);
-    }
-
-    a,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: var(--global-warning-block-title);
-    }
-  }
-
-  &.block-danger {
-    border-color: var(--global-danger-block);
-    background-color: var(--global-danger-block-bg);
-
-    em,
-    li,
-    p,
-    strong {
-      color: var(--global-danger-block-text);
-    }
-
-    a,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: var(--global-danger-block-title);
-    }
-  }
-}
+// blockquote 已迁移至 _typography.scss：
+// - B 类（border-left/margin/padding/font-*/line-height/block-tip|warning|danger）
+//   _typography 原有等价定义（同源变量），此处删除消除重复
+// - A 类（border-radius: 0 8px 8px 0 + box-shadow: var(--global-shadow-sm)）
+//   已追加到 _typography blockquote 块
+// - C 类 background（_base code-bg vs typography bg）：_typography 后加载覆盖，
+//   当前渲染为页面 bg 色，删 _base 无回归
 
 // 任务列表
 

@@ -84,6 +84,9 @@ blockquote {
   font-size: v.$font-size-md;
   font-weight: v.$font-weight-normal;
   line-height: v.$line-height-relaxed;
+  // 以下属性迁移自 _base.scss（A 类，_base 独有，_typography 原无）
+  border-radius: 0 8px 8px 0;
+  box-shadow: var(--global-shadow-sm);
 
   p {
     margin-bottom: 0;
