@@ -15,7 +15,7 @@
 **Core Technologies:**
 
 - **Jekyll:** v4.x (Ruby static site generator)
-- **Ruby:** 3.4.2 (primary CI/CD version, matches `gh-pages-to-server.yml`). Some legacy workflows still pin 3.2.2/3.3 — being unified. Note: `.ruby-version` is gitignored by upstream convention; CI reads the version from workflow `ruby-version:` inputs.
+- **Ruby:** 3.4.2 (primary CI/CD version, matches `gh-pages-to-server.yml` and all other workflows). Note: `.ruby-version` is gitignored by upstream convention; CI reads the version from workflow `ruby-version:` inputs.
 - **Python:** 3.13 (for nbconvert, jupyter notebook support)
 - **Node.js:** Latest LTS (for purgecss and prettier)
 

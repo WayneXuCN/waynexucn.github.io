@@ -15,6 +15,6 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3"
+          ruby-version: "3.4.2"
       - name: Audit i18n string coverage
         run: ruby scripts/audit-strings.rb
