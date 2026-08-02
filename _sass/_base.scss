@@ -177,34 +177,11 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 }
 
-// 卡片
-
-.card {
-  background-color: var(--global-card-bg-color);
-  border: none;
-  box-shadow: var(--global-shadow-sm);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border-radius: 8px;
-  overflow: hidden;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--global-shadow-hover);
-  }
-
-  .card-img {
-    width: 100%;
-    padding-top: 1.25rem;
-  }
-
-  .card-title {
-    color: var(--global-text-color);
-  }
-
-  .card-body {
-    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
-  }
-}
+// .card 顶层块已迁移至 _components.scss：
+// - B 类（background-color/.card-img/.card-title color/.card-body）_components 原有
+// - A 类（border:none/box-shadow/transition/border-radius:8px/overflow:hidden/
+//   :hover transform+box-shadow）已追加到 _components .card 块
+// 注意：_base:1006 .cv .card 与 _base:1175 .projects .card 是嵌套覆盖，不在本次范围
 
 // 引用
 

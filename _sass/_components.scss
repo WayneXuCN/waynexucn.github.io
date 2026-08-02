@@ -45,6 +45,17 @@ ul.task-list input[type="checkbox"] {
 
 .card {
   background-color: var(--global-card-bg-color);
+  // 以下属性迁移自 _base.scss（A 类，_base 独有，_components 原无）
+  border: none;
+  box-shadow: var(--global-shadow-sm);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 8px;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--global-shadow-hover);
+  }
 
   .card-img {
     width: 100%;
