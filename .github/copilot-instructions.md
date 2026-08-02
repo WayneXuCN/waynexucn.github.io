@@ -15,7 +15,7 @@
 **Core Technologies:**
 
 - **Jekyll:** v4.x (Ruby static site generator)
-- **Ruby:** 3.4.2 (primary CI/CD version, see `.ruby-version`). Some legacy workflows still pin 3.2.2/3.3 — being unified.
+- **Ruby:** 3.4.2 (primary CI/CD version, matches `gh-pages-to-server.yml`). Some legacy workflows still pin 3.2.2/3.3 — being unified. Note: `.ruby-version` is gitignored by upstream convention; CI reads the version from workflow `ruby-version:` inputs.
 - **Python:** 3.13 (for nbconvert, jupyter notebook support)
 - **Node.js:** Latest LTS (for purgecss and prettier)
 
@@ -95,7 +95,6 @@ JEKYLL_ENV=production bundle exec jekyll build
 - `Gemfile` & `Gemfile.lock` – Ruby dependency specifications
 - `package.json` & `package-lock.json` – Node.js dependencies (prettier)
 - `purgecss.config.js` – PurgeCSS configuration for production CSS optimization
-- `.ruby-version` – Ruby version pin (3.4.2)
 - `.al-folio-overrides.yml` – Manifest of forked files overriding gem defaults
 
 ### Configuration Priority
