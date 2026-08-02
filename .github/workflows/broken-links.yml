@@ -35,8 +35,8 @@ on:
 jobs:
   link-checker:
     runs-on: ubuntu-latest
-    # only run on the main repo
-    if: github.repository == 'alshedivat/al-folio'
+    # only run on this fork (upstream gates on alshedivat/al-folio)
+    if: github.repository == 'Vncntvx/LabPage'
     steps:
       - uses: actions/checkout@v4
 
