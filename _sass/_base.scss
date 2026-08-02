@@ -2004,79 +2004,8 @@ ninja-keys::part(ninja-input-wrapper) {
   color: var(--global-text-color);
 }
 
-figure.cover {
-  display: inline-block;
-  text-align: center;
-  margin: 0.5rem; /* adjust as needed */
-
-  img {
-    vertical-align: bottom;
-  }
-
-  figcaption.abandoned {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #ee5f5b;
-  }
-
-  figcaption.finished,
-  figcaption.watched {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #62c462;
-  }
-
-  figcaption.interested {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #7691db;
-  }
-
-  figcaption.paused {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #bdac7e;
-  }
-
-  figcaption.queued {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #9e76b5;
-  }
-
-  figcaption.reading,
-  figcaption.watching {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #f89406;
-  }
-
-  figcaption.reread,
-  figcaption.rewatch {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #a6517d;
-  }
-
-  figcaption.uncategorized {
-    font-family: fonts.$font-family-code;
-    color: #23212d;
-    text-transform: uppercase;
-    background-color: #b0abb3;
-  }
-
-  /* mouse over link */
-  a.cover-link:hover {
-    color: #23212d !important;
-  }
-}
+// figure.cover 已迁移至 _utilities.scss（与 _base 逐字重复，唯一差异 figcaption
+// font-family 由 _utilities 的 monospace 覆盖生效）。此处删除以消除重复。
 
 mjx-container[jax="CHTML"][display="true"] {
   overflow-x: auto;
