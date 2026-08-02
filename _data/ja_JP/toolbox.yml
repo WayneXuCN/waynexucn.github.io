@@ -5,20 +5,6 @@
   screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
   open_url: /app/tomodoro/index.html
   github_url: https://github.com/lazy-guy/tomodoro
-- type: Web APP
-  title: Tomodoro
-  desc: タスクタイマーと統計機能を備えたシンプルで効率的なポモドーロテクニックWebアプリ。
-  icon: http://oss.wenjiexu.site/tomodoro_icon.webp
-  screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
-  open_url: /app/tomodoro/index.html
-  github_url: https://github.com/lazy-guy/tomodoro
-- type: Python スクリプト
-  title: MicrosoftHostsPicker
-  desc: Microsoftサービス用のhostsを自動でフィルタリング・生成するPythonスクリプト。
-  icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg
-  screenshot: http://oss.wenjiexu.site/MicrosoftHostsPicker_screenshot.webp
-  open_url: /app/MicrosoftHostsPicker/index.html
-  github_url: https://github.com/Vncntvx/MicrosoftHostsPicker
 - type: Python スクリプト
   title: MicrosoftHostsPicker
   desc: Microsoftサービス用のhostsを自動でフィルタリング・生成するPythonスクリプト。

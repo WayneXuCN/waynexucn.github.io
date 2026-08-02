@@ -5,20 +5,6 @@
   screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
   open_url: /app/tomodoro/index.html
   github_url: https://github.com/lazy-guy/tomodoro
-- type: Web 应用
-  title: Tomodoro
-  desc: 一个简洁高效的番茄工作法 Web APP，支持任务计时与统计。
-  icon: http://oss.wenjiexu.site/tomodoro_icon.webp
-  screenshot: http://oss.wenjiexu.site/tomodoro_screenshot.webp
-  open_url: /app/tomodoro/index.html
-  github_url: https://github.com/lazy-guy/tomodoro
-- type: Python 脚本
-  title: MicrosoftHostsPicker
-  desc: 一个用于自动筛选和生成 Microsoft 服务 hosts 的 Python 脚本。
-  icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg
-  screenshot: http://oss.wenjiexu.site/MicrosoftHostsPicker_screenshot.webp
-  open_url: /app/MicrosoftHostsPicker/index.html
-  github_url: https://github.com/Vncntvx/MicrosoftHostsPicker
 - type: Python 脚本
   title: MicrosoftHostsPicker
   desc: 一个用于自动筛选和生成 Microsoft 服务 hosts 的 Python 脚本。
