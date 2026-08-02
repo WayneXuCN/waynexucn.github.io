@@ -2,7 +2,7 @@ name: Check for broken links on site
 
 on:
   workflow_run:
-    workflows: [Deploy site]
+    workflows: [Build and Deploy (gh-pages -> Server)]
     types: [completed]
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2.2"
+          ruby-version: "3.4.2"
           bundler-cache: true
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@dffe9a5223d84653c13374032382f6bb5de8e5ef # v0.17.0
