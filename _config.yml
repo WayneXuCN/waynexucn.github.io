@@ -372,12 +372,13 @@ lang_bcp47:
 # get a canonical pointing at the default-language version instead of a self-referencing
 # per-language URL, avoiding duplicate-content signals for identical English content.
 fallback_canonical_to_default_lang: true
-# Run language builds in parallel (fork-based process isolation, not threads —
-# no shared mutable state between languages). polyglot defaults to true; false is
-# only recommended for Windows or plugin-conflict environments. This project runs
-# on Linux CI/deploy, so parallel is safe and speeds up the 4-locale build.
+# Build languages serially. polyglot's parallel_localization (fork-based) races
+# with jekyll-imagemagick: the imagemagick generator tries Dir.mkdir on
+# _site/<locale>/ before polyglot creates it, causing ENOENT in CI (fork mode)
+# — local serial builds don't reproduce the race. Confirmed CI failure
+# 2026-08-02 (run 30739083004, zh_CN subprocess). Serial is slower but safe.
 # Note: independent of `lsi` above (lsi is disabled due to a separate polyglot conflict).
-parallel_localization: true
+parallel_localization: false
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
