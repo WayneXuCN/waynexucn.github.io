@@ -8,7 +8,7 @@ category: work
 giscus_comments: true
 ---
 
-## [Typst-Vorlage für Abschlussarbeiten der Universität der Chinesischen Akademie der Wissenschaften](https://github.com/Vncntvx/typst-ucas-thesis)
+## [Typst-Vorlage für Abschlussarbeiten der Universität der Chinesischen Akademie der Wissenschaften](https://github.com/Vncntvx/modern-ucas-thesis)
 
 ![Project Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 
