@@ -9,8 +9,8 @@ dropdown: true
 children:
   - title: 履歴
     permalink: /cv/
-  - title: 本棚
-    permalink: /books/
   - title: 人物
     permalink: /people/
+  - title: 本棚
+    permalink: /books/
 ---
