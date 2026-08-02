@@ -8,10 +8,16 @@
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
+  // 以下属性迁移自 _base.scss（A 类，_base 独有）：
+  // - font-weight/transition 仍实际生效（主题切换时 navbar 背景 0.3s 过渡）
+  // - backdrop-filter 因 _navbar bg 不透明而视觉 inert，保留以备未来半透明 bg
+  font-weight: fonts.$font-weight-normal;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   opacity: 0.95;
   font-family: fonts.$font-family-nav;
   font-size: fonts.$font-size-base;
-  font-weight: fonts.$font-weight-normal;
   letter-spacing: fonts.$letter-spacing-normal;
 
   // core 契约：collapse 容器右对齐，菜单列表靠右推（替代 ul 上的 ml-auto）

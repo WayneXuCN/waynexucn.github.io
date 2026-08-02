@@ -244,15 +244,10 @@ ul.task-list input[type="checkbox"] {
 
 // Navbar customization
 
-.navbar {
-  box-shadow: var(--global-shadow-sm);
-  border-bottom: 1px solid var(--global-divider-color);
-  background-color: rgba(var(--global-bg-color-rgb), 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  font-weight: normal;
-  transition: background-color 0.3s ease;
-}
+// .navbar 顶层块已迁移至 _navbar.scss：
+// - B 类（box-shadow/border-bottom/background-color）_navbar 覆盖，dead，删无回归
+// - A 类（font-weight/transition/backdrop-filter/-webkit-backdrop-filter）_base 独有，
+//   已追加到 _navbar .navbar 块（backdrop-filter 因 bg 不透明视觉 inert，保留备未来）
 
 .navbar .dropdown-menu,
 .btn-group.dropdown .dropdown-menu {
