@@ -28,6 +28,7 @@
 // Core styles organized by usage
 @use "typography";
 @use "navbar";
+@use "lang-switcher"; // site-owned i18n（迁移自 _base，_navbar 的 !important 覆盖不依赖加载顺序）
 @use "footer";
 @use "blog";
 @use "publications";
