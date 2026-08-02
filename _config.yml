@@ -374,7 +374,12 @@ lang_bcp47:
 # get a canonical pointing at the default-language version instead of a self-referencing
 # per-language URL, avoiding duplicate-content signals for identical English content.
 fallback_canonical_to_default_lang: true
-parallel_localization: false
+# Run language builds in parallel (fork-based process isolation, not threads —
+# no shared mutable state between languages). polyglot defaults to true; false is
+# only recommended for Windows or plugin-conflict environments. This project runs
+# on Linux CI/deploy, so parallel is safe and speeds up the 4-locale build.
+# Note: independent of `lsi` above (lsi is disabled due to a separate polyglot conflict).
+parallel_localization: true
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
