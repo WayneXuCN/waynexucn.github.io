@@ -127,7 +127,7 @@ pagination:
   enabled: true
 
 related_blog_posts:
-  enabled: true
+  enabled: false # _posts/ is empty; re-enable when blog posts are added
   max_related: 5
 
 # Giscus comments (RECOMMENDED)
