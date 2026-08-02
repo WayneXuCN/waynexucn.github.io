@@ -249,43 +249,13 @@ ul.task-list input[type="checkbox"] {
 // - A 类（font-weight/transition/backdrop-filter/-webkit-backdrop-filter）_base 独有，
 //   已追加到 _navbar .navbar 块（backdrop-filter 因 bg 不透明视觉 inert，保留备未来）
 
-.navbar .dropdown-menu,
-.btn-group.dropdown .dropdown-menu {
-  background-color: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 8px;
-  box-shadow: var(--global-shadow-sm);
-  margin-top: 8px;
-  padding: 8px 0;
-  transition: all 0.2s ease-in-out;
-  animation: fadeIn 0.2s ease-in-out;
-
-  a:not(.active) {
-    color: var(--global-text-color);
-    font-weight: normal;
-  }
-
-  a:hover {
-    color: var(--global-hover-color);
-  }
-
-  .dropdown-divider {
-    border-top: 1px solid var(--global-divider-color) !important;
-    margin: 4px 0;
-  }
-}
-
-// 下拉菜单动画
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// .navbar .dropdown-menu + @keyframes fadeIn 已迁移至 _navbar.scss：
+// - B 类（background-color/border/a:not(.active) color/a:hover color/
+//   .dropdown-divider border-top）_navbar 原有
+// - A 类（border-radius:8px/box-shadow/margin-top:8px/padding:8px 0/transition/
+//   animation:fadeIn/a:not(.active) font-weight/.dropdown-divider margin）
+//   已追加到 _navbar dropdown-menu 块
+// - @keyframes fadeIn 随 animation 一起迁移到 _navbar（紧随 dropdown-menu 块后）
 
 // .dropdown-item 已迁移至 _navbar.scss：
 // - B 类（color/:hover color/.active bg+color）_navbar 原有
