@@ -1,3 +1,7 @@
+
+
+
+
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -7,34 +11,34 @@ ninja.data = [{
     title: "Über mich",
     section: "Navigationsmenü",
     handler: () => {
-      window.location.href = "/";
+      window.location.href = "/de_DE/";
     },
   },{id: "nav-veröffentlichungen",
           title: "Veröffentlichungen",
           description: "Veröffentlichungen nach Kategorien in umgekehrt chronologischer Reihenfolge.",
           section: "Navigationsmenü",
           handler: () => {
-            window.location.href = "/publications/";
+            window.location.href = "/de_DE/publications/";
           },
         },{id: "nav-projekte",
           title: "Projekte",
           description: "Eine wachsende Sammlung meiner coolen Projekte.",
           section: "Navigationsmenü",
           handler: () => {
-            window.location.href = "/projects/";
+            window.location.href = "/de_DE/projects/";
           },
         },{id: "nav-werkzeug",
           title: "Werkzeug",
           description: "Eine Sammlung nützlicher Apps, Skripte und Tools – teils von mir entwickelt, teils Open Source.",
           section: "Navigationsmenü",
           handler: () => {
-            window.location.href = "/toolbox/";
+            window.location.href = "/de_DE/toolbox/";
           },
         },{id: "books-the-godfather",
             title: 'The Godfather',
             description: "",
             section: "Bücher",handler: () => {
-                window.location.href = "/books/de_DE/the_godfather/";
+                window.location.href = "/de_DE/books/the_godfather/";
               },},{id: "news-präsidentenstipendium-2022",
             title: 'Präsidentenstipendium, 2022',
             description: "",
@@ -48,33 +52,33 @@ ninja.data = [{
             title: 'HostImageBackup',
             description: "Ein modulares Python-CLI-Tool zum einfachen Sichern von Bildern von verschiedenen Bild-Hosting-Diensten auf Ihren lokalen Rechner.",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/de_DE/HostImageBackup/";
+                window.location.href = "/de_DE/projects/HostImageBackup/";
               },},{id: "projects-microsofthostspicker",
             title: 'MicrosoftHostsPicker',
             description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/de_DE/MicrosoftHostsPicker/";
+                window.location.href = "/de_DE/projects/MicrosoftHostsPicker/";
               },},{id: "projects-typst-ucas-thesis",
             title: 'Typst-ucas-thesis',
             description: "UCAS Thesis-Vorlage basierend auf Typst",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/de_DE/Typst%20for%20UCAS%20thesis/";
+                window.location.href = "/de_DE/projects/Typst-for-UCAS-thesis/";
               },},{id: "teachings-data-science-fundamentals",
             title: 'Data Science Fundamentals',
             description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
             section: "Teachings",handler: () => {
-                window.location.href = "/teachings/data-science-fundamentals/";
+                window.location.href = "/de_DE/teachings/data-science-fundamentals/";
               },},{id: "teachings-introduction-to-machine-learning",
             title: 'Introduction to Machine Learning',
             description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
             section: "Teachings",handler: () => {
-                window.location.href = "/teachings/introduction-to-machine-learning/";
+                window.location.href = "/de_DE/teachings/introduction-to-machine-learning/";
               },},{
         id: 'social-cv',
         title: 'CV',
         section: "Soziale Netzwerke",
         handler: () => {
-          window.open("/assets/rendercv/rendercv_output/en_US_CV.pdf", "_blank");
+          window.open("/de_DE/assets/rendercv/rendercv_output/en_US_CV.pdf", "_blank");
         },
       },{
         id: 'social-rss',
@@ -141,14 +145,5 @@ ninja.data = [{
       section: "Design",
       handler: () => {
         setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: "",
-      description: "",
-      section: "Design",
-      handler: () => {
-        setThemeSetting("system");
       },
     },];

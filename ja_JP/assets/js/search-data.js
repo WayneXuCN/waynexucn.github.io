@@ -1,3 +1,7 @@
+
+
+
+
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -7,34 +11,34 @@ ninja.data = [{
     title: "自己紹介",
     section: "ナビゲーションメニュー",
     handler: () => {
-      window.location.href = "/";
+      window.location.href = "/ja_JP/";
     },
   },{id: "nav-論文",
           title: "論文",
           description: "カテゴリ別に新しい順で並んだ論文一覧。",
           section: "ナビゲーションメニュー",
           handler: () => {
-            window.location.href = "/publications/";
+            window.location.href = "/ja_JP/publications/";
           },
         },{id: "nav-プロジェクト",
           title: "プロジェクト",
           description: "増え続ける私のクールなプロジェクト集。",
           section: "ナビゲーションメニュー",
           handler: () => {
-            window.location.href = "/projects/";
+            window.location.href = "/ja_JP/projects/";
           },
         },{id: "nav-工具",
           title: "工具",
           description: "個人制作やオープンソースの便利なアプリ、スクリプト、ツールのコレクションです。",
           section: "ナビゲーションメニュー",
           handler: () => {
-            window.location.href = "/toolbox/";
+            window.location.href = "/ja_JP/toolbox/";
           },
         },{id: "books-the-godfather",
             title: 'The Godfather',
             description: "",
             section: "書籍",handler: () => {
-                window.location.href = "/books/ja_JP/the_godfather/";
+                window.location.href = "/ja_JP/books/the_godfather/";
               },},{id: "news-2022年-学長奨学金",
             title: '2022年 学長奨学金',
             description: "",
@@ -48,33 +52,33 @@ ninja.data = [{
             title: 'HostImageBackup',
             description: "複数の画像ホスティングサービスから画像を簡単にローカルへバックアップできるモジュール式Python CLIツール。",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/ja_JP/HostImageBackup/";
+                window.location.href = "/ja_JP/projects/HostImageBackup/";
               },},{id: "projects-microsofthostspicker",
             title: 'MicrosoftHostsPicker',
             description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/ja_JP/MicrosoftHostsPicker/";
+                window.location.href = "/ja_JP/projects/MicrosoftHostsPicker/";
               },},{id: "projects-typst-ucas-thesis",
             title: 'Typst-ucas-thesis',
             description: "Typst に基づく中国科学院大学論文テンプレート",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/ja_JP/Typst%20for%20UCAS%20thesis/";
+                window.location.href = "/ja_JP/projects/Typst-for-UCAS-thesis/";
               },},{id: "teachings-data-science-fundamentals",
             title: 'Data Science Fundamentals',
             description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
             section: "Teachings",handler: () => {
-                window.location.href = "/teachings/data-science-fundamentals/";
+                window.location.href = "/ja_JP/teachings/data-science-fundamentals/";
               },},{id: "teachings-introduction-to-machine-learning",
             title: 'Introduction to Machine Learning',
             description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
             section: "Teachings",handler: () => {
-                window.location.href = "/teachings/introduction-to-machine-learning/";
+                window.location.href = "/ja_JP/teachings/introduction-to-machine-learning/";
               },},{
         id: 'social-cv',
         title: 'CV',
         section: "ソーシャル",
         handler: () => {
-          window.open("/assets/rendercv/rendercv_output/en_US_CV.pdf", "_blank");
+          window.open("/ja_JP/assets/rendercv/rendercv_output/en_US_CV.pdf", "_blank");
         },
       },{
         id: 'social-rss',
@@ -141,14 +145,5 @@ ninja.data = [{
       section: "テーマ",
       handler: () => {
         setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: "",
-      description: "",
-      section: "テーマ",
-      handler: () => {
-        setThemeSetting("system");
       },
     },];

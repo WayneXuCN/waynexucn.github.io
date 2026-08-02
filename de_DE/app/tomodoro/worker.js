@@ -1,1 +1,0 @@
-let intervalID;onmessage=e=>{if("start"===e.data.type){clearInterval(intervalID);let a=e.data.t||0;intervalID=setInterval(()=>{a++,a>e.data.maxDuration?(postMessage({t:a-1,running:!1}),clearInterval(intervalID)):postMessage({t:a,running:!0})},1e3)}else clearInterval(intervalID)};

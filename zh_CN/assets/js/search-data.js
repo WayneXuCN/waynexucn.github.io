@@ -1,3 +1,7 @@
+
+
+
+
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -7,34 +11,34 @@ ninja.data = [{
     title: "关于",
     section: "导航菜单",
     handler: () => {
-      window.location.href = "/";
+      window.location.href = "/zh_CN/";
     },
   },{id: "nav-发表",
           title: "发表",
           description: "按类别划分的出版物列表，按时间倒序排列。",
           section: "导航菜单",
           handler: () => {
-            window.location.href = "/publications/";
+            window.location.href = "/zh_CN/publications/";
           },
         },{id: "nav-项目",
           title: "项目",
           description: "项目合集",
           section: "导航菜单",
           handler: () => {
-            window.location.href = "/projects/";
+            window.location.href = "/zh_CN/projects/";
           },
         },{id: "nav-工具",
           title: "工具",
           description: "收录了我个人开发和部分开源的小程序、脚本与工具。",
           section: "导航菜单",
           handler: () => {
-            window.location.href = "/toolbox/";
+            window.location.href = "/zh_CN/toolbox/";
           },
         },{id: "books-the-godfather",
             title: 'The Godfather',
             description: "",
             section: "书籍",handler: () => {
-                window.location.href = "/books/zh_CN/the_godfather/";
+                window.location.href = "/zh_CN/books/the_godfather/";
               },},{id: "news-2022年校长奖学金",
             title: '2022年校长奖学金',
             description: "",
@@ -48,33 +52,33 @@ ninja.data = [{
             title: 'HostImageBackup',
             description: "一个模块化的 Python 命令行工具，轻松将各类图床服务的图片备份到本地。",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/zh_CN/HostImageBackup/";
+                window.location.href = "/zh_CN/projects/HostImageBackup/";
               },},{id: "projects-microsofthostspicker",
             title: 'MicrosoftHostsPicker',
             description: "一个现代化的异步 Python 工具，可自动查找并选择 Microsoft 服务的最快 IP 地址。",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/zh_CN/MicrosoftHostsPicker/";
+                window.location.href = "/zh_CN/projects/MicrosoftHostsPicker/";
               },},{id: "projects-typst-ucas-thesis",
             title: 'Typst-ucas-thesis',
             description: "基于 Typst 的中国科学院大学学位论文模板",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/zh_CN/Typst%20for%20UCAS%20thesis/";
+                window.location.href = "/zh_CN/projects/Typst-for-UCAS-thesis/";
               },},{id: "teachings-data-science-fundamentals",
             title: 'Data Science Fundamentals',
             description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
             section: "Teachings",handler: () => {
-                window.location.href = "/teachings/data-science-fundamentals/";
+                window.location.href = "/zh_CN/teachings/data-science-fundamentals/";
               },},{id: "teachings-introduction-to-machine-learning",
             title: 'Introduction to Machine Learning',
             description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
             section: "Teachings",handler: () => {
-                window.location.href = "/teachings/introduction-to-machine-learning/";
+                window.location.href = "/zh_CN/teachings/introduction-to-machine-learning/";
               },},{
         id: 'social-cv',
         title: 'CV',
         section: "社交",
         handler: () => {
-          window.open("/assets/rendercv/rendercv_output/en_US_CV.pdf", "_blank");
+          window.open("/zh_CN/assets/rendercv/rendercv_output/en_US_CV.pdf", "_blank");
         },
       },{
         id: 'social-rss',
@@ -141,14 +145,5 @@ ninja.data = [{
       section: "主题",
       handler: () => {
         setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: "",
-      description: "",
-      section: "主题",
-      handler: () => {
-        setThemeSetting("system");
       },
     },];

@@ -1,3 +1,7 @@
+
+
+
+
 // get the ninja-keys element
 const ninja = document.querySelector('ninja-keys');
 
@@ -34,7 +38,7 @@ ninja.data = [{
             title: 'The Godfather',
             description: "",
             section: "Books",handler: () => {
-                window.location.href = "/books/en_US/the_godfather/";
+                window.location.href = "/books/the_godfather/";
               },},{id: "news-school-president-scholarship-2022",
             title: 'School President Scholarship, 2022',
             description: "",
@@ -48,17 +52,17 @@ ninja.data = [{
             title: 'HostImageBackup',
             description: "A modular Python CLI tool for backing up images from various image hosting services to your local machine with ease.",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/en_US/HostImageBackup/";
+                window.location.href = "/projects/HostImageBackup/";
               },},{id: "projects-microsofthostspicker",
             title: 'MicrosoftHostsPicker',
             description: "A modern, asynchronous Python tool to automatically find and select the fastest IP addresses for Microsoft services.",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/en_US/MicrosoftHostsPicker/";
+                window.location.href = "/projects/MicrosoftHostsPicker/";
               },},{id: "projects-typst-ucas-thesis",
             title: 'Typst-ucas-thesis',
             description: "UCAS thesis Template Based on Typst",
             section: "Projects",handler: () => {
-                window.location.href = "/projects/en_US/Typst%20for%20UCAS%20thesis/";
+                window.location.href = "/projects/Typst-for-UCAS-thesis/";
               },},{id: "teachings-data-science-fundamentals",
             title: 'Data Science Fundamentals',
             description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
@@ -141,14 +145,5 @@ ninja.data = [{
       section: "Theme",
       handler: () => {
         setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: "",
-      description: "",
-      section: "Theme",
-      handler: () => {
-        setThemeSetting("system");
       },
     },];
