@@ -80,6 +80,15 @@ html {
   --global-newsletter-bg-color: #{v.$white-color};
   --global-newsletter-text-color: #{v.$black-color};
 
+  // 阴影与 hover 状态变量（_base.scss 引用，原先未声明导致失效）
+  --global-shadow-sm: #{v.$shadow-sm};
+  --global-shadow-hover: #{v.$shadow-md};
+  --global-hover-bg-color: #{v.$grey-color-light};
+  --global-theme-color-light: #{v.$light-purple-color};
+  // 预防性声明：当前唯一其他使用点 _animations.scss:49 是 dead code（main.scss 未 @use "animations"），
+  // 但 _base.scss:349 navbar 半透明背景仍引用，保留以备毛玻璃效果启用
+  --global-bg-color-rgb: 255, 255, 255;
+
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
   --global-tip-block-text: #215d42;
@@ -146,6 +155,13 @@ html[data-theme="dark"] {
   --global-back-to-top-text-color: #{v.$black-color};
   --global-newsletter-bg-color: #{v.$grey-color-light};
   --global-newsletter-text-color: #{v.$grey-color-dark};
+
+  // 阴影与 hover 状态变量（暗色模式，对应 :root 的声明）
+  --global-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --global-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --global-hover-bg-color: #{v.$grey-color-dark};
+  --global-theme-color-light: #{v.$light-cyan-color};
+  --global-bg-color-rgb: 28, 28, 29;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #215d42;
