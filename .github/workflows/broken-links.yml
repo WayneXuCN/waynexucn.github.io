@@ -45,4 +45,9 @@ jobs:
         with:
           fail: true
           # removed md files that include liquid tags
-          args: --user-agent 'curl/7.54' --accept 403 --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path '_pages/*/blog.md' --exclude-path '_pages/*/toolbox.md' --exclude-path CUSTOMIZE.md --exclude-path _draft --exclude-path .github/instructions/bibtex-bibliography.instructions.md --exclude-path .github/instructions/yaml-configuration.instructions.md --exclude-path .github/instructions/markdown-content.instructions.md --exclude-path .github/instructions/liquid-templates.instructions.md --exclude-path AGENTS.md --exclude-path SEO.md --verbose --no-progress './**/*.md' './**/*.html'
+          # NOTE: lychee's --exclude-path treats values as REGEX, not glob —
+          # `_pages/*/blog.md` (glob) silently matches nothing because `*`
+          # quantifies the preceding `/`. Use `_pages/[^/]+/blog\.md` instead.
+          # `--exclude '\{\{'` is a backstop: skips any remaining Liquid-tag
+          # URLs (e.g. {{ post.url }}) that slip through path exclusion.
+          args: --user-agent 'curl/7.54' --accept 403 --exclude '\{\{' --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path '_pages/[^/]+/blog\.md' --exclude-path '_pages/[^/]+/toolbox\.md' --exclude-path CUSTOMIZE.md --exclude-path _draft --exclude-path .github/instructions/bibtex-bibliography.instructions.md --exclude-path .github/instructions/yaml-configuration.instructions.md --exclude-path .github/instructions/markdown-content.instructions.md --exclude-path .github/instructions/liquid-templates.instructions.md --exclude-path AGENTS.md --exclude-path SEO.md --verbose --no-progress './**/*.md' './**/*.html'
