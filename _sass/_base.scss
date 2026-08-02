@@ -292,33 +292,12 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-.dropdown-item {
-  color: var(--global-text-color);
-  padding: 10px 16px;
-  font-size: 0.95rem;
-  transition: all 0.2s ease-in-out;
-  border-radius: 6px;
-  margin: 0 8px;
-
-  &:hover {
-    color: var(--global-hover-color);
-    background-color: var(--global-hover-bg-color);
-    transform: translateX(4px);
-  }
-}
-
-.dropdown-item.active,
-.dropdown-item:active {
-  background-color: var(--global-hover-color);
-  color: var(--global-hover-text-color) !important;
-  border-radius: 6px;
-  margin: 0 8px;
-  transform: translateX(4px);
-
-  &:hover {
-    color: var(--global-hover-text-color);
-  }
-}
+// .dropdown-item 已迁移至 _navbar.scss：
+// - B 类（color/:hover color/.active bg+color）_navbar 原有
+// - A 类（padding/font-size/transition/border-radius:6px/margin:0 8px/
+//   :hover transform/.active border-radius+margin+transform）已追加到 _navbar
+// - C 类 :hover background-color（_base hover-bg vs _navbar bg）：_navbar 后加载
+//   覆盖，当前渲染为 var(--global-bg-color)，删 _base 无回归
 
 // 语言切换器
 

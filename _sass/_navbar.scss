@@ -61,10 +61,17 @@
 
 .dropdown-item {
   color: var(--global-text-color);
+  // 以下属性迁移自 _base.scss（A 类，_base 独有，_navbar 原无）
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+  border-radius: 6px;
+  margin: 0 8px;
 
   &:hover {
     color: var(--global-hover-color);
     background-color: var(--global-bg-color);
+    transform: translateX(4px);
   }
 }
 
@@ -72,6 +79,10 @@
 .dropdown-item:active {
   background-color: var(--global-hover-color);
   color: var(--global-hover-text-color) !important;
+  // 以下属性迁移自 _base.scss（A 类，_base 独有，_navbar 原无）
+  border-radius: 6px;
+  margin: 0 8px;
+  transform: translateX(4px);
 
   &:hover {
     color: var(--global-hover-text-color);
