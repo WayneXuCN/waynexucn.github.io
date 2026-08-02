@@ -2,6 +2,20 @@
 layout: default
 ---
 {% comment %}
+  ===========================================================================
+  FORK NOTICE (i18n): This layout is forked from al_folio_cv gem's
+  templates/cv/render.liquid (gem v1.0.2, ~18 lines using
+  {% al_folio_cv_render %}) and extended with i18n support:
+    - Per-language data lookup: site.data[site.active_lang].cv (lines ~43-46)
+    - Per-language string labels (36 places, via site.data[active_lang].strings.cv)
+    - '|||' sentinel handling for inline section separators (lines ~171/191)
+  The gem's render.liquid does NOT support i18n, so we cannot revert to it yet.
+  TODO(upstream): PR al_folio_cv to support per-lang data + string labels,
+  then revert to the 18-line gem version.
+  On every `bundle update al_folio_cv`, diff this file against the new
+  gem templates/cv/render.liquid and merge non-i18n upstream changes.
+  See verification-report.md cv-liquid-stale-fork / plan §2.4.
+  ===========================================================================
   Unified CV layout that handles both RenderCV (YAML) and JSONResume (JSON) formats
   - If page.cv_format is set, it determines which format to render:
   - 'rendercv': Load and render only RenderCV data (site.data.cv.cv)
