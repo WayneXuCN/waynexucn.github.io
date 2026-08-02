@@ -6,14 +6,17 @@ on:
     - cron: "30 23 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   publish_scheduled:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main branch
+      - name: Checkout master branch
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: master
 
       - name: Get the date for today
         id: date
@@ -27,6 +30,7 @@ jobs:
             echo "Found scheduled: $file"
             parent_dir="$(dirname "$file")"
             language_dir="$(basename "$parent_dir")"
+            mkdir -p "_posts/$language_dir"
             mv "$file" "_posts/$language_dir/"
             echo "Moved $file to _posts/$language_dir/"
           done
