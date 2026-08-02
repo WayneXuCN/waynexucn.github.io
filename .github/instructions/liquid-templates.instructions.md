@@ -50,14 +50,14 @@ Prettier with `@shopify/prettier-plugin-liquid` enforces formatting:
 
 - Edit `_includes/header.liquid`
 - Add links to navigation array in `_config.yml` (see yaml-configuration.instructions.md)
-- Test by viewing site in browser: `docker compose up` → http://localhost:8080
+- Test by viewing site in browser: `bundle exec jekyll serve --port 4000` → http://localhost:4000
 
 ### Adding a New Component Include
 
 1. Create new file in `_includes/mycomponent.liquid`
 2. Use Liquid syntax for conditionals, loops, and variable output
 3. Call it from templates: `{% include mycomponent.liquid %}`
-4. Test: `docker compose up`
+4. Test: `bundle exec jekyll serve --port 4000`
 
 ### Adjusting Styling with Liquid
 

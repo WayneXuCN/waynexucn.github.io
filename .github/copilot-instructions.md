@@ -1,22 +1,23 @@
 # Copilot Coding Agent Instructions
 
+> **Single source of truth:** [`AGENTS.md`](../AGENTS.md) and this file describe the **actually-tested** build process. This fork builds locally with Bundler/Jekyll — **no Docker** (no `Dockerfile` or `docker-compose.yml` exists in this repo). When in doubt, trust `AGENTS.md` over upstream al-folio docs.
+
 ## Repository Overview
 
-**al-folio** is a simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics and researchers. It enables users to create professional portfolio and blog websites with minimal configuration. The repository serves both as a template and as a reference implementation.
+**al-folio (i18n fork)** is a simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics, adapted with multilingual internationalization (i18n) support via `jekyll-polyglot` (4 locales: `en_US`, `zh_CN`, `de_DE`, `ja_JP`).
 
-- **Type:** Jekyll static site generator template
+- **Type:** Jekyll static site generator (i18n fork of al-folio v1, using locked `al_folio_core` / `al_folio_cv` gems)
 - **Target Users:** Academics, researchers, and professionals
-- **Key Features:** CV display, publication bibliography, blog posts, projects, news/announcements, course listings
+- **Key Features:** CV display, publication bibliography, blog posts, projects, news/announcements, course listings, multilingual content
 
 ## Tech Stack & Versions
 
 **Core Technologies:**
 
 - **Jekyll:** v4.x (Ruby static site generator)
-- **Ruby:** 3.3.5 (primary CI/CD version), 3.2.2 (some workflows)
+- **Ruby:** 3.4.2 (primary CI/CD version, see `.ruby-version`). Some legacy workflows still pin 3.2.2/3.3 — being unified.
 - **Python:** 3.13 (for nbconvert, jupyter notebook support)
-- **Node.js:** Latest (for purgecss and prettier)
-- **Docker:** Uses prebuilt image `amirpourmand/al-folio:v0.16.3` (Ruby slim-based)
+- **Node.js:** Latest LTS (for purgecss and prettier)
 
 **Build Dependencies (from Gemfile):**
 
@@ -25,89 +26,77 @@
 - `jekyll-jupyter-notebook` – Jupyter notebook embedding
 - `jekyll-minifier` – CSS/JS minification
 - `jekyll-paginate-v2` – Pagination
+- `jekyll-polyglot` – Multilingual i18n support
 - `jekyll-scholar` – Bibliography management
 - `jekyll-tabs` – Tab UI components
 - `jekyll-toc` – Table of contents generation
 - `jemoji` – Emoji support
+- `al_folio_core` / `al_folio_cv` / `al_search` / `al_img_tools` etc. – al-folio v1 plugin gems (locked versions)
 - Multiple other specialized jekyll plugins
 
 **Code Quality Tools:**
 
-- **Prettier:** v3.8.0+ with `@shopify/prettier-plugin-liquid` – Code formatter (mandatory for PRs)
+- **Prettier:** v3.1.1 (pinned in `package.json`) with `@shopify/prettier-plugin-liquid` v1.4.0 – Code formatter (mandatory for PRs)
 - **Purgecss:** CSS purification for production builds
 
 ## Building & Local Development
 
-### Docker (Recommended Approach)
+### Bundle/Jekyll (the only supported local workflow)
 
-**Always use Docker for local development.** This ensures consistency with CI/CD and avoids Ruby/Python environment issues.
+This fork builds locally with Bundler — **no Docker**. See [`AGENTS.md`](../AGENTS.md) for the canonical commands.
 
 **Initial Setup:**
 
 ```bash
-docker compose pull                    # Pull prebuilt image
-docker compose up                      # Start development server
-# Site runs at http://localhost:8080
+bundle install                       # Install Ruby gems
+pip install -r requirements.txt      # Install Python deps (jupyter/nbconvert)
+# ImageMagick required: brew install imagemagick (macOS) / sudo apt-get install imagemagick (Linux)
 ```
 
-**Rebuilding with Updated Dependencies:**
+**Development server:**
 
 ```bash
-docker compose up --build              # Rebuilds Docker image from Dockerfile
-docker compose up --force-recreate     # Forces complete rebuild
+bundle exec jekyll serve --port 4000
+# Site runs at http://localhost:4000
 ```
 
-**For slim Docker image (if image size is critical):**
+**Production build (enables CSS/JS minification):**
 
 ```bash
-docker compose -f docker-compose-slim.yml up
-```
-
-**If Docker build fails:**
-
-- Check disk space and available RAM
-- Kill any existing jekyll processes: `docker compose down`
-- For M1/M2 Mac: Ensure Docker Desktop is up-to-date
-- Linux users may need Docker group permissions: `sudo usermod -aG docker $USER` (then logout/login)
-
-### Bundle/Jekyll (Legacy, Use Docker Instead)
-
-```bash
-bundle install                         # Install Ruby gems
-pip install jupyter                    # Install Python dependencies
-bundle exec jekyll serve --port 4000   # Run at http://localhost:4000
+JEKYLL_ENV=production bundle exec jekyll build
 ```
 
 ### Important Build Requirements
 
 - **ImageMagick must be installed** – Required for image processing plugins
-  - Docker: Installed automatically
-  - Local: `sudo apt-get install imagemagick` (Linux) or `brew install imagemagick` (Mac)
-- **nbconvert must be upgraded before build** – `pip3 install --upgrade nbconvert`
-- **Always set JEKYLL_ENV=production for production builds** – Required for CSS/JS minification
+  - macOS: `brew install imagemagick`
+  - Linux: `sudo apt-get install imagemagick`
+  - Verify: `convert -version`
+- **nbconvert/jupyter required for notebook support** – `pip install -r requirements.txt`
+- **Always set `JEKYLL_ENV=production` for production builds** – Required for CSS/JS minification
 
 ## Project Layout & Key Files
 
 ### Root Directory Structure
 
 - `_bibliography/papers.bib` – BibTeX bibliography for publications
-- `_config.yml` – **Primary configuration file** (title, author, URLs, baseurl, feature flags)
-- `_data/` – YAML data files (socials.yml, coauthors.yml, cv.yml, citations.yml, venues.yml, repositories.yml)
-- `_includes/` – Reusable Liquid template components
+- `_config.yml` – **Primary configuration file** (title, author, URLs, baseurl, feature flags, i18n)
+- `_data/` – YAML data files, with per-locale subdirs (`_data/{en_US,zh_CN,de_DE,ja_JP}/`)
+- `_includes/` – Reusable Liquid template components (includes `cv/` forked overrides)
 - `_layouts/` – Page layout templates (about.liquid, post.liquid, bib.liquid, distill.liquid, cv.liquid, etc.)
-- `_news/` – News/announcement entries
-- `_pages/` – Static pages (about.md, cv.md, publications.md, projects.md, teaching.md, etc.)
-- `_posts/` – Blog posts (format: YYYY-MM-DD-title.md)
-- `_projects/` – Project showcase entries
+- `_news/` – News/announcement entries (per-locale subdirs)
+- `_pages/` – Static pages (per-locale subdirs: `_pages/{en_US,zh_CN,de_DE,ja_JP}/`)
+- `_posts/` – Blog posts (format: `YYYY-MM-DD-title.md`)
+- `_projects/` – Project showcase entries (per-locale subdirs)
 - `_sass/` – SCSS stylesheets
 - `_scripts/` – JavaScript files for functionality
 - `_teachings/` – Course and teaching entries
 - `assets/img/` – Images, profile pictures
-- `docker-compose.yml` – Docker compose configuration
-- `Dockerfile` – Docker image definition
 - `Gemfile` & `Gemfile.lock` – Ruby dependency specifications
-- `package.json` – Node.js dependencies (prettier only)
+- `package.json` & `package-lock.json` – Node.js dependencies (prettier)
 - `purgecss.config.js` – PurgeCSS configuration for production CSS optimization
+- `.ruby-version` – Ruby version pin (3.4.2)
+- `.al-folio-overrides.yml` – Manifest of forked files overriding gem defaults
 
 ### Configuration Priority
 
@@ -116,57 +105,48 @@ When making changes:
 1. **Always start with `_config.yml`** for site-wide settings
 2. **Feature flags are in `_config.yml`** – Look for `enabled: true/false` options
 3. **Social media links:** `_data/socials.yml`
-4. **Content data:** Respective `_data/*.yml` files
+4. **Content data:** Respective `_data/*.yml` files (per-locale under `_data/<locale>/`)
 5. **Styling:** `_sass/` directory (uses SCSS)
 
 ## CI/CD Pipeline & Validation
 
 ### GitHub Workflows (in `.github/workflows/`)
 
-- **deploy.yml** – Main deployment workflow (runs on push/PR to main/master)
-  - Sets up Ruby 3.3.5, Python 3.13
+- **gh-pages-to-server.yml** – Main deployment workflow (`Build and Deploy (gh-pages -> Server)`)
+  - Sets up Ruby 3.4.2, Python 3.13
   - Installs imagemagick, nbconvert
-  - Runs `bundle exec jekyll build` with JEKYLL_ENV=production
+  - Runs `bundle exec jekyll build` with `JEKYLL_ENV=production`
   - Runs purgecss for CSS optimization
-  - Commits built site to gh-pages branch
-  - **Triggers on:** Changes to site files, assets, config (NOT documentation files alone)
+  - Deploys built site to gh-pages branch, then SSH-deploys to server (lab.wenjiexu.site)
+- **deploy.disabled.yml** – Legacy GitHub Pages deploy (DISABLED via `.disabled.yml` suffix)
 - **prettier.yml** – Code formatting validation (mandatory)
-  - Runs prettier on all files
+  - Runs prettier on all files via `npm ci`
   - **Fails PRs if code is not properly formatted**
   - Generates HTML diff artifact on failure
-  - Must install prettier locally to avoid failures: `npm install prettier @shopify/prettier-plugin-liquid`
-- **broken-links.yml, broken-links-site.yml** – Link validation
+- **broken-links.yml / broken-links-site.yml** – Link validation
 - **axe.yml** – Accessibility testing
-- **codeql.yml** – Security scanning
-- **update-citations.yml** – Automatic citation updates
+- **codeql.yml** – Security scanning (runs on master)
+- **update-citations.yml** – Automatic Google Scholar citation updates (monthly)
 - **render-cv.yml** – CV rendering from RenderCV format
+- **schedule-posts.yml** – Scheduled post publishing (daily, enabled)
 
 ### Pre-commit Requirements
 
-**You must run these locally before pushing:**
+**You must run these locally before pushing** (per [`AGENTS.md`](../AGENTS.md)):
 
 1. **Prettier formatting (mandatory):**
 
 ```bash
-npm install --save-dev prettier @shopify/prettier-plugin-liquid
 npx prettier . --write
 ```
 
-2. **Local build test with Jekyll:**
+2. **Local build verification:**
 
 ```bash
-docker compose pull && docker compose up
-# Let it build (wait 30-60 seconds)
-# Visit http://localhost:8080 and verify site renders correctly
-# Exit with Ctrl+C
-```
-
-3. **Or run full build simulation:**
-
-```bash
-docker compose up --build
 bundle exec jekyll build
-# Check for errors in output
+# Or for live preview:
+bundle exec jekyll serve --port 4000
+# Visit http://localhost:4000 to verify the site
 ```
 
 ## Common Pitfalls & Workarounds
@@ -181,7 +161,7 @@ bundle exec jekyll build
 
 - **Problem:** Deploy succeeds locally but fails on GitHub Actions
 - **Cause:** Jekyll plugins don't load properly
-- **Solution:** Verify gh-pages branch is set as deployment source in Settings → Pages
+- **Solution:** Verify `jekyll-toc` is in Gemfile and run `bundle install`
 
 ### CSS/JS Not Loading After Deploy
 
@@ -201,16 +181,27 @@ bundle exec jekyll build
   git add . && git commit -m "Format code with prettier"
   ```
 
-### Port 8080 or 4000 Already in Use
+### Port 4000 Already in Use
 
-- **Docker:** `docker compose down` then `docker compose up`
-- **Ruby:** Kill process: `lsof -i :4000 | grep LISTEN | awk '{print $2}' | xargs kill`
+- Find and kill the process: `lsof -i :4000 | grep LISTEN | awk '{print $2}' | xargs kill`
+
+### ImageMagick Related Errors
+
+- Verify ImageMagick is installed: `convert -version`
+- Reinstall: `brew install imagemagick` (macOS) or `sudo apt-get install imagemagick` (Linux)
 
 ### Related Posts Errors ("Zero vectors cannot be normalized")
 
 - **Cause:** Empty blog posts or posts with only stop words confuse classifier-reborn
 - **Solution:** Add meaningful content to posts, or set `related_posts: false` in post frontmatter
 - **Note:** `lsi: true` conflicts with `jekyll-polyglot` plugin. This project uses `lsi: false` for i18n compatibility
+
+### i18n / Multilingual Issues
+
+- **Polyglot lang resolution:** `lang_from_path: true` infers language from per-locale subdirectory paths
+- **Default lang:** `en_US` is the default language and renders at the root path (no `/en_US/` prefix); other locales render under `/{locale}/`
+- **Per-locale data:** Access via `site.data[site.active_lang].cv` / `.strings` / `.toolbox` etc.
+- **`parallel_localization: true`** — builds run in parallel (fork-based, safe on Linux CI)
 
 ## File Format Specifications
 
@@ -245,10 +236,10 @@ importance: 1
 
 ## Trust These Instructions
 
-This guidance documents the tested, working build process and project structure. **Trust these instructions and only perform additional searches if:**
+This guidance documents the tested, working build process and project structure for this i18n fork. **Trust these instructions and only perform additional searches if:**
 
 1. Specific information contradicts what you observe in the codebase
 2. You need implementation details beyond what's documented
 3. Error messages reference features or files not mentioned here
 
-The instructions are designed to reduce unnecessary exploration and allow you to focus on code changes.
+The instructions are designed to reduce unnecessary exploration and allow you to focus on code changes. For the canonical agent guidelines, see [`AGENTS.md`](../AGENTS.md).

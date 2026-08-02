@@ -42,7 +42,7 @@ Look for `enabled: false/true` patterns. Common ones:
 If you modify `_config.yml`, verify syntax by running:
 
 ```bash
-docker compose up
+bundle exec jekyll serve --port 4000
 # Site should start without YAML parse errors
 # Check output for "YAML parse error" or "valid YAML"
 ```
@@ -173,7 +173,7 @@ Co-author information for bibliography/publications.
 2. Keep entries alphabetically sorted
 3. Ensure `icon` identifiers match available icons (Academicons or Font Awesome)
 4. Use full profile URLs in `url` field
-5. Test: `docker compose up` → check social icons on site
+5. Test: `bundle exec jekyll serve --port 4000` → check social icons on site
 
 ### Modifying Site Metadata
 

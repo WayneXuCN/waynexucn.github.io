@@ -43,7 +43,7 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 ### Dependency Requirements
 
-- **Ruby:** Recommended 3.3.x or higher
+- **Ruby:** 3.4.2 (primary CI/CD version; matches `.github/workflows/gh-pages-to-server.yml`. A local `.ruby-version` file is gitignored by upstream convention — CI reads the version from workflow `ruby-version:` inputs.)
 - **Python:** For Jupyter Notebook support (nbconvert required)
 - **ImageMagick:** Must be installed for image processing
   - macOS: `brew install imagemagick`

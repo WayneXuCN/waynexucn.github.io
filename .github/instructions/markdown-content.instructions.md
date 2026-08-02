@@ -188,7 +188,7 @@ def hello():
 1. Create file: `_posts/YYYY-MM-DD-my-post.md`
 2. Add frontmatter with `layout: post`, `title`, `date`, `categories`
 3. Write markdown content
-4. Test: `docker compose up` → http://localhost:8080/blog
+4. Test: `bundle exec jekyll serve --port 4000` → http://localhost:4000/blog
 5. Post will appear in reverse chronological order
 
 ### Creating a Project Entry
@@ -196,7 +196,7 @@ def hello():
 1. Create file: `_projects/project-name.md`
 2. Add frontmatter with `layout: page`, `title`, `description`, `img`, `importance`
 3. Write markdown content describing the project
-4. Test: `docker compose up` → http://localhost:8080/projects
+4. Test: `bundle exec jekyll serve --port 4000` → http://localhost:4000/projects
 
 ### Adding Images
 

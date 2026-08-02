@@ -165,7 +165,7 @@ In `search.liquid.js`:
 }
 ```
 
-3. Rebuild: `docker compose up` will regenerate `/assets/js/search-data.js`
+3. Rebuild: `bundle exec jekyll serve --port 4000` will regenerate `/assets/js/search-data.js`
 
 ### Updating Gallery Functionality
 
