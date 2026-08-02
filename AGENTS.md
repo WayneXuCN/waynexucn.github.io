@@ -28,8 +28,8 @@ This project uses local building without Docker dependency.
 # Initial setup: install Ruby dependencies
 bundle install
 
-# Install Python dependencies (for Jupyter Notebook support)
-pip install jupyter
+# Install Python dependencies (nbconvert/rendercv/scholarly 等，见 requirements.txt)
+uv pip install -r requirements.txt
 
 # Build the site (production environment)
 bundle exec jekyll build

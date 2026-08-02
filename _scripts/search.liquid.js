@@ -341,14 +341,5 @@ ninja.data = [
         setThemeSetting("dark");
       },
     },
-    {
-      id: 'system-theme',
-      title: "{{ site.data[site.active_lang].strings.search.system_theme_title }}",
-      description: "{{ site.data[site.active_lang].strings.search.system_theme_description }}",
-      section: "{{ site.data[site.active_lang].strings.search.theme }}",
-      handler: () => {
-        setThemeSetting("system");
-      },
-    },
   {%- endif -%}
 ];
