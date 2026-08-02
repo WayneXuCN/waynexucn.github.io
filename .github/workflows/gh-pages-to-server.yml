@@ -83,12 +83,16 @@ jobs:
           purgecss -c purgecss.config.js || true
 
       - name: Publish built site to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
+        # 迁移自 peaceiris/actions-gh-pages@v3（2024 archived，Node 16 runtime 已被 GitHub 弃用）。
+        # JamesIves/github-pages-deploy-action@v4（runtime node24，积极维护）。
+        # gh-pages 在本仓库是纯中转分支：服务器侧 git fetch --depth=1 + checkout 文件树，
+        # 不依赖 git 历史，故 JamesIves 默认 force:true/clean:true 与原 peaceiris 行为等价、无风险。
+        # v4 major tag 跟踪 v4.8.0（commit d92aa235），与项目现有 @vN pin 风格一致。
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: gh-pages
-          commit_message: "Deploy: ${{ github.sha }} via build-and-deploy workflow"
+          folder: ./_site
+          branch: gh-pages
+          commit-message: "Deploy: ${{ github.sha }} via build-and-deploy workflow"
 
       - name: Deploy on remote server via SSH
         uses: appleboy/ssh-action@v1
