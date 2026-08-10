@@ -1,5 +1,12 @@
 name: Publish posts scheduled for today
 
+# This workflow has been disabled and moved from schedule-posts.yml to
+# schedule-posts.disabled.yml because the _scheduled/ collection is empty
+# (no scheduled drafts exist yet). The daily cron run was failing every
+# day on `git add _scheduled/` with "pathspec did not match any files",
+# since the directory does not exist in the repo, which triggered daily
+# failure notifications. To re-enable, rename this file back to
+# schedule-posts.yml once you actually start scheduling posts.
 on:
   schedule:
     # Run every day at 23:30 UTC or manually run
@@ -34,12 +41,18 @@ jobs:
             mv "$file" "_posts/$language_dir/"
             echo "Moved $file to _posts/$language_dir/"
           done
+          # Guard: if neither _posts/ nor _scheduled/ exists on disk,
+          # skip the git add steps to avoid exit code 128.
+          if [ ! -d _posts ] && [ ! -d _scheduled ]; then
+            echo "No _posts or _scheduled directory present; nothing to do."
+            exit 0
+          fi
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add _posts/
-          git add _scheduled/
+          git add _posts/ 2>/dev/null || true
+          git add _scheduled/ 2>/dev/null || true
           git commit -m "Posted Scheduled Drafts on $TODAY" || echo "No changes to commit"
           git push
