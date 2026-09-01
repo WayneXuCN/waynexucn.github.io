@@ -1,20 +1,20 @@
 metadata:
-  last_updated: '2026-02-20'
+  last_updated: '2026-09-01'
 papers:
   eWTidmsAAAAJ:2osOgNQ5qMEC:
-    citations: 4
+    citations: 3
     title: A deep learning-based nonlinear ensemble approach with biphasic feature selection for multivariate exchange rate forecasting
     year: '2023'
   eWTidmsAAAAJ:9yKSN-GCB0IC:
-    citations: 11
+    citations: 12
     title: Depth feature extraction-based deep ensemble learning framework for high frequency futures price forecasting
     year: '2022'
   eWTidmsAAAAJ:UeHWp8X0CEIC:
-    citations: 0
+    citations: 1
     title: "A novel data\u2013intelligence\u2013driven three\u2013stage dynamic model for resilience assessment in an emergency material support system"
     year: '2025'
   eWTidmsAAAAJ:d1gkVwhDpl0C:
-    citations: 21
+    citations: 24
     title: Two-stage deep learning hybrid framework based on multi-factor multi-scale and intelligent optimization for air pollutant prediction and early warning
     year: '2022'
   eWTidmsAAAAJ:qjMakFHDy7sC:
@@ -22,10 +22,10 @@ papers:
     title: Resilience assessment for the emergency supplies security system based on a matter-element extension method
     year: '2023'
   eWTidmsAAAAJ:u-x6o8ySG0sC:
-    citations: 54
+    citations: 66
     title: An optimized decomposition integration framework for carbon price prediction based on multi-factor two-stage feature dimension reduction
     year: '2025'
   eWTidmsAAAAJ:u5HHmVD_uO8C:
-    citations: 37
+    citations: 42
     title: A novel air quality prediction and early warning system based on combined model of optimal feature extraction and intelligent optimization
     year: '2022'
